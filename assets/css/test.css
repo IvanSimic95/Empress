@@ -1,0 +1,786 @@
+* {
+    box-sizing: border-box;
+  }
+  blockquote, body, dd, dl, figure, h1, h2, h3, h4, h5, h6, ol, p, pre, ul {
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+  }
+  .globalNav {
+    font-family: Camphor, "Open Sans", "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+    z-index: 5000;
+    height: 50px;
+    perspective: 2000px;
+    background-color: rgb(255, 255, 255);
+  }
+  .globalNav > .container-lg {
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+  }
+  ol, ul {
+    list-style-position: initial;
+    list-style-image: initial;
+    list-style-type: none;
+  }
+  .globalNav ul {
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+  }
+  .globalNav .navRoot {
+    position: relative;
+  }
+  .globalNav li {
+    list-style-position: initial;
+    list-style-image: initial;
+    list-style-type: none;
+  }
+  .globalNav .navSection.logo {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
+  a {
+    text-decoration-line: none;
+    text-decoration-thickness: initial;
+    text-decoration-style: initial;
+    text-decoration-color: initial;
+  }
+  .globalNav a {
+    text-decoration-line: none;
+    text-decoration-thickness: initial;
+    text-decoration-style: initial;
+    text-decoration-color: initial;
+    -webkit-tap-highlight-color: transparent;
+    color: rgb(103, 114, 229);
+    transition-duration: 0.1s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    transition-property: color;
+  }
+  .globalNav a:hover {
+    color: rgb(50, 50, 93);
+  }
+  .globalNav .rootLink {
+    display: inline-block;
+    height: 50px;
+    white-space: nowrap;
+    user-select: none;
+    font-size: 17px;
+    line-height: 50px;
+    font-weight: 400;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    padding-top: 0px;
+    padding-right: 10px;
+    padding-bottom: 0px;
+    padding-left: 10px;
+  }
+  .globalNav .navSection.logo .rootLink {
+    padding-left: 20px;
+  }
+  .globalNav .colorize {
+    color: rgb(103, 114, 229);
+    transition-duration: 0.1s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    transition-property: color;
+  }
+  .globalNav .colorize.active, .globalNav .colorize:hover {
+    color: rgb(50, 50, 93);
+  }
+  .logo img {
+    height: 40px;
+    width: auto;
+  }
+  .globalNav .navSection.primary, .globalNav .navSection.secondary {
+    display: none;
+  }
+  .globalNav .navSection.primary {
+    justify-content: center;
+  }
+  .globalNav .navSection.primary .rootLink {
+    font-weight: 500;
+  }
+  .globalNav .hasDropdown {
+    cursor: default;
+  }
+  .globalNav .navSection.secondary {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+  }
+  .globalNav .navSection.secondary .rootLink:last-child {
+    padding-right: 20px;
+  }
+  .globalNav .item-dashboard::after {
+    font-style: normal;
+    font-variant-caps: normal;
+    font-variant-ligatures: normal;
+    font-variant-numeric: normal;
+    font-variant-east-asian: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    font-size: 16px;
+    line-height: normal;
+    font-family: StripeIcons;
+    content: "➞";
+    padding-left: 1px;
+  }
+  .globalNav .navSection.mobile {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .globalNav .navSection.mobile .rootLink {
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    position: relative;
+  }
+  .globalNav .navSection.mobile .rootLink h2 {
+    color: inherit;
+    font-size: 0px;
+    left: 13px;
+    top: 23px;
+  }
+  .globalNav .navSection.mobile .rootLink h2, .globalNav .navSection.mobile .rootLink h2::after, .globalNav .navSection.mobile .rootLink h2::before {
+    position: absolute;
+    width: 24px;
+    height: 3px;
+    border-top-left-radius: 1px;
+    border-top-right-radius: 1px;
+    border-bottom-right-radius: 1px;
+    border-bottom-left-radius: 1px;
+    background-image: initial;
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-repeat-x: initial;
+    background-repeat-y: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: currentcolor;
+  }
+  .globalNav .navSection.mobile .rootLink h2::before {
+    top: -9px;
+  }
+  .globalNav .navSection.mobile .rootLink h2::after {
+    top: 9px;
+  }
+  .globalNav .popup {
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    right: 10px;
+    display: flex;
+    justify-content: flex-end;
+    pointer-events: none;
+    perspective: 2000px;
+  }
+  .globalNav .popupContainer {
+    background-image: initial;
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-repeat-x: initial;
+    background-repeat-y: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(50, 50, 93, 0.1) 0px 50px 100px, rgba(50, 50, 93, 0.15) 0px 15px 35px, rgba(0, 0, 0, 0.1) 0px 5px 15px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: relative;
+    font-size: 17px;
+    line-height: 40px;
+    white-space: nowrap;
+    flex-grow: 1;
+    transform: rotate3d(1, 1, 0, -15deg);
+    transform-origin: 100% 0px;
+    opacity: 0;
+    will-change: transform, opacity;
+    transition-property: transform, opacity;
+    transition-duration: 0.25s;
+  }
+  .globalNav .popup a {
+    display: block;
+  }
+  .globalNav .popupCloseButton {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 51px;
+    height: 51px;
+    font-size: 0px;
+    cursor: pointer;
+  }
+  .globalNav .popupCloseButton::after {
+    transform: rotate(-45deg);
+  }
+  .globalNav .mobileProducts {
+    padding-top: 20px;
+    padding-right: 0px;
+    padding-bottom: 15px;
+    padding-left: 0px;
+  }
+  .globalNav .mobileProducts h4 {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.025em;
+    color: rgb(136, 152, 170);
+    text-transform: uppercase;
+    margin-top: -5px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 30px;
+  }
+  .globalNav .mobileProductsList {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .globalNav .mobileProductsList > ul {
+    flex-grow: 1;
+  }
+  .globalNav .mobileProductsList > ul:last-child {
+    flex-grow: 3;
+  }
+  .globalNav .linkContainer {
+    display: block;
+    padding-top: 9px;
+    padding-right: 0px;
+    padding-bottom: 9px;
+    padding-left: 0px;
+  }
+  .globalNav .mobileProductsList a {
+    padding-top: 0px;
+    padding-right: 30px;
+    padding-bottom: 0px;
+    padding-left: 30px;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 50px;
+  }
+  .globalNav .mobileProductsList a:hover {
+    color: rgb(50, 50, 93);
+  }
+  .globalNav .mobileProductsList a svg {
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    margin-top: 0px;
+    margin-right: 15px;
+    margin-bottom: 0px;
+    margin-left: -3px;
+    vertical-align: -5px;
+  }
+  .globalNav .hover-fillDark, .globalNav .hover-fillLight {
+    transition-duration: 0.1s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    transition-property: fill;
+  }
+  .globalNav .linkContainer:hover .hover-fillLight {
+    fill: rgb(136, 152, 170);
+  }
+  .globalNav .linkContainer:hover .hover-fillDark {
+    fill: rgb(50, 50, 93);
+  }
+  .globalNav .mobileProductsList .item-subscriptions {
+    color: rgb(36, 180, 126);
+  }
+  .globalNav .mobileProductsList .item-connect {
+    color: rgb(50, 151, 211);
+  }
+  .globalNav .mobileProductsList .item-relay {
+    color: rgb(226, 89, 80);
+  }
+  .globalNav .mobileProductsList .item-atlas {
+    color: rgb(227, 159, 72);
+  }
+  .globalNav .mobileProductsList .item-radar {
+    color: rgb(183, 106, 196);
+  }
+  .globalNav .new-badge {
+    display: inline-block;
+    margin-left: 5px;
+    vertical-align: 2px;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    font-size: 10px;
+    line-height: 14px;
+    font-weight: 700;
+    background-image: initial;
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-repeat-x: initial;
+    background-repeat-y: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: rgb(103, 114, 229);
+    transition-duration: 0.15s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    transition-property: background;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding-top: 0px;
+    padding-right: 5px;
+    padding-bottom: 0px;
+    padding-left: 5px;
+    height: auto;
+    top: auto;
+    box-shadow: none;
+  }
+  .globalNav .linkContainer:hover .new-badge {
+    background-image: initial;
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-repeat-x: initial;
+    background-repeat-y: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: rgb(50, 50, 93);
+  }
+  .globalNav .item-radar .new-badge {
+    background-image: initial;
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-repeat-x: initial;
+    background-repeat-y: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: rgb(183, 106, 196);
+  }
+  .globalNav .mobileSecondaryNav {
+    border-top-width: 2px;
+    border-top-style: solid;
+    border-top-color: rgb(246, 249, 252);
+    padding-top: 15px;
+    padding-right: 10px;
+    padding-bottom: 15px;
+    padding-left: 10px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .globalNav .mobileSecondaryNav > ul {
+    flex-grow: 1;
+  }
+  .globalNav .mobileSecondaryNav > ul:last-child {
+    flex-grow: 3;
+  }
+  .globalNav .mobileSecondaryNav a {
+    padding-top: 0px;
+    padding-right: 20px;
+    padding-bottom: 0px;
+    padding-left: 20px;
+    min-width: 100px;
+  }
+  .globalNav .mobileSignIn {
+    background-image: initial;
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-repeat-x: initial;
+    background-repeat-y: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: rgb(246, 249, 252);
+    display: block;
+    padding-top: 12px;
+    padding-right: 30px;
+    padding-bottom: 12px;
+    padding-left: 30px;
+    font-weight: 600;
+  }
+  .globalNav .mobileSignIn::after {
+    font-style: normal;
+    font-variant-caps: normal;
+    font-variant-ligatures: normal;
+    font-variant-numeric: normal;
+    font-variant-east-asian: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    font-size: 16px;
+    line-height: normal;
+    font-family: StripeIcons;
+    content: "➜";
+    margin-left: 6px;
+  }
+  .globalNav .dropdownRoot {
+    position: absolute;
+    z-index: 9999;
+    left: 0px;
+    right: 0px;
+    top: 50px;
+    pointer-events: none;
+    transform: rotateX(-15deg);
+    transform-origin: 50% -50px;
+    opacity: 0;
+    will-change: transform, opacity;
+    transition-property: transform, opacity;
+    transition-duration: 0.25s;
+    display: none;
+  }
+  .globalNav .dropdownBackground {
+    background-image: initial;
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-repeat-x: initial;
+    background-repeat-y: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: rgb(255, 255, 255);
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    box-shadow: rgba(50, 50, 93, 0.1) 0px 50px 100px, rgba(50, 50, 93, 0.15) 0px 15px 35px, rgba(0, 0, 0, 0.1) 0px 5px 15px;
+    width: 520px;
+    height: 400px;
+    transform: translateX(0px);
+    transform-origin: 0px 0px;
+    z-index: 9999;
+  }
+  .globalNav .alternateBackground, .globalNav .dropdownBackground {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    will-change: transform;
+    transition-property: transform;
+    transition-duration: 0.25s;
+  }
+  .globalNav.noDropdownTransition .alternateBackground, .globalNav.noDropdownTransition .dropdownArrow, .globalNav.noDropdownTransition .dropdownBackground, .globalNav.noDropdownTransition .dropdownContainer, .globalNav.noDropdownTransition .dropdownSection {
+    transition-duration: 0s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    transition-property: none;
+  }
+  .globalNav .alternateBackground {
+    right: 0px;
+    height: 1000px;
+    background-image: initial;
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-repeat-x: initial;
+    background-repeat-y: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: rgb(246, 249, 252);
+  }
+  .globalNav .dropdownArrow {
+    top: -6px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: -6px;
+    width: 12px;
+    height: 12px;
+    transform: rotate(45deg);
+    border-top-left-radius: 4px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    background-image: initial;
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-repeat-x: initial;
+    background-repeat-y: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(82, 95, 127, 0.04) -3px -3px 5px;
+    will-change: transform;
+    transition-property: transform;
+  }
+  .globalNav .dropdownArrow, .globalNav .dropdownContainer {
+    position: absolute;
+    left: 0px;
+    transition-duration: 0.25s;
+  }
+  .globalNav .dropdownContainer {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    top: 0px;
+    transform: translateX(0px);
+    will-change: transform, width, height;
+    transition-property: transform, width, height;
+    z-index: 9999;
+  }
+  .globalNav .dropdownSection {
+    opacity: 0;
+    pointer-events: none;
+    will-change: transform, opacity;
+    transition-property: transform, opacity;
+    transition-duration: 0.25s;
+    background-image: initial;
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-repeat-x: initial;
+    background-repeat-y: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: red;
+    z-index: 9999;
+  }
+  .globalNav .dropdownSection.left {
+    transform: translateX(-150px);
+  }
+  .globalNav .dropdownContent {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 9999;
+  }
+  .globalNav .linkGroup {
+    padding-top: 20px;
+    padding-right: 35px;
+    padding-bottom: 20px;
+    padding-left: 35px;
+    z-index: 9999;
+  }
+  .globalNav .productsGroup {
+    display: flex;
+    flex-wrap: wrap;
+    width: 640px;
+    max-width: calc(100vw - 85px);
+    margin-top: -5px;
+    margin-right: -10px;
+    margin-bottom: -5px;
+    margin-left: -10px;
+    z-index: 9999;
+  }
+  .globalNav .productsGroup > li {
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 50%;
+  }
+  .globalNav .productsGroup .linkContainer, .globalNav .productsGroup > li {
+    -webkit-box-flex: 1;
+    display: flex;
+  }
+  .globalNav .productsGroup .linkContainer {
+    padding-top: 18px;
+    padding-right: 10px;
+    padding-bottom: 18px;
+    padding-left: 10px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0%;
+    align-items: center;
+  }
+  .globalNav .productsGroup svg {
+    width: 48px;
+    height: 48px;
+  }
+  .globalNav .productLinkContent {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0%;
+    margin-left: 20px;
+    flex-direction: column;
+    min-height: 71px;
+  }
+  .globalNav .prodsubGroup, .globalNav .productLinkContent {
+    display: flex;
+    justify-content: center;
+  }
+  .globalNav .linkTitle {
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    color: rgb(103, 114, 229);
+    font-size: 16px;
+    line-height: 22px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.025em;
+  }
+  .globalNav .linkSub, .globalNav .linkTitle {
+    transition-duration: 0.1s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    transition-property: color;
+  }
+  .globalNav .linkContainer:hover .linkTitle, .globalNav .linkTitle:hover {
+    color: rgb(50, 50, 93);
+  }
+  .globalNav .linkSub {
+    font-size: 15px;
+    line-height: 22px;
+    color: rgb(107, 124, 147);
+    margin-top: 5px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    display: block;
+  }
+  .globalNav .linkContainer:hover .linkSub {
+    color: rgb(66, 71, 112);
+  }
+  .globalNav .item-subscriptions .linkTitle {
+    color: rgb(36, 180, 126);
+  }
+  .globalNav .item-connect .linkTitle {
+    color: rgb(50, 151, 211);
+  }
+  .globalNav .item-relay .linkTitle {
+    color: rgb(226, 89, 80);
+  }
+  .globalNav .item-atlas .linkTitle {
+    color: rgb(227, 159, 72);
+  }
+  .globalNav .item-radar .linkTitle {
+    color: rgb(183, 106, 196);
+  }
+  .globalNav .prodsubGroup .linkContainer {
+    display: inline-flex;
+    flex-direction: row;
+    padding-top: 13px;
+    padding-right: 30px;
+    padding-bottom: 13px;
+    padding-left: 30px;
+  }
+  .globalNav .linkIcon {
+    white-space: nowrap;
+  }
+  .globalNav .linkIcon svg {
+    margin-top: 0px;
+    margin-right: 12px;
+    margin-bottom: -3px;
+    margin-left: -1px;
+  }
+  .globalNav .dropdownSection.active {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  .globalNav .withIcon {
+    padding-left: 28px;
+  }
+  .globalNav .withIcon .linkTitle {
+    margin-left: -28px;
+  }
+  .globalNav .documentationGroup .linkSub {
+    max-width: 250px;
+  }
+  .globalNav .documentationArticles {
+    font-size: 15px;
+    line-height: 26px;
+    margin-top: 15px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    margin-left: 28px;
+    display: flex;
+    white-space: nowrap;
+  }
+  .globalNav .documentationArticles > ul {
+    margin-right: 40px;
+  }
+  .globalNav .documentationArticles > ul:last-child {
+    margin-right: 0px;
+  }
+  .globalNav .documentationArticles h4 {
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 3px;
+    margin-left: 0px;
+    color: rgb(136, 152, 170);
+  }
+  .globalNav .hover-strokeDark, .globalNav .hover-strokeLight {
+    transition-duration: 0.1s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    transition-property: stroke;
+  }
+  .globalNav .linkContainer:hover .hover-strokeDark {
+    stroke: rgb(50, 50, 93);
+  }
+  .globalNav .dropdownSection.right {
+    transform: translateX(150px);
+  }
+  .globalNav .blogPosts {
+    margin-top: 5px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    margin-left: 28px;
+  }
+  .globalNav .blogPosts a {
+    display: block;
+    white-space: nowrap;
+    padding-top: 5px;
+    padding-right: 0px;
+    padding-bottom: 5px;
+    padding-left: 0px;
+  }
+  .globalNav .blogPosts a::after {
+    content: "➢";
+    font-style: normal;
+    font-variant-caps: normal;
+    font-variant-ligatures: normal;
+    font-variant-numeric: normal;
+    font-variant-east-asian: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    font-size: 16px;
+    line-height: normal;
+    font-family: StripeIcons;
+    margin-left: 6px;
+    vertical-align: -3px;
+  }
+  .globalNav .blogPosts .title {
+    font-size: 15px;
+    line-height: 22px;
+    display: inline-block;
+    white-space: nowrap;
+    max-width: 300px;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    vertical-align: top;
+  }

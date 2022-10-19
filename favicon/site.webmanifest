@@ -1,0 +1,29 @@
+{
+    "name": "Psychic Artist",
+    "short_name": "PA",
+    "description": "Finding your soulmate will help you blossom beautifully",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "background_color": "#2c2e43",
+    "theme_color": "#ff4969",
+    "icons": [
+        {
+            "src": "/favicon/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/favicon/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "/favicon/maskable_icon_x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+          }
+    ]
+    
+}

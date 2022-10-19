@@ -1,0 +1,341 @@
+
+
+/*//////////////////////////////////////////////////////////////////
+[ Table ]*/
+
+.limiter {
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .container-table100 {
+    width: 100%;
+    min-height: 100vh;
+    background: #c850c0;
+    background: -webkit-linear-gradient(45deg, #4158d0, #c850c0);
+    background: -o-linear-gradient(45deg, #4158d0, #c850c0);
+    background: -moz-linear-gradient(45deg, #4158d0, #c850c0);
+    background: linear-gradient(45deg, #4158d0, #c850c0);
+  
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 33px 30px;
+  }
+  
+  .wrap-table100 {
+    width: 1170px;
+  }
+  
+  table {
+    border-spacing: 1;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+  }
+  table * {
+    position: relative;
+  }
+  table td, table th {
+    padding-left: 8px;
+  }
+  table thead tr {
+    height: 60px;
+    background: #36304a;
+  }
+  table tbody tr {
+    height: 50px;
+  }
+  table tbody tr:last-child {
+    border: 0;
+  }
+  table td, table th {
+    text-align: center;
+  }
+  table td.l, table th.l {
+    text-align: right;
+  }
+  table td.c, table th.c {
+    text-align: center;
+  }
+  table td.r, table th.r {
+    text-align: center;
+  }
+  
+  
+  .table100-head th{
+    font-size: 18px;
+    color: #fff;
+    line-height: 1.2;
+    font-weight: bold;
+    text-align: left;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #f5f5f5;
+  }
+  
+  tbody tr {
+
+    font-size: 15px;
+    color: #808080;
+    line-height: 1.2;
+    font-weight: unset;
+  }
+  
+  tbody tr:hover {
+    color: #555555;
+    background-color: #f5f5f5;
+    cursor: pointer;
+  }
+  
+  .column1 {
+    width: 100px;
+    font-weight:bold;
+    text-align:center!important;
+  }
+  
+  .column2 {
+    width: auto;
+    text-align:left!important;
+    padding-left:0;
+  }
+  
+  .column3 {
+    width: 125px;
+    padding: 10px;
+  }
+  
+  .column4 {
+    width: 180px;
+    padding: 10px;
+  }
+  
+  .column5 {
+    width: 170px;
+  }
+  
+  .column6 {
+    width: 222px;
+  }
+  
+  .column-title{
+    display:none;
+    margin-left: -9px;
+    margin-right: -9px;
+    margin-top: -9px;
+    padding: 15px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    padding-left:0!important;
+    text-align:center;
+    font-weight: bold;
+    font-size: 120%;
+    }
+    .column5{
+      display: none;
+    }
+  .phone-table-title{
+      display:none;
+      }
+    
+  .sbadge{
+    border-radius: 0.25rem !important;
+    text-transform: capitalize!important;
+    text-align: center;
+    width:100%;
+    padding: 0.5rem 0.5em;
+    font-size: 110%;
+    font-weight: bold;
+
+  }
+  
+  .sbadge-pending{
+  color: #9d5228;
+  background-color: #fde6d8;
+  }
+  .sbadge-completed{
+  color: #00864e;
+  background-color: #ccf6e4;
+  }
+  .sbadge-processing,
+  .sbadge-paid{
+  color: #1c4f93;
+  background-color: #d5e5fa;
+  }
+  .sbadge-canceled{
+  color: #7d899b;
+  background-color: #e3e6ea;
+  }
+  
+  
+  .sbadge .svg-inline--fa{
+  display:none;
+  }
+  .sbadge-completed .fa-check{
+  display:inline-block;
+  }
+  .sbadge-processing .fa-arrow-rotate-right,
+  .sbadge-paid .fa-arrow-rotate-right{
+  display:inline-block!important;
+  }
+  .sbadge-pending .fa-stream{
+  display:inline-block;
+  }
+  .sbadge-canceled .fa-ban{
+  display:inline-block;
+  }
+
+  .badge-price{
+    width: 100%;
+    font-size: 110%;
+    font-weight: bold;
+    background-color: #0000;
+    background-image: linear-gradient(90deg, #ec38bc 10%, #7303c0 80%, #03001e 100%);
+    color: #fff;
+    border: 0;
+    border-radius: 0.25rem !important;
+    text-align:center;
+    padding: 0.5rem 0.5em;
+  }
+  .badge-product{
+    font-size: 110%;
+    font-weight: bold;
+    color: #4e5156;
+    text-align:left;
+    padding-left:0;
+  }
+
+  @media screen and (max-width: 992px) {
+    .column2,
+    .column3,
+    .column4 {
+      padding: 0;
+    }
+ 
+    .sbadge{
+      padding: 1rem 0.8em;
+      border: 1px solid #36304a;
+      text-align:left;
+    }
+    .column5{
+      display: block;
+    }
+    table {
+      display: block;
+    }
+    table > *, table tr, table td, table th {
+      display: block;
+    }
+    table thead {
+      display: none;
+    }
+    table tbody tr {
+      height: auto;
+      padding: 37px 0;
+    }
+    table tbody tr td {
+
+      margin-bottom: 6px;
+    }
+    table tbody tr td:last-child {
+      margin-bottom: 0;
+    }
+    table tbody tr td:before {
+      font-size: 14px;
+      color: #999999;
+      line-height: 1.2;
+      font-weight: bold;
+      position: absolute;
+      width: 40%;
+      left: 0px;
+      top: 0;
+      text-align:left;
+    }
+    table tbody tr td:nth-child(2){
+    display:none;
+    }
+    .column-title{
+    display:block;
+
+    }
+  
+    .column4,
+    .column5,
+    .column6 {
+      text-align: left;
+    }
+  
+    .column4,
+    .column5,
+    .column6,
+    .column1,
+    .column2,
+    .column3 {
+      width: 100%;
+    }
+  
+    tbody tr {
+      font-size: 14px;
+    }
+
+    table td, table th {
+      text-align: left;
+    }
+    .phone-table-title{
+      display:inline-block;
+      margin-right:5px;
+      font-weight:500;
+      }
+      
+  }
+
+  
+  @media (max-width: 576px) {
+    .container-table100 {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+
+  @media (max-width: 990px) {
+
+    table tbody tr td{
+      padding:0;
+    }
+    .badge-product{
+      width: 100%;
+      font-size: 110%;
+      font-weight: bold;
+      background: #f9fafd;
+      color: #4e5156;
+      border: 1px solid #36304a;
+      border-radius: 0.25rem !important;
+      text-align:left;
+      padding: 1rem 0.8em;
+    }
+    .badge-price{
+      width: 100%;
+      font-size: 110%;
+      font-weight: bold;
+      background: #f9fafd;
+      color: #4e5156;
+      border: 1px solid #36304a;
+      border-radius: 0.25rem !important;
+      text-align:left;
+      padding: 1rem 0.8em;
+    }
+    .btn-gradient{
+      padding: 1rem 0.8em;
+    }
+
+  }
