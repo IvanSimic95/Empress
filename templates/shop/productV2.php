@@ -70,8 +70,8 @@ if(isset($_GET['affid'])){
 $FBmeta = <<<EOT
 <meta property="og:title" content="$shorttitle Drawing & Reading">
 <meta property="og:description" content="$subtitle">
-<meta property="og:url" content="https://psychic-artist.com$url">
-<meta property="og:image" content="https://psychic-artist.com/asets/img/email/$codename.jpg">
+<meta property="og:url" content="https://psychic-empress.com$url">
+<meta property="og:image" content="https://psychic-empress.com/asets/img/email/$codename.jpg">
 <meta property="product:brand" content="Facebook">
 <meta property="product:availability" content="in stock">
 <meta property="product:condition" content="new">

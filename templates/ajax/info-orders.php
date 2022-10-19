@@ -7,7 +7,7 @@ if(isset($_GET['id'])){
     $userID = "19481";
 }
 
-if($domain == "pa.test"){
+if($domain == "empress.test"){
   $userID = "19481";
 }
 

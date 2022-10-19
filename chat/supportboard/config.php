@@ -10,7 +10,7 @@
  */
 
 /* Plugin folder url */
-define('SB_URL', 'https://psychic-artist.com/chat/');
+define('SB_URL', 'https://psychic-empress.com/chat/');
 
 /* The name of the database */
 define('SB_DB_NAME', 'psychic_supportchat');

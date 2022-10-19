@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 left" id="contactpopuptopbar" style="padding-left:10px!important;" data-bs-toggle="offcanvas" data-bs-target="#contact-popup" aria-controls="#contact-popup">
-               <i class="fas fa-envelope" aria-hidden="true"></i> contact@psychic-artist.com
+               <i class="fas fa-envelope" aria-hidden="true"></i> contact@psychic-empress.com
                    </div>
                    <!--
             <div class="col-6 right" style="text-align: end;">

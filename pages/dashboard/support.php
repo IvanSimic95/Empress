@@ -205,7 +205,7 @@ $firstTime = 1;
                                 id: 'PAadmin',
                                 role: 'PAadmin',
                                 name: 'Psychic Artist',
-                                email: 'contact@psychic-artist.com',
+                                email: 'contact@psychic-empress.com',
                                 photoUrl: 'https://$domain/assets/img/logo-1.png',
                                 welcomeMessage: 'Hey, how can I help you?'
                             });

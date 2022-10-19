@@ -25,7 +25,7 @@ $sdescription = " We respect the intellectual property rights of others just as 
               <div class="card mb-3">
                   <div class="card-body bg-light rounded-3">
            
-<span<>Welcome to https://psychic-artist.com (the "Site"). We respect the intellectual property rights of others just as we expect others to respect our rights. Pursuant to Digital Millennium Copyright Act, Title 17, United States Code, Section 512(c), a copyright owner or their agent may submit a takedown notice to us via our DMCA Agent listed below. As an internet service provider, we are entitled to claim immunity from said infringement claims pursuant to the "safe harbor" provisions of the DMCA. To submit a good faith infringement claim to us, you must submit the notice to us that sets forth the following information:</span>
+<span<>Welcome to https://psychic-empress.com (the "Site"). We respect the intellectual property rights of others just as we expect others to respect our rights. Pursuant to Digital Millennium Copyright Act, Title 17, United States Code, Section 512(c), a copyright owner or their agent may submit a takedown notice to us via our DMCA Agent listed below. As an internet service provider, we are entitled to claim immunity from said infringement claims pursuant to the "safe harbor" provisions of the DMCA. To submit a good faith infringement claim to us, you must submit the notice to us that sets forth the following information:</span>
 <br class="my-4" />
 <h3 class="text-primary mb-3 mt-3">Notice of Infringement – Claim</h3>
 <ol>

@@ -36,7 +36,7 @@ $sdescription = "We offer refunds on purchase of our digital goods.";
 
 <hr class="my-4" />
 
-<p class=" mb-0"><b>Download issues:</b> You have problems that prevent you from downloading the product. https://psychic-artist.com recommends that you contact the support team for your browser provider, as https://psychic-artist.com ensures that our website can be accessed with all major browsers, and this problem usually arises from a customer’s issue with either their browser, firewall, or network;</p>
+<p class=" mb-0"><b>Download issues:</b> You have problems that prevent you from downloading the product. https://psychic-empress.com recommends that you contact the support team for your browser provider, as https://psychic-empress.com ensures that our website can be accessed with all major browsers, and this problem usually arises from a customer’s issue with either their browser, firewall, or network;</p>
 
 <hr class="my-4" />
 

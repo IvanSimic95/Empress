@@ -1,18 +1,18 @@
 <?php
 //Check if server is localhost or guru and save DB info
 $domain = $_SERVER['SERVER_NAME'];
-if($domain == "pa.test"){
+if($domain == "empress.test"){
 	$servername = "localhost";
 	$username = "root";
 	$password = "";
 	$db = "pa";
-  $base_url = "https://pa.test";
+  $base_url = "https://empress.test";
 }else{
 	$servername = "localhost";
 	$username = "psychic_newpanel";
 	$password = "Jepang123Iva";
 	$db = "psychic_newpanel";
-  $base_url = "https://psychic-artist.com";
+  $base_url = "https://psychic-empress.com";
 }
 
 // Create connection

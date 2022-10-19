@@ -29,7 +29,7 @@ $sdescription = "A privacy policy is a legal document that discloses some or all
                   <div class="card-body">
                 
                   <h6 class="text-primary" id="0">Welcome </h6>
-<p class=" mb-0">Welcome to https://psychic-artist.com (the "Site"). We understand that privacy online is important to users of our Site, especially when conducting business. This statement governs our privacy policies with respect to those users of the Site ("Visitors") who visit without transacting business and Visitors who register to transact business on the Site and make use of the various services offered by Psychic Drawings (collectively, "Services") ("Authorized Customers").</p>
+<p class=" mb-0">Welcome to https://psychic-empress.com (the "Site"). We understand that privacy online is important to users of our Site, especially when conducting business. This statement governs our privacy policies with respect to those users of the Site ("Visitors") who visit without transacting business and Visitors who register to transact business on the Site and make use of the various services offered by Psychic Drawings (collectively, "Services") ("Authorized Customers").</p>
 <hr class="my-4" />
 
 <h6 class="text-primary" id="1">“Personally Identifiable Information”</h6>
@@ -81,7 +81,7 @@ $sdescription = "A privacy policy is a legal document that discloses some or all
 
 <hr class="my-4" />
 <h6 class="text-primary" id="8">Are Cookies Used on the Site?</h6>
-<p class="mb-0 ">Cookies are used for a variety of reasons. We use Cookies to obtain information about the preferences of our Visitors and the services they select. We also use Cookies for security purposes to protect our Authorized Customers. For example, if an Authorized Customer is logged on and the site is unused for more than 10 minutes, we will automatically log the Authorized Customer off. Visitors who do not wish to have cookies placed on their computers should set their browsers to refuse cookies before using https://psychic-artist.com and https://psychic-artist.com, with the drawback that certain features of website may not function properly without the aid of cookies.</p>
+<p class="mb-0 ">Cookies are used for a variety of reasons. We use Cookies to obtain information about the preferences of our Visitors and the services they select. We also use Cookies for security purposes to protect our Authorized Customers. For example, if an Authorized Customer is logged on and the site is unused for more than 10 minutes, we will automatically log the Authorized Customer off. Visitors who do not wish to have cookies placed on their computers should set their browsers to refuse cookies before using https://psychic-empress.com and https://psychic-empress.com, with the drawback that certain features of website may not function properly without the aid of cookies.</p>
 
 
 
@@ -138,7 +138,7 @@ $sdescription = "A privacy policy is a legal document that discloses some or all
 
 <hr class="my-4" />
 <h6 class="text-primary" id="12">Links:</h6>
-<p class="mb-0 ">https://psychic-artist.com and https://psychic-artist.com contains links to other websites. Please note that when you click on one of these links, you are moving to another website. We encourage you to read the privacy statements of these linked sites as their privacy policies may differ from ours.</p>
+<p class="mb-0 ">https://psychic-empress.com and https://psychic-empress.com contains links to other websites. Please note that when you click on one of these links, you are moving to another website. We encourage you to read the privacy statements of these linked sites as their privacy policies may differ from ours.</p>
 
                   </div>
               </div>

@@ -71,18 +71,18 @@ $ContinueConvoMsg = "If you want to chat with Melissa, simply reply to this conv
 
 //Check if server is localhost or guru and save DB info
 $domain = $_SERVER['SERVER_NAME'];
-if($domain == "pa.test"){
+if($domain == "empress.test"){
 	$servername = "localhost";
 	$username = "root";
 	$password = "";
 	$db = "pa";
-  $base_url = "https://pa.test";
+  $base_url = "https://empress.test";
 }else{
 	$servername = "localhost";
 	$username = "psychic_newpanel";
 	$password = "Jepang123Iva";
 	$db = "psychic_newpanel";
-  $base_url = "https://psychic-artist.com";
+  $base_url = "https://psychic-empress.com";
 }
 
 
@@ -141,7 +141,7 @@ if($bCheck0 > 0 OR $bCheck1 > 0)$breadcrumbsDisable = 1;
 
 if(isset($errorPage))$breadcrumbsDisable = 1;
 
-if($domain == "pa.test"){
+if($domain == "empress.test"){
   // testing
   $min_allowDebugFlag = true;
   $min_errorLogger    = true;
