@@ -9,7 +9,7 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/templates/header.php';
 if (!file_exists($template)) {
     include $_SERVER['DOCUMENT_ROOT'].'/templates/error/404.php';
 }else{
-    include $_SERVER['DOCUMENT_ROOT'].'/pages/'.$path.'.php'; 
+    include $path_base.$path.'.php'; 
 }
 include $_SERVER['DOCUMENT_ROOT'].'/templates/footer.php'; 
 
@@ -27,4 +27,5 @@ $buffer=str_replace("%DESCRIPTION%",$sdescription,$buffer);
 $buffer=str_replace("%LOGO%",$webLogo,$buffer);
 $buffer=str_replace("%PIMAGE%",$pimage,$buffer);
 echo $buffer;
+echo $path_base.$path.'.php';
 ?>

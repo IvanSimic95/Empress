@@ -77,12 +77,14 @@ if($domain == "empress.test"){
 	$password = "";
 	$db = "empress";
   $base_url = "https://empress.test";
+  $path_base = $_SERVER['DOCUMENT_ROOT'].'/pages';
 }else{
 	$servername = "localhost";
 	$username = "psychic_newpanel";
 	$password = "Jepang123Iva";
 	$db = "psychic_newpanel";
   $base_url = "https://psychic-empress.com";
+  $path_base = $path_base;
 }
 
 
@@ -695,7 +697,7 @@ if (isset($_SERVER['PATH_INFO'])) {//Check URL Path to figure out what template 
 $path = "/home";//Default URL is pointing to home template
 }
 $splitURL = explode('/',$path);
-$template = $_SERVER['DOCUMENT_ROOT'].'/pages/'.$path.'.php';
+$template = $path_base.$path.'.php';
 //END FUNCTION FOR INDEX.PHP
 
 //START FUNCTION FOR INDEX.PHP ADDON FOR VIEW ORDERS
@@ -704,7 +706,7 @@ if(isset($splitURL[1])){//If variable is set proceed
         if(isset($splitURL[2])){
            if($splitURL[2]=="order"){
             $path="dashboard/order";
-            $template = $_SERVER['DOCUMENT_ROOT'].'/pages/'.$path.'.php';
+            $template = $path_base.$path.'.php';
               if(isset($splitURL[3])){
               $viewOrder = $splitURL[3];
               }
@@ -720,7 +722,7 @@ if(isset($splitURL[1])){//If variable is set proceed
       if(isset($splitURL[2])){
          if($splitURL[2]=="success"){
           $path="/order/success";
-          $template = $_SERVER['DOCUMENT_ROOT'].'/pages/'.$path.'.php';
+          $template = $path_base.$path.'.php';
             if(isset($splitURL[3])){
             $SuccessProduct = $splitURL[3];
             }
