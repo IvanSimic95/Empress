@@ -10,7 +10,7 @@ $row = $result->fetch_array(MYSQLI_NUM);
 
 $title = $row[1];
 $titleProduct = $title;
-$title = $title." | Psychic Artist";
+$title = $title." | Psychic Empress";
 
 $shorttitle = $row[2];
 $codename = $row[3];
@@ -352,7 +352,7 @@ else { ?>
                         <img src="/assets/img/placeholder.png" data-src="/assets/img/icons/ball.gif" class="lazyload" alt="Ball GIF"></div>
                         <div class="info-contentt">
                             <p class="h4 text-center">Beautiful Hand-Drawn Sketch</p>
-                            <p class="text-center">Your psychic artist will draw a highly detailed and hand-drawn image addressed to you only. It can be printed off for your own framing if you'd like!</p>
+                            <p class="text-center">Your Psychic Empress will draw a highly detailed and hand-drawn image addressed to you only. It can be printed off for your own framing if you'd like!</p>
                             <hr class="d-block d-xl-none mt-5">
                         </div>
                     </div>
@@ -362,7 +362,7 @@ else { ?>
                         <img src="/assets/img/placeholder.png" data-src="/assets/img/icons/fortune.gif" class="lazyload" alt="Fortune GIF">
                         </div>
                         <div class="info-contentt">
-                            <p class="h4 text-center">Experienced Psychic Artist</p>
+                            <p class="h4 text-center">Experienced Psychic Empress</p>
                             <p class="text-center">Our psychics have been performing soulmate drawings & readings for years. This is a time-tested technique that has created excellent results for thousands of our clients.</p>
                             <hr class="d-block d-xl-none mt-5">
                         </div>
@@ -482,7 +482,7 @@ $i = 0;
         <!--- NEWS ARTICLES -->
         <div class="card mb-3 p-0 articles-card">
             <div class="card-header bg-light py-3  px-4 topbar-gradient text-white">
-            <div class=""><h3 class=" d-inline-block mb-0 fw-semibold fs-1 text-white"> Psychic Artist in Media </h3></div>
+            <div class=""><h3 class=" d-inline-block mb-0 fw-semibold fs-1 text-white"> Psychic Empress in Media </h3></div>
             </div>
             
         <div class="card-body px-3 px-md-4 px-lg-4 py-4">
@@ -494,15 +494,15 @@ $i = 0;
         <img src="/assets/img/placeholder.png" data-src="/assets/img/logos/new/yahoo.png" class="lazyload landing-cta-img"  alt="Yahoo" >
         </a>
 
-        <a class="logofab" href="https://www.theverge.com/21291864/tiktok-etsy-psychic-soulmate-drawing-trend-meme" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="I paid an Psychic Artist to draw my Soulmate">
+        <a class="logofab" href="https://www.theverge.com/21291864/tiktok-etsy-psychic-soulmate-drawing-trend-meme" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="I paid an Psychic Empress to draw my Soulmate">
         <img src="/assets/img/placeholder.png" data-src="/assets/img/logos/new/the-verge-logo.png" class="lazyload landing-cta-img"  alt="The Verge" >
     </a>
 
-        <a class="logofab" href="https://www.foxnews.com/lifestyle/psychic-artist-on-etsy-trending-drawing-soul-mate" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Psychic Artist gains popularity for drawing pictures of your soulmate">
+        <a class="logofab" href="https://www.foxnews.com/lifestyle/psychic-artist-on-etsy-trending-drawing-soul-mate" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Psychic Empress gains popularity for drawing pictures of your soulmate">
         <img src="/assets/img/placeholder.png" data-src="/assets/img/logos/new/fox-news.png" class="lazyload landing-cta-img"  alt="Fox News" >
         </a>
 
-        <a class="logofab" href="https://www.dailymail.co.uk/femail/article-8429195/Etsy-psychic-draw-soulmate-just-30.html" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Singles go wild over Psychic Artist who will draw your Soulmate">
+        <a class="logofab" href="https://www.dailymail.co.uk/femail/article-8429195/Etsy-psychic-draw-soulmate-just-30.html" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Singles go wild over Psychic Empress who will draw your Soulmate">
         <img src="/assets/img/placeholder.png" data-src="/assets/img/logos/new/daily-mail.png" class="lazyload landing-cta-img"  alt="Daily Mail" >
         </a>
         </div>

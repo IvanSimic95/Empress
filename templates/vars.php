@@ -1,6 +1,6 @@
 <?php return array (
   //Variable used for echo across website >>>>>>> echo $v['p1-url'];
-  'web-title' => 'Psychic Artist',
+  'web-title' => 'Psychic Empress',
   'web-description' => 'Test Description',
   'web-logo' => '/assets/img/logo-1.png',
   'web-version' => '1.0',

@@ -1,5 +1,5 @@
 <?php
-$title = "Support | Psychic Artist";
+$title = "Support | Psychic Empress";
 header("Location: https://".$domain."/support/contact");
 die();
 ?>

@@ -4,8 +4,8 @@
             <i class="fa fa-bars" style="color:#fff!important;font-size:130%;"></i>
         </button>
         <span class="navbar-brand flex-grow-1">
-            <img class="me-2" src="/assets/img/logo-1.png" alt="Psychic Artist Logo" width="55">
-            <img class="me-2" src="/assets/img/logo-2.png" alt="Psychic Artist Logo Text" width="155">
+            <img class="me-2" src="/assets/img/logo-1.png" alt="Psychic Empress Logo" width="55">
+            <img class="me-2" src="/assets/img/logo-2.png" alt="Psychic Empress Logo Text" width="155">
         </span>
         <div class="flex-grow-1">
             <!--spacer-->

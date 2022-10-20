@@ -79,7 +79,7 @@ Talk.ready.then(function() {
     var me = new Talk.User({
       id: 'PAadmin',
       role: 'PAadmin',
-      name: 'Psychic Artist',
+      name: 'Psychic Empress',
       email: 'contact@psychic-empress.com',
       photoUrl: 'https://$domain/assets/img/logo-1.png',
       welcomeMessage: 'Hey, how can I help you?'

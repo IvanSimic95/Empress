@@ -14,7 +14,7 @@
     <!-- ===============================================-->
     <meta name="title" content="%TITLE%" />
     <meta name="description" content="%DESCRIPTION%" />
-    <meta name="author" content="Psychic Artist" />
+    <meta name="author" content="Psychic Empress" />
     <link href="%LOGO%" rel="alternate" media="only screen and (max-width: 640px)" />
     <meta property="twitter:title" content="%TITLE%" />
     <meta property="twitter:description" content="%DESCRIPTION%" />
@@ -38,13 +38,13 @@
     <!-- ===============================================-->
     <!--    Preload and preconnect -->
     <!-- ===============================================-->
-    <link rel="preload" href="/min/g=css?v=1204" as="style">
+    <link rel="preload" href="/assets/css/combined.css" as="style">
     <link rel="preload" href="/assets/css/custom.css?v=1204" as="style">
     <link rel="preload" href="/assets/css/fonts.css?v=1204" as="style">
 
-    <link rel="preload" href="/min/g=js?v=1204" as="script">
-    <link rel="preload" href="/min/g=js2?v=1204" as="script">
-    <link rel="preload" href="/min/g=fa-js?v=1204" as="script">
+    <link rel="preload" href="/assets/js/comb1.js" as="script">
+    <link rel="preload" href="/assets/js/comb2.js" as="script">
+    <link rel="preload" href="/assets/js/fa.js" as="script">
     <link rel="preload" href="https://polyfill.io/v3/polyfill.min.js?features=window.scroll" as="script">
 
 
@@ -56,7 +56,7 @@
     <!--    Stylesheets-->
     <!-- ===============================================-->
     <link href="/assets/css/fonts.css?v=1204" rel="stylesheet">
-    <link href="/min/g=css?v=1204" rel="stylesheet">
+    <link href="/assets/css/combined.css" rel="stylesheet">
     <link href="/assets/css/custom.css?v=1204" rel="stylesheet">
 
     <!--CUSTOMCSS-->

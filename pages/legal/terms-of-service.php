@@ -1,5 +1,5 @@
 <?php
-$title = "Terms of Service - Legal | Psychic Artist";
+$title = "Terms of Service - Legal | Psychic Empress";
 $sdescription = "TOS Description";
 ?>
 

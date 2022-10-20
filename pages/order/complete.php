@@ -2,7 +2,7 @@
 //include $_SERVER['DOCUMENT_ROOT'].'/templates/noskip.php';
 $dashboardRedirect = $errorDisplay = $showError = $showErrorText = "";
 $DBsaved = 0;
-$title = "Order complete! | Psychic Artist"; 
+$title = "Order complete! | Psychic Empress"; 
 $sdescription = "You can now proceed to your user dashboard by clicking the button below!";
 $galert = "Your Orders have been Created!";
 if(isset($_POST['form_submit'])){

@@ -226,7 +226,7 @@ $noNotif = "There was a problem fetching your account user ID";
 											</div>
 										</div>
 										<div class="notification-body">
-											<p class="mb-1"><strong>Psychic Artist</strong> completed your order: "Soulmate Drawing & Reading"</p>
+											<p class="mb-1"><strong>Psychic Empress</strong> completed your order: "Soulmate Drawing & Reading"</p>
 											<span class="notification-time"><span class="me-2" role="img" aria-label="Emoji"><i class="fa fa-check"></i></span>Just now</span>
 										</div>
 									</a>

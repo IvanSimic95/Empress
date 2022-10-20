@@ -5,7 +5,7 @@ $(document).ready(function(){
 });
 
   const instance0 =  new TypeIt(".type-it-zero", {
-    strings: ["<span class='fw-bold'>Ready to meet your soulmate?</span><br>", "Psychic Artist (通灵艺术家) is a master of astrology famous in China for being able to draw anyone's soulmate. Thousands of people have found love thanks to Artist's gift.<br>", "Answer just a few simple questions and Psychic Artist will draw you a picture of your soulmate."],
+    strings: ["<span class='fw-bold'>Ready to meet your soulmate?</span><br>", "Psychic Empress (通灵艺术家) is a master of astrology famous in China for being able to draw anyone's soulmate. Thousands of people have found love thanks to Artist's gift.<br>", "Answer just a few simple questions and Psychic Empress will draw you a picture of your soulmate."],
     waitUntilVisible: true,
     lifeLike: true,
     loop: false,

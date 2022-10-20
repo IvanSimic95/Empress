@@ -1,5 +1,5 @@
 <?php
-$title = "Facebook Policy | Psychic Artist";
+$title = "Facebook Policy | Psychic Empress";
 $sdescription = "As required by Facebook’s Privacy Policy we have to let you know that we do not sell your data!";
 ?>
 <div class="container-fluid" data-layout="container" style="padding:0!important;padding-top:20px!important;">
@@ -25,7 +25,7 @@ $sdescription = "As required by Facebook’s Privacy Policy we have to let you k
               <div class="card mb-3">
                   <div class="card-body bg-light rounded-3">
            
-<p>Psychic Artist (“we,” “us,” “our”) takes its users (“user”, “you,” “your”) privacy seriously. This Privacy Policy is designed to let you know what information we collect through our Facebook App and/or Fan Page.</p>
+<p>Psychic Empress (“we,” “us,” “our”) takes its users (“user”, “you,” “your”) privacy seriously. This Privacy Policy is designed to let you know what information we collect through our Facebook App and/or Fan Page.</p>
 <hr class="my-4" />
 <p>We collect information in accordance with this Privacy Policy, and this Privacy Policy only applies to our information collection practices on Facebook. We intend to comply with the requirements outlined by Facebook as it pertains to Developers as outlined here <a href="https://developers.facebook.com/policy/" target="_blank" rel="noopener noreferrer">https://developers.facebook.com/policy/</a> .</p>
   <hr class="my-4" />

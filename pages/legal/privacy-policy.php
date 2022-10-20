@@ -1,5 +1,5 @@
 <?php
-$title = "Privacy Policy | Psychic Artist";
+$title = "Privacy Policy | Psychic Empress";
 $sdescription = "A privacy policy is a legal document that discloses some or all of the ways a party gathers, uses, discloses, and manages a customer or client's data.";
 ?>
 <div class="container-fluid" data-layout="container" style="padding:0!important;padding-top:20px!important;">
@@ -63,7 +63,7 @@ $sdescription = "A privacy policy is a legal document that discloses some or all
 
 <hr class="my-4" />
 <h6 class="text-primary" id="6">How is Personally Identifiable Information stored?</h6>
-<p class="mb-0 ">Personally Identifiable Information collected by Psychic Artist is securely stored and is not accessible to third parties or employees of Psychic Artist except for use as indicated above.</p>
+<p class="mb-0 ">Personally Identifiable Information collected by Psychic Empress is securely stored and is not accessible to third parties or employees of Psychic Empress except for use as indicated above.</p>
 
 
 <p class="mb-0 ">What choices are available to Visitors regarding collection, use and distribution of the information?</p>
@@ -90,16 +90,16 @@ $sdescription = "A privacy policy is a legal document that discloses some or all
 <p class="mb-0 ">Our service providers use cookies and those cookies may be stored on your computer when you visit our website. You can find more details about which cookies are used in our cookies info page.</p>
 
 
-<p class="mt-3 text-primary">How does Psychic Artist use login information?</p>
+<p class="mt-3 text-primary">How does Psychic Empress use login information?</p>
 
 
-<p class="mb-0 ">Psychic Artist uses login information, including, but not limited to, IP addresses, ISPs, and browser types, to analyze trends, administer the Site, track a user’s movement and use, and gather broad demographic information.</p>
+<p class="mb-0 ">Psychic Empress uses login information, including, but not limited to, IP addresses, ISPs, and browser types, to analyze trends, administer the Site, track a user’s movement and use, and gather broad demographic information.</p>
 
 
 <p class="mt-3 text-primary">What partners or service providers have access to Personally Identifiable Information from Visitors and/or Authorized Customers on the Site?</p>
 
 
-<p class="mb-0 ">Psychic Artist has entered into and will continue to enter into partnerships and other affiliations with a number of vendors. Such vendors may have access to certain Personally Identifiable Information on a need to know the basis for evaluating Authorized Customers for service eligibility. Our privacy policy does not cover their collection or use of this information. Disclosure of Personally Identifiable Information to comply with the law. We will disclose Personally Identifiable Information in order to comply with a court order or subpoena or a request from a law enforcement agency to release information. We will also disclose Personally Identifiable Information when reasonably necessary to protect the safety of our Visitors and Authorized Customers.</p>
+<p class="mb-0 ">Psychic Empress has entered into and will continue to enter into partnerships and other affiliations with a number of vendors. Such vendors may have access to certain Personally Identifiable Information on a need to know the basis for evaluating Authorized Customers for service eligibility. Our privacy policy does not cover their collection or use of this information. Disclosure of Personally Identifiable Information to comply with the law. We will disclose Personally Identifiable Information in order to comply with a court order or subpoena or a request from a law enforcement agency to release information. We will also disclose Personally Identifiable Information when reasonably necessary to protect the safety of our Visitors and Authorized Customers.</p>
 
 
 <p class="mt-3 text-primary">How does the Site keep Personally Identifiable Information secure?</p>

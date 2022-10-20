@@ -3,7 +3,7 @@ if(!isset($_SESSION['loggedIn'])){
 header("Location: /dashboard");
 die();
 }
-$title = "Dashboard - Support | Psychic Artist"; 
+$title = "Dashboard - Support | Psychic Empress"; 
 $insertPage = "support";
 $pageTitle1 = "Support Chat";
 $sdescription = "Need help? This is the best place for you!";
@@ -204,7 +204,7 @@ $firstTime = 1;
                             var operator = new Talk.User({
                                 id: 'PAadmin',
                                 role: 'PAadmin',
-                                name: 'Psychic Artist',
+                                name: 'Psychic Empress',
                                 email: 'contact@psychic-empress.com',
                                 photoUrl: 'https://$domain/assets/img/logo-1.png',
                                 welcomeMessage: 'Hey, how can I help you?'

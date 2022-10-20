@@ -1,5 +1,5 @@
 <?php
-$title = "Home | Psychic Artist";
+$title = "Home | Psychic Empress";
 
 ?>
 <style>
@@ -33,7 +33,7 @@ $title = "Home | Psychic Artist";
         <div class="container">
           <div class="row flex-center pt-7 pb-1 pt-md-4 pb-md-0">
             <div class="col-12 col-md-6 pb-7 pb-xl-9 text-center text-xl-start">
-              <h1 class="text-white fw-bold fs-6 mb-3">Psychic Artist</h1>
+              <h1 class="text-white fw-bold fs-6 mb-3">Psychic Empress</h1>
               <p class="lead text-white opacity-75">Born psychic with an extrasensory perception capable of uniting with your energy and reading the hidden meanings and upcoming events predestined by the Universe. In the process, I will find out a lot about your soulmate, good and bad, his nature, his inner willingness to finally meet you.</p>
               <a class="btn btn-outline-light border-2 rounded-3 btn-lg mt-4 fs-0 py-2 w-100" href="/shop/soulmate">Discover your Soulmate!<span class="fas fa-play ms-2" data-fa-transform="shrink-6 down-1"></span></a>
             </div>
@@ -66,15 +66,15 @@ $title = "Home | Psychic Artist";
         <img class="landing-cta-img" src="/assets/img/logos/new/yahoo.png" alt="Yahoo" />
         </a>
 
-        <a class="logofab" href="https://www.theverge.com/21291864/tiktok-etsy-psychic-soulmate-drawing-trend-meme" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="I paid an Psychic Artist to draw my Soulmate">
+        <a class="logofab" href="https://www.theverge.com/21291864/tiktok-etsy-psychic-soulmate-drawing-trend-meme" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="I paid an Psychic Empress to draw my Soulmate">
         <img class="landing-cta-img" src="/assets/img/logos/new/the-verge-logo.png" alt="The Verge" />
         </a>
 
-        <a class="logofab" href="https://www.foxnews.com/lifestyle/psychic-artist-on-etsy-trending-drawing-soul-mate" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Psychic Artist gains popularity for drawing pictures of your soulmate">
+        <a class="logofab" href="https://www.foxnews.com/lifestyle/psychic-artist-on-etsy-trending-drawing-soul-mate" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Psychic Empress gains popularity for drawing pictures of your soulmate">
         <img class="landing-cta-img" src="/assets/img/logos/new/fox-news.png" alt="Fox News" />
         </a>
 
-        <a class="logofab" href="https://www.dailymail.co.uk/femail/article-8429195/Etsy-psychic-draw-soulmate-just-30.html" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Singles go wild over Psychic Artist who will draw your Soulmate">
+        <a class="logofab" href="https://www.dailymail.co.uk/femail/article-8429195/Etsy-psychic-draw-soulmate-just-30.html" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Singles go wild over Psychic Empress who will draw your Soulmate">
         <img class="landing-cta-img" src="/assets/img/logos/new/daily-mail.png" alt="Daily Mail" />
         </a>
 

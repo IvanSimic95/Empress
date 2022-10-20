@@ -51,7 +51,7 @@
           <div class="container py-3">
             <div class="row justify-content-between fs--1">
               <div class="col-12 col-md-6 text-center text-md-start">
-                <p class="mb-0 text-white opacity-85">© 2022 Psychic Artist All Rights Reserved</p>
+                <p class="mb-0 text-white opacity-85">© 2022 Psychic Empress All Rights Reserved</p>
               </div>
               <div class="col-12 col-md-6 text-end d-none	d-sm-none d-md-block">
                 <p class="mb-0 text-white opacity-85">v<?php echo $webVersion; ?></p>
@@ -89,9 +89,9 @@
     <!-- ===============================================-->
     <script src="/assets/js/jquery-3.6.0.min.js"></script>
     <script defer="defer" src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
-    <script src="/min/g=js?v=1204"></script>
-    <script defer="defer" src="/min/g=js2?v=1204"></script>
-    <script defer="defer" src="/min/g=fa-js?v=1204"></script>
+    <script src="/assets/js/comb1.js"></script>
+    <script defer="defer" src="/assets/js/comb2.js"></script>
+    <script defer="defer" src="/assets/js/fa.js"></script>
     <script defer="defer" src="/assets/js/menuv3.js?v=1204"></script>
 
 

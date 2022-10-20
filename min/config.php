@@ -16,13 +16,13 @@ $min_enableStatic = true;
 /**
  * Allow use of the Minify URI Builder app. Only set this to true while you need it.
  */
-$min_enableBuilder = false;
+$min_enableBuilder = true;
 
 
 /**
  * Concatenate but do not minify the files. This can be used for testing.
  */
-$min_concatOnly = false;
+$min_concatOnly = true;
 
 
 /**
@@ -51,7 +51,7 @@ $min_errorLogger = true;
  * In 'debug' mode, Minify combines files with no minification and adds comments
  * to indicate line #s of the original files.
  */
-$min_allowDebugFlag = false;
+$min_allowDebugFlag = true;
 
 
 /**
@@ -59,7 +59,7 @@ $min_allowDebugFlag = false;
  * will have to load extra code to guess. Some examples below:
  */
 //$min_cachePath = 'c:\\WINDOWS\\Temp';
-$min_cachePath = '/tmp';
+$min_cachePath = '/min/tmp';
 //$min_cachePath = preg_replace('/^\\d+;/', '', session_save_path());
 
 

@@ -2,8 +2,8 @@
     <div class="container" data-layout="container">
         <a class="navbar-brand m-0" href="/" style="margin-right:3rem!important;">
             <div class="d-flex align-items-center">
-                <img class="me-2" src="/assets/img/logo-1.png" alt="Psychic Artist Logo" width="55">
-                <img class="me-2" src="/assets/img/logo-2.png" alt="Psychic Artist Logo Text" width="155">
+                <img class="me-2" src="/assets/img/logo-1.png" alt="Psychic Empress Logo" width="55">
+                <img class="me-2" src="/assets/img/logo-2.png" alt="Psychic Empress Logo Text" width="155">
             </div>
         </a>
         <div class="collapse navbar-collapse scrollbar" id="navbarStandard" style="flex-grow: 2;">

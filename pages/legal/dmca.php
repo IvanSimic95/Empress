@@ -1,5 +1,5 @@
 <?php
-$title = "DMCA | Psychic Artist";
+$title = "DMCA | Psychic Empress";
 $sdescription = " We respect the intellectual property rights of others just as we expect others to respect our rights.";
 ?>
 <div class="container-fluid" data-layout="container" style="padding:0!important;padding-top:20px!important;">
