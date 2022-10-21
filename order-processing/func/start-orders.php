@@ -345,12 +345,12 @@ if($orderProduct == "soulmate" OR $orderProduct == "futurespouse"){
 			SuperLog($logArray, "start-orders");
 			unset($logArray);
             echo " <br>"; 
+		} catch (Exception $e) { 
+			echo 'Caught exception: '.  $e->getMessage(). "\n";
+			error_log('$e->getMessage()');
 
-		
-
-
-	
 		}
+
 	
 	}
 }
