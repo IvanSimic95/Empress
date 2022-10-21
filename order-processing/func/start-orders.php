@@ -43,6 +43,9 @@ $logArray['1'] = date("d-m-Y H:i:s");
 			$fbp = $row["fbp"];
 			$fbc = $row["fbc"];
 
+			$ip = $row["ip"];
+			$agent = $row["agent"];
+
 			$dbaffID = $row["affid"];
 			$dbclickID = $row["clickid"];
 
@@ -343,19 +346,13 @@ if($orderProduct == "soulmate" OR $orderProduct == "futurespouse"){
 			unset($logArray);
             echo " <br>"; 
 
-				//Mark the cart abandon email as sent in DB
-				$sqlupdate = "UPDATE `orders` SET `abandoned_cart`='sent' WHERE order_id='$orderID'";
-				if ($conn->query($sqlupdate) === TRUE) {
-
-				}
-			} catch (Exception $e) { 
-				echo 'Caught exception: '.  $e->getMessage(). "\n";
-				error_log('$e->getMessage()');
-			}
+		
 
 
 	
 		}
+	
 	}
+}
 	echo "<br><hr>";
  ?>
