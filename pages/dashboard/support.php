@@ -123,11 +123,12 @@ $firstTime = "";
                         <button id="PlaceOrder" type="submit" name="form_submit" style="display:block;" class="btn btn-submit-form btn-primary btn-shadow w-100 btn-add-to-cart mb-1 mt-1 fw-bold fs-2">Submit support request!</button></div>
 
                             </form>
-
-                        <div class="alert alert-success border-2 d-flex align-items-center mt-1" role="alert" id="success-msg" style="display:none;">
+                                <div id="success-msg" style="display:none;">
+                        <div class="alert alert-success border-2 d-flex align-items-center mt-1" role="alert">
                         <div class="bg-success me-3 icon-item d-none d-sm-flex"><span class="fas fa-info-circle text-white fs-3"></span></div>
                         <p class="mb-0 flex-1">Support Request Sent!</p>
                         </div>
+                            </div>
 
                         
                         </div>
