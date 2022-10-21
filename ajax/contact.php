@@ -32,7 +32,7 @@ $email = new Mail();
 			
 				]
 			);
-			$email->setTemplateId("d-94ff935883c14a6186def78f3bef0d84");
+			$email->setTemplateId("d-571356252dcb43a6a5a21000cf895328");
 			$sendgrid = new \SendGrid($sendg3);
 			try {
 				$response = $sendgrid->send($email);
