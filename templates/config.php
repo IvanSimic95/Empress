@@ -34,7 +34,17 @@ $firephp = FirePHP::getInstance(true);
 //$firephp->fb('Warn message' ,FirePHP::WARN);
 //$firephp->fb('Error message',FirePHP::ERROR);
 
+$FBPixel  = "";
 
+$sendg1 = "SG.IbkVjaCLQymTp7Esy9F";
+$sendg2 = "-uQ.WlamcbbyqJ5DZRqdWqC5ecAQPsudMsAjFBtgoVL1ttw";
+$sendg3 = $sendg1.$sendg2;
+
+//Data for FB Conversions API
+$accessToken1 = "EAAxkvwzdc3kBAM3YGxUaEygEr7cdXJ9bxE8hGZC2tfmkW9BXAWZA67HcZB0SyoDYrMLs9Afgp086Yqm55zDg";
+$accessToken2 = "DZAdoLErhsa7kHwFJVZA7C6HBMqdIsERWoJ8zXZAeaQtDqFgAMCTa8K0kVMdp3EPZBYGhnOjPjTOg9KkjPelq9Mu1qmvU9iTZBrm";
+$fbAccessToken = $accessToken1.$accessToken2;
+$sendFBAPI = 0; #Set to 1 to send data via api
 
 
 
@@ -64,10 +74,11 @@ $pastOrderFooter = "\n\n It was such a pleasure doing your reading, my dear. I h
 $OrderProcessingMessage = "Your Order status is now set to *Processing*!";
 
 $OrderCompleteMessage = "Your Order status is now set to *Complete*!";
-$ContinueConvoMsg = "If you want to chat with Melissa, simply reply to this conversation!";
+$ContinueConvoMsg = "If you want to chat with Empress, simply reply to this conversation!";
 //END Order Messages
 
-
+$AbandonSubject = "The Timer’s Going Off on Your Order!";
+$AbandonMessage = "Look's like you forgot to finish your order... But don't worry, we kept it safe for you! Click the button below to finish your purchase & get closer to your soulmate.";
 
 //Check if server is localhost or guru and save DB info
 $domain = $_SERVER['SERVER_NAME'];
@@ -80,11 +91,11 @@ if($domain == "empress.test"){
   $path_base = $_SERVER['DOCUMENT_ROOT'].'/pages';
 }else{
 	$servername = "localhost";
-	$username = "psychic_newpanel";
+	$username = "theisenb_empress";
 	$password = "Jepang123Iva";
-	$db = "psychic_newpanel";
+	$db = "theisenb_empress";
   $base_url = "https://psychic-empress.com";
-  $path_base = $path_base;
+  $path_base = $_SERVER['DOCUMENT_ROOT'].'/pages/';
 }
 
 
@@ -127,6 +138,17 @@ $pimage = $webLogo;
 
 
 $pixelActive = 0;
+
+
+$userAgent = $_SERVER['HTTP_USER_AGENT'];
+
+if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+    $userip = $_SERVER['HTTP_CLIENT_IP'];
+} elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+    $userip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+} else {
+    $userip = $_SERVER['REMOTE_ADDR'];
+}
 
 
 //BREADCRUMBS CHECK & DISABLE
@@ -304,7 +326,7 @@ $pastOrderFooter = "\n\n It was such a pleasure doing your reading, my dear. I h
 $OrderProcessingMessage = "Your Order status is now set to Processing!";
 
 $OrderCompleteMessage = "Your Order status is now set to Complete!";
-$ContinueConvoMsg = "If you want to chat with Melissa, simply reply to this conversation!";
+$ContinueConvoMsg = "If you want to chat with Emperss, simply reply to this conversation!";
 //END Order Messages
 
 

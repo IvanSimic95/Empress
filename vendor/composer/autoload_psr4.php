@@ -8,6 +8,12 @@ $baseDir = dirname($vendorDir);
 return array(
     'tubalmartin\\CssMin\\' => array($vendorDir . '/tubalmartin/cssmin/src'),
     'TheIconic\\NameParser\\' => array($vendorDir . '/theiconic/name-parser/src', $vendorDir . '/theiconic/name-parser/tests'),
+    'SendGrid\\Stats\\' => array($vendorDir . '/sendgrid/sendgrid/lib/stats'),
+    'SendGrid\\Mail\\' => array($vendorDir . '/sendgrid/sendgrid/lib/mail'),
+    'SendGrid\\Helper\\' => array($vendorDir . '/sendgrid/sendgrid/lib/helper'),
+    'SendGrid\\EventWebhook\\' => array($vendorDir . '/sendgrid/sendgrid/lib/eventwebhook'),
+    'SendGrid\\Contacts\\' => array($vendorDir . '/sendgrid/sendgrid/lib/contacts'),
+    'SendGrid\\' => array($vendorDir . '/sendgrid/php-http-client/lib'),
     'Pusher\\' => array($vendorDir . '/pusher/pusher-php-server/src'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-factory/src', $vendorDir . '/psr/http-message/src'),

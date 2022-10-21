@@ -183,12 +183,20 @@ if($formDate == "US"){
   $validDob = "validDOB";
 } 
 $customJSPreload .= '
-<link rel="preload" href="/min/g=normalnew?v=1204" as="script">
+
+<link rel="preload" href="/assets/js/jquery.validate.min.js" as="script">
+<link rel="preload" href="/assets/js/progressbar.js" as="script">
+<link rel="preload" href="/assets/js/form-normal-new.js" as="script">
+<link rel="preload" href="/assets/js/verimail.jquery.min.js" as="script">
+
 ';
 $customCSS .= '<link href="/assets/css/form-normal.css" rel="stylesheet">
 <link href="/assets/css/lightslider.css" rel="stylesheet">';
 $customJS .= <<<EOT
-<script src="/min/g=normalnew?v=1204"></script>
+<script src="/assets/js/jquery.validate.min.js"></script>
+<script src="/assets/js/progressbar.js"></script>
+<script src="/assets/js/form-normal-new.js"></script>
+<script src="/assets/js/verimail.jquery.min.js"></script>
 
 <script>
 var econtainer = $(".error-container");

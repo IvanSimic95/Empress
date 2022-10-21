@@ -1,6 +1,7 @@
 <?php
+$orders = "";
 $order_email = $_SESSION['email'];
-$sql = "SELECT * FROM orders WHERE order_email = '$order_email' ORDER BY order_id DESC LIMIT 3";
+$sql = "SELECT * FROM orders WHERE order_email = '$order_email' AND order_status = 'completed'  ORDER BY order_id DESC LIMIT 3";
 $result = $conn->query($sql);
 ?>
 <div class="row g-3 mb-3 mt-0">
@@ -63,6 +64,11 @@ $result = $conn->query($sql);
 
             <?php
             while($row = $result->fetch_assoc()) {
+              $status = $row["order_status"];
+              $id = $row["order_id"];
+              $price = $row["order_price"];
+              $orderDate = $row["order_date"];
+              $link = $row["link"];
            
                     include_once $_SERVER['DOCUMENT_ROOT'].'/templates/order-switch.php';
                     include_once $_SERVER['DOCUMENT_ROOT'].'/templates/progress.php';
@@ -77,7 +83,7 @@ $result = $conn->query($sql);
 
                     $time = time_ago($orderDate);
                      
-$orders = <<<EOT
+$orders .= <<<EOT
 
         <div class="card mb-3 mt-2">
             <div class="card-body d-flex align-items-center p-2">
@@ -96,9 +102,9 @@ $orders = <<<EOT
             </div>
         </div>
 EOT;
-echo $orders;
+
             }
-
-
+            
+            echo $orders;
             ?>
 <a href="/dashboard/orders" class="btn btn-dark btn-shadow w-100 m-0 mb-3">View All Orders</a>

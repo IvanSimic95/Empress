@@ -1,5 +1,7 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'].'/templates/config.php';
+require $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
+use SendGrid\Mail\Mail;
 
 echo "Starting start-orders.php...<br><br>";
     
@@ -28,6 +30,7 @@ $logArray['1'] = date("d-m-Y H:i:s");
 			$orderID = $row["order_id"];
 			$userID = $row["user_id"];
 			$orderProduct = $row["order_product"];
+			$productNice = $row["product_nice"];
 			$orderPriority = $row["order_priority"];
 			$orderPrio = $orderPriority;
 			$orderSex = $row["pick_sex"];
@@ -35,11 +38,14 @@ $logArray['1'] = date("d-m-Y H:i:s");
 			$orderEmail = $row["order_email"];
 			$emailLink = $base_url ."/dashboard.php?check_email=" .$orderEmail;
 			$message = $processingWelcome;
+			$birthday = $row["birthday"];
+
+			$fbp = $row["fbp"];
+			$fbc = $row["fbc"];
 
 			$dbaffID = $row["affid"];
 			$dbclickID = $row["clickid"];
-			$subid1 = $row["subid1"];
-			$subid2 = $row["subid2"];
+
 
 			$price = $row["order_price"];
 			$bg_email = $row["bg_email"];
@@ -71,24 +77,6 @@ $logArray['1'] = date("d-m-Y H:i:s");
 
 			if($cart=="active"){
 			//CODE TO STOP ABANDONED CART PROCESS
-			$ch = curl_init();
-			$data = [
-			"action" => "Cart Recovered",
-			"email" => $orderEmail,
-			"created_at" => $CreatedAt
-			];
-			$jData = json_encode($data);
-			curl_setopt($ch, CURLOPT_URL, 'https://beacon.crowdpower.io/events');
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $jData);
-			$headers = array();
-			$headers[] = 'Content-Type: application/json';
-			$headers[] = 'Authorization: Bearer sk_7b8f2be0b4bc56ddf0a3b7a1eed2699d19e3990ebd3aa9e9e5c93815cdcfdc64';
-			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-			$result = curl_exec($ch);
-			$logArray[] =  "Stop Event Sent";
-
 
 			}
             
@@ -136,73 +124,237 @@ $logArray['1'] = date("d-m-Y H:i:s");
 			}
 
 
-			if($orderProduct == "soulmate" OR $orderProduct == "twinflame" OR $orderProduct == "futurespouse"){
-				if($affID!=0){
-				//Code to send to aff network
-				}
-			}
+			//Facebook API conversion
+if($orderProduct == "soulmate" OR $orderProduct == "futurespouse"){
+	if($sendFBAPI == 1){
+	 $fixedBirthday = date("Ymd", strtotime($birthday));
+	 if($userSex == "male"){
+		$usersex1 = "m";
+	}else{
+		$usersex1 = "f";
+	}
+
+
+
+ 
+	 if (!empty($fbc) AND empty($fbp)) {
+		 $data = array( // main object
+			 "data" => array( // data array
+				 array(
+					 
+					 "event_name" => "Purchase",
+					 "event_time" => time(),
+					 "event_id" => $orderId,
+					 "user_data" => array(
+						 "fn" => hash('sha256', $fName),
+						 "ln" => hash('sha256', $lName),
+						 "em" => hash('sha256', $orderEmail),
+						 "db" => hash('sha256', $fixedBirthday),
+						 "ge" => hash('sha256', $usersex1),
+						 "external_id" => hash('sha256', $orderID),
+						 "fbc" => $fbc,
+						 "client_ip_address" => $ip,
+						 "client_user_agent" => $agent,
+	
+					 ),
+					 "contents" => array(
+						 array(
+						 "id" => $orderProduct,
+						 "quantity" => 1
+						 ),
+					 ),
+					 "custom_data" => array(
+						 "currency" => "USD",
+						 "value"    => $orderPrice,
+					 ),
+					 "action_source" => "website",
+					 "event_source_url"  => "https://".$domain."/readings.php",
+				),
+			 ),
+				"access_token" => $fbAccessToken,
+				
+			 ); 
+	 }elseif(empty($fbp) AND !empty($fbc)){
+		 $data = array( // main object
+			 "data" => array( // data array
+				 array(
+					 
+					 "event_name" => "Purchase",
+					 "event_time" => time(),
+					 "event_id" => $orderId,
+					 "user_data" => array(
+						 "fn" => hash('sha256', $Ffirst_name),
+						 "ln" => hash('sha256', $Flast_name),
+						 "em" => hash('sha256', $customer_emailaddress),
+						 "db" => hash('sha256', $fixedBirthday),
+						 "ge" => hash('sha256', $usersex1),
+						 "external_id" => hash('sha256', $orderId),
+						 "fbp" => $fbp,
+						 "client_ip_address" => $ip,
+						 "client_user_agent" => $agent,
+		
+					 ),
+					 "contents" => array(
+						 array(
+						 "id" => $orderProduct,
+						 "quantity" => 1
+						 ),
+					 ),
+					 "custom_data" => array(
+						 "currency" => "USD",
+						 "value"    => $orderPrice,
+					 ),
+					 "action_source" => "website",
+					 "event_source_url"  => "https://".$domain."/readings.php",
+				),
+			 ),
+				"access_token" => $fbAccessToken,
+				
+			 ); 
+ 
+	 }elseif(!empty($fbp) AND !empty($fbc)){
+		 $data = array( // main object
+			 "data" => array( // data array
+				 array(
+					 
+					 "event_name" => "Purchase",
+					 "event_time" => time(),
+					 "event_id" => $orderId,
+					 "user_data" => array(
+						 "fn" => hash('sha256', $Ffirst_name),
+						 "ln" => hash('sha256', $Flast_name),
+						 "em" => hash('sha256', $customer_emailaddress),
+						 "db" => hash('sha256', $fixedBirthday),
+						 "ge" => hash('sha256', $usersex1),
+						 "external_id" => hash('sha256', $orderId),
+						 "fbc" => $fbc,
+						 "fbp" => $fbp,
+						 "client_ip_address" => $ip,
+						 "client_user_agent" => $agent,
+		
+					 ),
+					 "contents" => array(
+						 array(
+						 "id" => $orderProduct,
+						 "quantity" => 1
+						 ),
+					 ),
+					 "custom_data" => array(
+						 "currency" => "USD",
+						 "value"    => $orderPrice,
+					 ),
+					 "action_source" => "website",
+					 "event_source_url"  => "https://".$domain."/readings.php",
+				),
+			 ),
+				"access_token" => $fbAccessToken,
+				
+			 ); 
+	 }else{
+	 $data = array( // main object
+		 "data" => array( // data array
+			 array(
+				 
+				 "event_name" => "Purchase",
+				 "event_time" => time(),
+				 "event_id" => $orderId,
+				 "user_data" => array(
+					 "fn" => hash('sha256', $fName),
+					 "ln" => hash('sha256', $lName),
+					 "em" => hash('sha256', $orderEmail),
+					 "db" => hash('sha256', $fixedBirthday),
+					 "ge" => hash('sha256', $usersex1),
+					 "external_id" => hash('sha256', $orderId),
+					 "client_ip_address" => $ip,
+					 "client_user_agent" => $agent,
+
+				 ),
+				 "contents" => array(
+					 array(
+					 "id" => $orderProduct,
+					 "quantity" => 1
+					 ),
+				 ),
+				 "custom_data" => array(
+					 "currency" => "USD",
+					 "value"    => $orderPrice,
+				 ),
+				 "action_source" => "website",
+				 "event_source_url"  => "https://".$domain."/readings.php",
+			),
+		 ),
+			"access_token" => $fbAccessToken,
+			
+		 );  
+		 
+	 }
+		 $dataString = json_encode($data);                                                                                                              
+		 $ch = curl_init('https://graph.facebook.com/v11.0/'.$FBPixel.'/events');                                                                      
+		 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                                     
+		 curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);                                                                  
+		 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                      
+		 curl_setopt($ch, CURLOPT_HTTPHEADER, array(                                                                          
+			 'Content-Type: application/json',                                                                                
+			 'Content-Length: ' . strlen($dataString))                                                                       
+		 );                                                                                                                                                                       
+		 $response = curl_exec($ch);
+		 error_log($response);
+		 echo $response;
+	 }
+ }
 
 
 
 
-			//Send data to zapier so it can submit FB conversion and send an email to user
-			$ch = curl_init();
-			$data = [
-			"fname" => $fName,
-			"lname" => $lName,
-			"orderID" => $orderID,
-			"userID" => $userID,
-			"email" => $orderEmail,
-			"priority" => $orderPrio,
-			"product" => $orderProduct,
-			"product_nice" => $product_nice,
-			"gender" => $userSex,
-			"Pgender" => $orderSex,
-			"price" => $price
-			];
 
-			$jData = json_encode($data);
-			curl_setopt($ch, CURLOPT_URL, 'https://hooks.zapier.com/hooks/catch/4722157/bih1wv9/');
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $jData);
-			$headers = array();
-			$headers[] = 'Content-Type: application/json';
-			$headers[] = 'Authorization: Bearer sk_7b8f2be0b4bc56ddf0a3b7a1eed2699d19e3990ebd3aa9e9e5c93815cdcfdc64';
-			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-			$result = curl_exec($ch);
-			$logArray[] =  "Data sent to zapier";
-			echo "Data sent to zapier";
+
+			$email = new Mail();
+			$email->setFrom("contact@psychic-empress.com", "Psychic Empress");
+			$email->setSubject("Payment Confirmed!");
+			$email->addTo(
+				$orderEmail,
+				$orderName,
+				[
+					"name" => $orderName,
+					"email" => $orderEmail,
+					"status" => "processing",
+					"product" => $product,
+					"productNice" => $productNice,
+					"orderid" => $orderID,
+					"partner" => $orderSex,
+					"birthday" => $birthday,
+					"price" => $price,
+					"emaillink" => $emailLink,
+					"msg" => $message
+				]
+			);
+			$email->setTemplateId("d-94ff935883c14a6186def78f3bef0d84");
+			$sendgrid = new \SendGrid($sendg3);
+			try {
+				$response = $sendgrid->send($email);
+				print_r($response);
+				error_log($orderEmail);
+
+				
+			$logArray[] =  "New order email sent";
+			echo "New order email sent";
 
 			SuperLog($logArray, "start-orders");
 			unset($logArray);
             echo " <br>"; 
 
-			if($dbaffID > 0){
+				//Mark the cart abandon email as sent in DB
+				$sqlupdate = "UPDATE `orders` SET `abandoned_cart`='sent' WHERE order_id='$orderID'";
+				if ($conn->query($sqlupdate) === TRUE) {
 
-			//Send data to zapier so it can submit FB conversion and send an email to user
-			$ch = curl_init();
-			$data = [
-			"affid" => $dbaffID,
-			"subid1" => $subid1,
-			"subid2" => $subid2
-			];
-
-			$requestURL = "https://www.brcvhf7tf.com/?nid=1488&transaction_id=".$dbclickID;
-			echo $requestURL;
-			
-			$jData = json_encode($data);
-			curl_setopt($ch, CURLOPT_URL, $requestURL);
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $jData);
-			$headers = array();
-			$headers[] = 'Content-Type: application/json';
-			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-			$result = curl_exec($ch);
-			echo "Data sent to affiliate postback";
-            echo " <br>"; 
+				}
+			} catch (Exception $e) { 
+				echo 'Caught exception: '.  $e->getMessage(). "\n";
+				error_log('$e->getMessage()');
 			}
+
+
+	
 		}
 	}
 	echo "<br><hr>";

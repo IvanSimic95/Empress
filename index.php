@@ -27,5 +27,4 @@ $buffer=str_replace("%DESCRIPTION%",$sdescription,$buffer);
 $buffer=str_replace("%LOGO%",$webLogo,$buffer);
 $buffer=str_replace("%PIMAGE%",$pimage,$buffer);
 echo $buffer;
-echo $path_base.$path.'.php';
 ?>

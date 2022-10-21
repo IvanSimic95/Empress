@@ -12,7 +12,7 @@
  **/
 
 return array(
-//    'testJs' => array('//minify/quick-test.js'),
+//    'testJs' => array('//minify/quick-test.js'), 
 //    'testCss' => array('//minify/quick-test.css'),
 'js' => array(
 '//assets/js/config.js',

@@ -1,8 +1,8 @@
 <?php
 $order_email = $_SESSION['email'];
-$sql = "SELECT * FROM orders WHERE (order_email = '$order_email' AND order_status='paid') OR (order_email = '$order_email' AND order_status='processing') OR (order_email = '$order_email' AND order_status='completed') ORDER BY order_id DESC";
+$sql = "SELECT * FROM orders WHERE (order_email = '$order_email' AND order_status='paid') OR (order_email = '$order_email' AND order_status='processing') OR (order_email = '$order_email' AND order_status='completed') OR (order_email = '$order_email' AND order_status='pending') ORDER BY order_id DESC";
 $result = $conn->query($sql);
-
+$orders = "";
  while($row = $result->fetch_assoc()) {
     $product = strtolower($row["order_product"]);
     $productCodename =  strtolower($row["product_codename"]);
@@ -149,7 +149,7 @@ break;
 
             $time = time_ago($orderDate);
              
-            $orders = <<<EOT
+            $orders .= <<<EOT
 
             <div class="card mb-3 mt-2">
                 <div class="card-body d-flex align-items-center p-2">
@@ -168,8 +168,8 @@ break;
                 </div>
             </div>
     EOT;
-echo $orders;
+    
     }
-
-
+    
+    echo $orders;
             ?>

@@ -17,12 +17,16 @@ $logArray['3'] = $_SERVER['REQUEST_URI'];
 isset($_GET['userName'])    ? $user_name=$_GET['userName']     : $errorDisplay .= " Missing User Name /";
 isset($_GET['userEmail'])   ? $user_email=$_GET['userEmail']    : $errorDisplay .= " Missing User Email /";
 
-isset($_GET['userDob']) OR isset($_GET['userDobUS']) ? $dob = "Yes"   : $errorDisplay .= " Missing User Date of Birth (Both US and EU Fields) /";
+isset($_GET['userDob']) OR isset($_GET['userDobUS']) OR isset($_GET['dob_day']) ? $dob = "Yes"   : $errorDisplay .= " Missing User Date of Birth (Both US and EU Fields) /";
 if(isset($_GET['userDob']))$user_dob = $_GET['userDob'];
 
 if(isset($_GET['userDobUS'])){
 $originalDate = $_GET['userDobUS'];
 $user_dob = date("d-m-Y", strtotime($originalDate));
+}
+
+if(isset($_GET['dob_day'])){
+$user_dob = $_GET['dob_day']."-".$_GET['dob_month']."-".$_GET['dob_year'];
 }
 
 isset($_GET['product'])  ? $order_product = $_GET['product']   : $errorDisplay .= " Missing Product ID /";
@@ -39,6 +43,9 @@ isset($_GET['form_submit']) ? $getButtonText = $_GET['btntext'] : $getButtonText
 
 isset($_GET['fbp']) ? $uFBP = $_GET['fbp'] : $uFBP = "";
 isset($_GET['fbc']) ? $uFBC = $_GET['fbc'] : $uFBC = "";
+
+isset($_GET['ip']) ? $addip = $_GET['ip'] : $addip = "";
+isset($_GET['agent']) ? $addagent = $_GET['agent'] : $addagent = "";
 
 isset($_GET['affid']) ? $affid = $_GET['affid'] : $affid = "";
 isset($_GET['cid']) ? $cid = $_GET['cid'] : $cid = "";
@@ -184,8 +191,8 @@ if($testError == TRUE){ //IF there was error recoreded fetching main variables s
 
     }
     
-    $sql = "INSERT INTO orders (cookie_id, user_id, user_age, first_name, last_name, user_name, order_status, order_date, order_email, bg_email, order_product, product_codename, product_nice, order_priority, order_price, buygoods_order_id, user_sex, genderAcc, pick_sex, landing_page, form, countdown, button, btncolor, fbp, fbc, affid, clickid, fbCampaign, fbAdset, fbAd)
-            VALUES ('$cookie', '$userID', '$user_age', '$fName', '$lName', '$user_name', 'pending', '$order_date', '$user_email', '', '$order_product', '$product_codename', '$order_product_nice', '$order_priority', '$order_price', '', '$userGender', '$userGenderAcc', '$partnerGender', '$landing', '$getformused', '$getcountdown', '$getButtonText', '$fbtncolor', '$uFBP', '$uFBC', '$affid', '$cid', '$fbCampaign', '$fbAdset', '$fbAd')";
+    $sql = "INSERT INTO orders (cookie_id, user_id, user_age, birthday, first_name, last_name, user_name, order_status, order_date, order_email, bg_email, order_product, product_codename, product_nice, order_priority, order_price, buygoods_order_id, user_sex, genderAcc, pick_sex, landing_page, form, countdown, button, btncolor, fbp, fbc, ip, agent, affid, clickid, fbCampaign, fbAdset, fbAd)
+            VALUES ('$cookie', '$userID', '$user_age', '$user_dob', '$fName', '$lName', '$user_name', 'pending', '$order_date', '$user_email', '', '$order_product', '$product_codename', '$order_product_nice', '$order_priority', '$order_price', '', '$userGender', '$userGenderAcc', '$partnerGender', '$landing', '$getformused', '$getcountdown', '$getButtonText', '$fbtncolor', '$uFBP', '$uFBC', '$addip', '$addagent', '$affid', '$cid', '$fbCampaign', '$fbAdset', '$fbAd')";
 
     if ($conn->query($sql) === TRUE) {
     $logArray['10'] = "Success"; 
@@ -221,25 +228,6 @@ if($testError == TRUE){ //IF there was error recoreded fetching main variables s
     $_SESSION['userPGender']=$partnerGender;
 
 
-
-    $ch = curl_init();
-    $data = [
-    "user_id" => $userID,
-    "name" => $user_name,
-    "email" => $user_email,
-    "signed_up_at" => $signedUpAt,
-    "custom_attributes" => ["lastbglink" => $finalLink, "lastorderid" => $lastRowInsert, "lastOrderproduct" => $order_product_nice, "lastOrderprice" => $order_price]
-    ];
-    $jData = json_encode($data);
-    curl_setopt($ch, CURLOPT_URL, 'https://beacon.crowdpower.io/customers');
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $jData);
-    $headers = array();
-    $headers[] = 'Content-Type: application/json';
-    $headers[] = 'Authorization: Bearer sk_7b8f2be0b4bc56ddf0a3b7a1eed2699d19e3990ebd3aa9e9e5c93815cdcfdc64';
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-    $result = curl_exec($ch);
 
     $sql = "UPDATE `orders` SET `link`='$finalLink' WHERE order_id='$lastRowInsert'" ;
     if ($conn->query($sql) === TRUE) {

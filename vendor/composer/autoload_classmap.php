@@ -6,6 +6,7 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'BaseSendGridClientInterface' => $vendorDir . '/sendgrid/sendgrid/lib/BaseSendGridClientInterface.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'FB' => $vendorDir . '/firephp/firephp-core/lib/FirePHPCore/fb.php',
     'FirePHP' => $vendorDir . '/firephp/firephp-core/lib/FirePHPCore/FirePHP.class.php',
@@ -61,6 +62,8 @@ return array(
     'Minify_YUICompressor' => $vendorDir . '/mrclay/minify/lib/Minify/YUICompressor.php',
     'MrClay\\Cli' => $vendorDir . '/mrclay/minify/lib/MrClay/Cli.php',
     'MrClay\\Cli\\Arg' => $vendorDir . '/mrclay/minify/lib/MrClay/Cli/Arg.php',
+    'SendGrid' => $vendorDir . '/sendgrid/sendgrid/lib/SendGrid.php',
+    'TwilioEmail' => $vendorDir . '/sendgrid/sendgrid/lib/TwilioEmail.php',
     'lessc' => $vendorDir . '/marcusschwarz/lesserphp/lessc.inc.php',
     'lessc_formatter_classic' => $vendorDir . '/marcusschwarz/lesserphp/lessc.inc.php',
     'lessc_formatter_compressed' => $vendorDir . '/marcusschwarz/lesserphp/lessc.inc.php',
