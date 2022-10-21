@@ -17,12 +17,14 @@ if ($request === 'POST') {
 $cat = $_POST['category'];
 $ema = $_POST['email'];
 $msg = $_POST['message'];
+$name = "test";
 
 $email = new Mail();
 			$email->setFrom("contact@psychic-empress.com", "Psychic Empress");
 			$email->setSubject("Support Request");
 			$email->addTo(
 				$ema,
+        $name,
 				[
 					"category" => $cat,
 					"email" => $ema,
