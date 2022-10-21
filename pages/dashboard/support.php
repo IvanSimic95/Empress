@@ -95,7 +95,7 @@ $firstTime = "";
                         <div class="bg-info me-3 icon-item d-none d-sm-flex"><span class="fas fa-info-circle text-white fs-3"></span></div>
                         <p class="mb-0 flex-1">If you need help fill out this form and we will reply ASAP</p>
                         </div>
-                        <form id="normalproduct" class="form-order needs-validation display-block" name="order_form" action="/order/order" method="get">
+                        <form id="ajax-form" class="form-support" name="support_form" action="javascript:void(0)" method="post">
 
                         <div class="form-floating">
                         <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
@@ -131,8 +131,74 @@ $firstTime = "";
         </div>
     </section>
 </div>
-
 <?php
+$customJS = <<<EOT
+<script>
+
+
+var product_code = $('.product_code').text()
+$('.product').val(product_code);
+
+        $(document).ready(function($){
+     
+        // hide messages 
+        $("#error").hide();
+        $("#show_message").hide();
+     
+        // on submit...
+        $('#ajax-form').submit(function(e){
+     
+            e.preventDefault();
+     
+            $("#error").hide();
+            $("#submitbtn").html('<i class="fas fa-spinner fa-pulse"></i> Loading...');
+            $("#submitbtn").prop('disabled', true);
+     
+           //First name required
+           var name = $("input#fullname").val();
+           if(name == ""){
+                $("#error").fadeIn().text("First & Last Name Field required.");
+                $("input#fname").focus();
+                return false;
+            }		 
+            // ajax
+            $.ajax({
+                type:"POST",
+                url: "/ajax/contact.php",
+                dataType: 'json',
+                data: $(this).serialize(),
+                success: function(data){
+                  var SubmitStatus = data[0];
+                  var DataMSG = data[1];
+     
+                  if (SubmitStatus == "Success"){
+                  var Redirect = data[2];
+                  $("#show_message").html(DataMSG);
+                  $("#show_message").fadeIn();
+                  $("#submitbtn").html('<i class="fas fa-spinner fa-pulse"></i> Redirecting...');
+                  
+                  setTimeout(function(){
+                    window.location.href = Redirect;
+                  }, 2000);
+
+                  }else{
+                  $("#error").html(DataMSG);
+                  $("#error").fadeIn();
+                  $("#submitbtn").html("Error Occured!");
+                  }
+
+                }
+            });
+        });  
+     
+        return false;
+    });
+
+
+</script>
+
+EOT;
+
 
 //$customCSSPreload = '<link rel="preload" href="/assets/css/baby.css" as="style">';
 //$customCSS = '<link href="/assets/css/baby.css" rel="stylesheet">';
