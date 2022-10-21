@@ -1,6 +1,6 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'].'/templates/config.php';
-
+use SendGrid\Mail\Mail;
 if(!$conn){ //CHECK DB CONNECTION FIRST
 $submitStatus = "Database Error!";
 $EMessage = 'Could not Connect to Database Server:'.mysql_error();

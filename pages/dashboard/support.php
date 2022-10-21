@@ -1,6 +1,6 @@
 <?php
 require $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
-use SendGrid\Mail\Mail;
+
 if(!isset($_SESSION['loggedIn'])){
 header("Location: /dashboard");
 die();
