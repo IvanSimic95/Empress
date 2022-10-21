@@ -36,13 +36,11 @@ $email = new Mail();
 			$sendgrid = new \SendGrid($sendg3);
 			try {
 				$response = $sendgrid->send($email);
-				print_r($response);
-
         $submitStatus = "Success";
         $SuccessMessage = "Support Request Sent!";
         $redirectPayment = "";
         $returnData = [$submitStatus,$SuccessMessage,$redirectPayment];
-
+        echo json_encode($returnData);
 			} catch (Exception $e) { 
 				echo 'Caught exception: '.  $e->getMessage(). "\n";
 				error_log('$e->getMessage()');
