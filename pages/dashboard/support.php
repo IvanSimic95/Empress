@@ -145,6 +145,7 @@ $customJS = <<<EOT
      
         // hide messages 
         $("#error").hide();
+        $("#success-msg").hide();
         $("#show_message").hide();
      
         // on submit...
