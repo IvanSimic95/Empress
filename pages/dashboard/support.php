@@ -91,7 +91,7 @@ $firstTime = "";
                                 <h3 class="mb-0 fw-semibold fs-1" style="color:#fff;">Support - Contact Form</h3>
                             </div>
                         </div>
-                        <div class="card-body px-1 px-md-2 px-lg-3 py-2">
+                        <div class="card-body px-1 px-md-2 px-lg-3 py-2" style="min-height: 300px;">
                        
                         <div id="welcome-msg">
                         <div class="alert alert-info border-2 d-flex align-items-center mt-1" role="alert">
@@ -103,8 +103,7 @@ $firstTime = "";
 
                         <div class="form-floating mb-3">
                         <select class="form-select" name="category" id="floatingSelect" aria-label="Floating label select example">
-                            <option value="" disabled="" selected="" hidden="">Please choose one option</option>
-                            <option value="1">General Question</option>
+                            <option value="1"  selected="">General Question</option>
                             <option value="2">Payment</option>
                             <option value="3">Order</option>
                             <option value="4">User Profile</option>
