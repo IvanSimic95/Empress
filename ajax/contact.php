@@ -20,22 +20,14 @@ $msg = $_POST['message'];
 
 $email = new Mail();
 			$email->setFrom("contact@psychic-empress.com", "Psychic Empress");
-			$email->setSubject("Payment Confirmed!");
+			$email->setSubject("Support Request");
 			$email->addTo(
-				$orderEmail,
-				$orderName,
+				$ema,
 				[
-					"name" => $orderName,
-					"email" => $orderEmail,
-					"status" => "processing",
-					"product" => $product,
-					"productNice" => $productNice,
-					"orderid" => $orderID,
-					"partner" => $orderSex,
-					"birthday" => $birthday,
-					"price" => $price,
-					"emaillink" => $emailLink,
-					"msg" => $message
+					"category" => $cat,
+					"email" => $ema,
+					"message" => $msg,
+			
 				]
 			);
 			$email->setTemplateId("d-94ff935883c14a6186def78f3bef0d84");
