@@ -1,4 +1,5 @@
 <?php
+use SendGrid\Mail\Mail;
 if(!isset($_SESSION['loggedIn'])){
 header("Location: /dashboard");
 die();
