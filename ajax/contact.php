@@ -14,9 +14,9 @@ $request = $_SERVER['REQUEST_METHOD'];
 if ($request === 'POST') {
 
 
-$order_product = $_POST['product'];
-$order_priority = $_POST['priority'];
-
+$cat = $_POST['category'];
+$ema = $_POST['email'];
+$msg = $_POST['message'];
 
 $email = new Mail();
 			$email->setFrom("contact@psychic-empress.com", "Psychic Empress");
@@ -46,7 +46,7 @@ $email = new Mail();
 
         $submitStatus = "Success";
         $SuccessMessage = "Support Request Sent!";
-        $redirectPayment = "https://gabeaff_melissapsy.pay.clickbank.net/?cbskin=39040&cbtimer=1593&cbfid=52316&cbitems=".$cbproduct."&name=".$user_name."&email=".$user_email."&cookie_ID=".$cookie_id."&order_ID=".$lastRowInsert."&main_ID=".$lastRowInsert;
+        $redirectPayment = "";
         $returnData = [$submitStatus,$SuccessMessage,$redirectPayment];
 
 			} catch (Exception $e) { 

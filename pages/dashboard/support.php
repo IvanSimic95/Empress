@@ -98,7 +98,7 @@ $firstTime = "";
                         <form id="ajax-form" class="form-support" name="support_form" action="javascript:void(0)" method="post">
 
                         <div class="form-floating mb-3">
-                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                        <select class="form-select" name="category" id="floatingSelect" aria-label="Floating label select example">
                             <option value="" disabled="" selected="" hidden="">Please choose one option</option>
                             <option value="1">General Question</option>
                             <option value="2">Payment</option>
@@ -116,7 +116,7 @@ $firstTime = "";
                         
 
                         <div class="form-floating mb-3">
-                        <textarea class="form-control" id="floatingTextarea2" placeholder="Description here" style="height: 100px"></textarea>
+                        <textarea class="form-control" id="floatingTextarea2" placeholder="Description here" style="height: 100px" name="message"></textarea>
                         <label for="floatingTextarea2"  style="left:0px;">Description of the issue</label>
                         </div>
 
@@ -133,13 +133,8 @@ $firstTime = "";
                         
                         </div>
                     </div>
-</div>
-        </div>
-    </section>
-</div>
-<?php
-$customJS = <<<EOT
-<script>
+
+                    <script>
 
 
         $(document).ready(function($){
@@ -194,6 +189,13 @@ $customJS = <<<EOT
 
 
 </script>
+</div>
+        </div>
+    </section>
+</div>
+<?php
+$customJS = <<<EOT
+
 
 EOT;
 
