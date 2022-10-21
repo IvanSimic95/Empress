@@ -97,7 +97,7 @@ $firstTime = "";
                         </div>
                         <form id="ajax-form" class="form-support" name="support_form" action="javascript:void(0)" method="post">
 
-                        <div class="form-floating">
+                        <div class="form-floating mb-3">
                         <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
                             <option value="" disabled="" selected="" hidden="">Please choose one option</option>
                             <option value="1">General Question</option>
@@ -106,18 +106,18 @@ $firstTime = "";
                             <option value="4">User Profile</option>
                             <option value="4">Feedback</option>
                         </select>
-                        <label for="floatingSelect">What can we help you with? *</label>
+                        <label for="floatingSelect"  style="left:0px;">What can we help you with? *</label>
                         </div>
 
                         <div class="form-floating mb-3">
                         <input class="form-control" id="emailInput" type="email" placeholder="name@example.com" name="email" value="example@gmail.com" />
-                        <label for="floatingInputValid">Your Email Address</label>
+                        <label for="floatingInputValid" style="left:0px;">Your Email Address</label>
                         </div>
                         
 
-                        <div class="form-floating">
+                        <div class="form-floating mb-3">
                         <textarea class="form-control" id="floatingTextarea2" placeholder="Description here" style="height: 100px"></textarea>
-                        <label for="floatingTextarea2">Description of the issue</label>
+                        <label for="floatingTextarea2"  style="left:0px;">Description of the issue</label>
                         </div>
 
                         <button id="PlaceOrder" type="submit" name="form_submit" class="btn btn-submit-form btn-primary btn-shadow w-100 btn-add-to-cart mb-1 mt-1 fw-bold fs-2">Submit support request!</button></div>
