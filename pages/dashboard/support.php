@@ -110,7 +110,7 @@ $firstTime = "";
                         </div>
 
                         <div class="form-floating mb-3">
-                        <input class="form-control" id="emailInput" type="email" placeholder="name@example.com" name="email" value="example@gmail.com" />
+                        <input class="form-control" id="emailInput" type="email" placeholder="name@example.com" name="email" value="<?php if(isset($_SESSION['email']))echo $_SESSION['email']; ?>" />
                         <label for="floatingInputValid" style="left:0px;">Your Email Address</label>
                         </div>
                         
@@ -120,9 +120,14 @@ $firstTime = "";
                         <label for="floatingTextarea2"  style="left:0px;">Description of the issue</label>
                         </div>
 
-                        <button id="PlaceOrder" type="submit" name="form_submit" class="btn btn-submit-form btn-primary btn-shadow w-100 btn-add-to-cart mb-1 mt-1 fw-bold fs-2">Submit support request!</button></div>
+                        <button id="PlaceOrder" type="submit" name="form_submit" style="display:block;" class="btn btn-submit-form btn-primary btn-shadow w-100 btn-add-to-cart mb-1 mt-1 fw-bold fs-2">Submit support request!</button></div>
 
                             </form>
+
+                        <div class="alert alert-success border-2 d-flex align-items-center mt-1" role="alert" id="success-msg" style="display:none;">
+                        <div class="bg-success me-3 icon-item d-none d-sm-flex"><span class="fas fa-info-circle text-white fs-3"></span></div>
+                        <p class="mb-0 flex-1">Support Request Sent!</p>
+                        </div>
 
                         
                         </div>
@@ -135,9 +140,6 @@ $firstTime = "";
 $customJS = <<<EOT
 <script>
 
-
-var product_code = $('.product_code').text()
-$('.product').val(product_code);
 
         $(document).ready(function($){
      
@@ -153,14 +155,7 @@ $('.product').val(product_code);
             $("#error").hide();
             $("#submitbtn").html('<i class="fas fa-spinner fa-pulse"></i> Loading...');
             $("#submitbtn").prop('disabled', true);
-     
-           //First name required
-           var name = $("input#fullname").val();
-           if(name == ""){
-                $("#error").fadeIn().text("First & Last Name Field required.");
-                $("input#fname").focus();
-                return false;
-            }		 
+
             // ajax
             $.ajax({
                 type:"POST",
@@ -175,10 +170,11 @@ $('.product').val(product_code);
                   var Redirect = data[2];
                   $("#show_message").html(DataMSG);
                   $("#show_message").fadeIn();
-                  $("#submitbtn").html('<i class="fas fa-spinner fa-pulse"></i> Redirecting...');
+                  $("#submitbtn").html('<i class="fas fa-spinner fa-pulse"></i> Loading...');
                   
                   setTimeout(function(){
-                    window.location.href = Redirect;
+                    $('#ajax-form').hide();
+                    $('#success-msg').show();
                   }, 2000);
 
                   }else{
