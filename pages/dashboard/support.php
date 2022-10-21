@@ -122,7 +122,7 @@ $firstTime = "";
                         <label for="floatingTextarea2"  style="left:0px;">Description of the issue</label>
                         </div>
 
-                        <button id="PlaceOrder" type="submit" name="form_submit" style="display:block;" class="btn btn-submit-form btn-primary btn-shadow w-100 btn-add-to-cart mb-1 mt-1 fw-bold fs-2">Submit support request!</button></div>
+                        <button id="submitbtn" type="submit" name="form_submit" style="display:block;" class="btn btn-submit-form btn-primary btn-shadow w-100 btn-add-to-cart mb-1 mt-1 fw-bold fs-2">Submit support request!</button></div>
 
                             </form>
                                 <div id="success-msg" style="display:none;">
