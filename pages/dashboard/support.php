@@ -25,7 +25,7 @@ $firstTime = "";
                 
 
             <div class="py-2 px-0 light topbar-gradient rounded-3"> 
-            <div class="elfsight-app-f9baa5f9-4e55-4c19-bae9-2445b696abcf"></div>
+           
 <div id="sidebar-menu" class="text-white">
     
 <ul>
