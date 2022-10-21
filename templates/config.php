@@ -767,6 +767,4 @@ if(isset($splitURL[1])){//If variable is set proceed
 //END FUNCTION FOR INDEX.PHP ADDON FOR SUCCESS PAGE
 
 
-
-include_once $_SERVER['DOCUMENT_ROOT'].'/templates/js-trigger.php';
 ?>

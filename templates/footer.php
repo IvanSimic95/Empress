@@ -189,7 +189,6 @@ preloader.addClass('loader-activate')
     });
 </script>
 
-<?php echo $CrowdPowerLogin; ?>
 
 
     

@@ -133,8 +133,13 @@ $firstTime = "";
                         
                         </div>
                     </div>
-
-                    <script>
+</div>
+        </div>
+    </section>
+</div>
+<?php
+$customJS = <<<EOT
+<script>
 
 
         $(document).ready(function($){
@@ -189,13 +194,6 @@ $firstTime = "";
 
 
 </script>
-</div>
-        </div>
-    </section>
-</div>
-<?php
-$customJS = <<<EOT
-
 
 EOT;
 
