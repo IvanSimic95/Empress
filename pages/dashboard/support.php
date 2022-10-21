@@ -98,7 +98,7 @@ $firstTime = "";
                         <div class="bg-info me-3 icon-item d-none d-sm-flex"><span class="fas fa-info-circle text-white fs-3"></span></div>
                         <p class="mb-0 flex-1">If you need help fill out this form and we will reply ASAP</p>
                         </div>
-                            </div>
+                           
                         <form id="ajax-form" class="form-support" name="support_form" action="javascript:void(0)" method="post">
 
                         <div class="form-floating mb-3">
@@ -127,13 +127,13 @@ $firstTime = "";
                         <button id="submitbtn" type="submit" name="form_submit" style="display:block;" class="btn btn-submit-form btn-primary btn-shadow w-100 btn-add-to-cart mb-1 mt-1 fw-bold fs-2">Submit support request!</button></div>
 
                             </form>
-                            <div id="success-msg" style="display:none;" class="card-body px-1 px-md-2 px-lg-3 py-2">
+                            <div id="success-msg" style="display:none;" class="">
                         <div class="alert alert-success border-2 d-flex align-items-center mt-1" role="alert">
                         <div class="bg-success me-3 icon-item d-none d-sm-flex"><span class="fas fa-info-circle text-white fs-3"></span></div>
                         <p class="mb-0 flex-1">Support Request Sent!</p>
                         </div>
                             </div>
-
+                            </div>
                         
                         </div>
                     </div>
