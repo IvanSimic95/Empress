@@ -70,7 +70,7 @@ $logArray['1'] = date("d-m-Y H:i:s");
 			unset($logArray);
             echo " <br>"; 
 			}
-			}elseif($hours > 2){
+			}elseif($hours > 48){
             // Set order to canceled
 			$sqlupdate = "UPDATE `orders` SET `order_status`='canceled' WHERE order_id='$orderID'";
             if ($conn->query($sqlupdate) === TRUE) {
