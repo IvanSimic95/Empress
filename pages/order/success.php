@@ -105,23 +105,9 @@ if($SuccessProduct  == "main") {
     isset($_GET['total'])           ? $order_total=$_GET['total']        : $errorDisplay .= " Missing Order Total /";
     isset($_GET['order_id'])        ? $order_BGID=$_GET['order_id']      : $errorDisplay .= " Missing BG Order ID /";
 
-if(isset($_GET['subid'])){
-
-    $subid = $_GET['subid'];
-    $dsubid = base64_decode($subid);
-
-    $subarray= explode("|", $dsubid);
-    $cookie1 = $subarray[0];
-    $cookie2 = $subarray[1];
-    $cookie3 = $subarray[2];
-
-    $userID = $subarray[4];
-
-    
-
-}else{
-
-    if(isset($_SESSION['orderID'])){
+    if(isset($_GET['subid2'])){
+        $orderID = $_GET['subid2'];
+    }else{
         $orderID = $_SESSION['orderID'];
     }
 
@@ -140,20 +126,24 @@ if(isset($_GET['subid'])){
         }
     }
 
-    $sql5 = "SELECT * FROM orders WHERE email = '".$user_email."'";
+    $sql5 = "SELECT * FROM `orders` WHERE `order_id` = $orderID";
     $result5 = $conn->query($sql5);
     if ($result5){
         $row5 = mysqli_num_rows($result5);
             if ($row5 > 0){
                 $createUser = 0;
-                $row2 = $result5->fetch_assoc();
-                $userID = $row2['id'];
+                $row5 = $result5->fetch_assoc();
+                $checkProduct = $row5['product_codename'];
                 $logArray['9'] = "Existed: ".$userID;
-            }else{
-                $createUser = 1;
             }
     }
-}
+
+    if($checkProduct == "personal"){
+
+    }else{
+        $errorDisplay .= " Product Isn't correct /".$checkProduct;
+    }
+
 
     $logArray['0'] = "PERSONAL-ORDER-PAID";
 
@@ -209,14 +199,11 @@ if(isset($_GET['subid'])){
     isset($_GET['total'])           ? $order_total=$_GET['total']        : $errorDisplay .= " Missing Order Total /";
     isset($_GET['order_id'])        ? $order_BGID=$_GET['order_id']      : $errorDisplay .= " Missing BG Order ID /";
 
-    if(isset($_SESSION['orderID'])){
-        $orderID = $_SESSION['orderID'];
+    if(isset($_GET['subid2'])){
+        $orderID = $_GET['subid2'];
+    }else{
+        $orderID = $_SESSION['orderID']
     }
-    
-    if(isset($_GET['external_order_id'])){
-        $orderID = $_GET['external_order_id'];
-    }
-
 
     if(isset($_SESSION['userID'])){
         $userID = $_SESSION['userID'];
@@ -232,6 +219,25 @@ if(isset($_GET['subid'])){
             $logArray[] = "User ID found using Order ID";
         }
     }
+
+    $sql5 = "SELECT * FROM `orders` WHERE `order_id` = $orderID";
+    $result5 = $conn->query($sql5);
+    if ($result5){
+        $row5 = mysqli_num_rows($result5);
+            if ($row5 > 0){
+                $createUser = 0;
+                $row5 = $result5->fetch_assoc();
+                $checkProduct = $row5['product_codename'];
+                $logArray['9'] = "Existed: ".$userID;
+            }
+    }
+
+    if($checkProduct == "future-baby"){
+
+    }else{
+        $errorDisplay .= " Product Isn't correct /".$checkProduct;
+    }
+
 
     $logArray['0'] = "BABY-ORDER-PAID";
 

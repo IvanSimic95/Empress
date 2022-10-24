@@ -1,7 +1,7 @@
 <?php
 if(isset($_GET['skip'])){ 
     if($_GET['skip']=="yes"){ 
-        $_SESSION['funnel_page'] = "funnel-complete";
+        $_SESSION['funnel_page'] = "funnel-complete"; 
         header('Location: /order/complete');
         die();
     }
@@ -45,7 +45,9 @@ $order_product_nice = "Future Baby Drawing & Reading";
 $order_priority = "24";
 $order_product_id = "5";
 
-isset($_GET['cookie_id']) ? $cookie = $_GET['cookie_id'] : $errorDisplay .= " Missing User Cookie ID /";
+isset($_GET['cookie_id1']) ? $cookie1 = $_GET['cookie_id1'] : $errorDisplay .= " Missing User Cookie ID 1 /";
+isset($_GET['cookie_id2']) ? $cookie2 = $_GET['cookie_id2'] : $errorDisplay .= " Missing User Cookie ID 2 /";
+isset($_GET['cookie_id3']) ? $cookie3 = $_GET['cookie_id3'] : $errorDisplay .= " Missing User Cookie ID 3 /";
 isset($_GET['landingpage']) ? $landing = $_GET['landingpage'] : $errorDisplay .= " Missing Landing Page ID /";
 
 isset($_GET['form_submit']) ? $getButtonText = $_GET['btntext'] : $getButtonText = "Place an order";
@@ -72,7 +74,7 @@ if($testError == TRUE){ //IF there was error recoreded fetching main variables s
     $titlePage = "Redirecting you...";
     $sdescription = "You are being redirected to the Payment Processor.";
     $logArray['0'] = "BABY-ORDER-CREATION";
-    $logArray['4'] = $cookie;
+    $logArray['4'] = $cookie3;
     $logArray['4'] = $user_name;
     $logArray['5'] = $user_email;
     $logArray['6'] = $user_dob;
@@ -112,7 +114,7 @@ if($testError == TRUE){ //IF there was error recoreded fetching main variables s
     }
     
     $sql = "INSERT INTO orders (cookie_id, user_id, user_age, first_name, last_name, user_name, order_status, order_date, order_email, bg_email, order_product, product_codename, product_nice, order_priority, order_price, buygoods_order_id, user_sex, genderAcc, pick_sex, landing_page, form, countdown, button)
-    VALUES ('$cookie', '$userID', '$user_age', '$fName', '$lName', '$user_name', 'pending', '$order_date', '$user_email', '', '$order_product', '$product_codename', '$order_product_nice', '$order_priority', '$order_price', '', '$userGender', '$userGenderAcc', '$partnerGender', '$landing', '$getformused', '$getcountdown', '$getButtonText')";
+    VALUES ('$cookie3', '$userID', '$user_age', '$fName', '$lName', '$user_name', 'pending', '$order_date', '$user_email', '', '$order_product', '$product_codename', '$order_product_nice', '$order_priority', '$order_price', '', '$userGender', '$userGenderAcc', '$partnerGender', '$landing', '$getformused', '$getcountdown', '$getButtonText')";
 
     if ($conn->query($sql) === TRUE) {
     $logArray['10'] = "Success"; 
@@ -129,7 +131,10 @@ if($testError == TRUE){ //IF there was error recoreded fetching main variables s
     }else {
         $logArray['11'] = "Error: " . $sql2->error . "<br>" . $conn->error;
     }
-    $finalLink = 'https://buygoods.com/secure/upsell?account_id=6490&screen=checkout_clean&product_codename=futurebabyoffer&subid='.$cookie.'&subid2='.$lastRowInsert.'&subid3='.$order_product.'&subid4='.$userID.'&external_order_id='.$lastRowInsert.'&redirect='.$baseRedirect;
+
+    $cookieuser = $cookie1."|".$cookie2."|".$cookie3."|".$userID;
+    $cookiec = base64_encode($cookieuser);
+    $finalLink = 'https://buygoods.com/secure/upsell?account_id=6490&screen=checkout_clean&product_codename=futurebabyoffer&subid='.$cookiec.'&subid2='.$lastRowInsert.'&subid3='.$order_product.'&subid4='.$userID.'&external_order_id='.$lastRowInsert.'&redirect='.$baseRedirect;
 
     $_SESSION['orderID']   = $lastRowInsert;
 
