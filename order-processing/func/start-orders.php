@@ -321,7 +321,7 @@ if($orderProduct == "soulmate" OR $orderProduct == "futurespouse"){
 					"name" => $orderName,
 					"email" => $orderEmail,
 					"status" => "processing",
-					"product" => $product,
+					"product" => $orderProduct,
 					"productNice" => $productNice,
 					"orderid" => $orderID,
 					"partner" => $orderSex,
