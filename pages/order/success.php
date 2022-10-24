@@ -90,7 +90,7 @@ if($SuccessProduct  == "main") {
     } else {
         $logArray['8'] = "Error: " . $sql2->error . "<br>" . $conn->error;
     }
-
+}
 //END - Success Page after purchasing MAIN Product (Soulmate, Twin Flame or Future Spouse)/////////////////////////////////////////////////////////////////////////////////////////////////////////
 }elseif($SuccessProduct  == "personal") {
     isset($_GET['emailaddress'])    ? $order_email=$_GET['emailaddress'] : $errorDisplay .= " Missing User Email /";
