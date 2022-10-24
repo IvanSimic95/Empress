@@ -32,6 +32,7 @@ $logArray['1'] = date("d-m-Y H:i:s");
 			$orderProduct = $row["order_product"];
 			$productNice = $row["product_nice"];
 			$orderPriority = $row["order_priority"];
+			$orderDate = $row["order_date"];
 			$orderPrio = $orderPriority;
 			$orderSex = $row["pick_sex"];
 			$userSex = $row["user_sex"];
@@ -39,6 +40,8 @@ $logArray['1'] = date("d-m-Y H:i:s");
 			$emailLink = $base_url ."/dashboard.php?check_email=" .$orderEmail;
 			$message = $processingWelcome;
 			$birthday = $row["birthday"];
+
+			$expectedelivery = date("F d, Y h:i:s", strtotime('+'.$orderPriority.' hours', $orderDate));
 
 			$fbp = $row["fbp"];
 			$fbc = $row["fbc"];
