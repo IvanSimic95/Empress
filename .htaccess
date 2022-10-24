@@ -1,3 +1,4 @@
+AddHandler application/x-httpd-ea-php8 .php
 RewriteEngine On
 RewriteBase /
 RewriteCond %{REQUEST_FILENAME} !-f
