@@ -65,8 +65,6 @@ $_SESSION['partnerGender'] = $newPGender;
 
 $_SESSION['FBdob'] = date("Ymd", strtotime($_SESSION['dob']));
 
-$_SESSION['gender'] = $rowU['gender'];
-$_SESSION['partnerGender'] = $rowU['partner_gender'];
 
 $gender = $_SESSION['gender'];
 switch ($gender) {
