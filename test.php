@@ -12,7 +12,13 @@ foreach($newdata as $item) {
 
     $newitem = explode("=", $item);
     $first  = $newitem[0];
-    $second = $newitem[1];
+    
+
+    if (array_key_exists(1,$newitem)){
+        $second = $newitem[1];
+    }else{
+        $second = "";
+    }
 
     $cart[$first] = $second;
 }
