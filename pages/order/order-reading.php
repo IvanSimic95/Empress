@@ -54,7 +54,7 @@ $product_codename = "personal";
 $order_priority = "24";
 $order_product_id = "5";
 
-isset($_GET['cookie_id']) ? $cookie = $_GET['cookie_id'] : $errorDisplay .= " Missing User Cookie ID /";
+isset($_GET['cookie_id2']) ? $cookie = $_GET['cookie_id2'] : $errorDisplay .= " Missing User Cookie ID /";
 isset($_GET['landingpage']) ? $landing = $_GET['landingpage'] : $errorDisplay .= " Missing Landing Page ID /";
 isset($_GET['form_submit']) ? $getButtonText = $_GET['btntext'] : $getButtonText = "Place an order";
 

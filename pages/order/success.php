@@ -90,21 +90,40 @@ if($SuccessProduct  == "main") {
     } else {
         $logArray['8'] = "Error: " . $sql2->error . "<br>" . $conn->error;
     }
+
+
+   
+    $conn->close();
+    SuperLog($logArray, "order");
+    $finalLink = "/offer/personal-reading";
+
 }
+
 //END - Success Page after purchasing MAIN Product (Soulmate, Twin Flame or Future Spouse)/////////////////////////////////////////////////////////////////////////////////////////////////////////
 }elseif($SuccessProduct  == "personal") {
     isset($_GET['emailaddress'])    ? $order_email=$_GET['emailaddress'] : $errorDisplay .= " Missing User Email /";
     isset($_GET['total'])           ? $order_total=$_GET['total']        : $errorDisplay .= " Missing Order Total /";
     isset($_GET['order_id'])        ? $order_BGID=$_GET['order_id']      : $errorDisplay .= " Missing BG Order ID /";
 
+if(isset($_GET['subid'])){
+
+    $subid = $_GET['subid'];
+    $dsubid = base64_decode($subid);
+
+    $subarray= explode("|", $dsubid);
+    $cookie1 = $subarray[0];
+    $cookie2 = $subarray[1];
+    $cookie3 = $subarray[2];
+
+    $userID = $subarray[4];
+
+    
+
+}else{
+
     if(isset($_SESSION['orderID'])){
         $orderID = $_SESSION['orderID'];
     }
-    
-    if(isset($_GET['external_order_id'])){
-        $orderID = $_GET['external_order_id'];
-    }
-
 
     if(isset($_SESSION['userID'])){
         $userID = $_SESSION['userID'];
@@ -120,6 +139,21 @@ if($SuccessProduct  == "main") {
             $logArray[] = "User ID found using Order ID";
         }
     }
+
+    $sql5 = "SELECT * FROM orders WHERE email = '".$user_email."'";
+    $result5 = $conn->query($sql5);
+    if ($result5){
+        $row5 = mysqli_num_rows($result5);
+            if ($row5 > 0){
+                $createUser = 0;
+                $row2 = $result5->fetch_assoc();
+                $userID = $row2['id'];
+                $logArray['9'] = "Existed: ".$userID;
+            }else{
+                $createUser = 1;
+            }
+    }
+}
 
     $logArray['0'] = "PERSONAL-ORDER-PAID";
 
@@ -164,6 +198,7 @@ if($SuccessProduct  == "main") {
         $logArray['8'] = "Error: " . $sql2->error . "<br>" . $conn->error;
     }
 
+   
     $conn->close();
     SuperLog($logArray, "order");
 
@@ -279,6 +314,6 @@ if($SuccessProduct  == "main") {
 document.addEventListener("DOMContentLoaded", function(event) {
     setTimeout(function(){
         window.location.href = "<?php echo $finalLink; ?>";
-    }, 1000);
+    }, 3000);
 });
 </script>

@@ -58,8 +58,7 @@ isset($_GET['subid2']) ? $subid2 = $_GET['subid2'] : $subid2 = "";
 $order_date = date('Y-m-d H:i:s');
 $partnerGender = "male";
 
-$cookiecombo = $cookie1."|".$cookie2."|".$cookie3;
-$cookiec = base64_encode($cookiecombo);
+
 
 $today = date("d-m-Y");
 $diff = date_diff(date_create($user_dob), date_create($today));
@@ -214,6 +213,9 @@ if($testError == TRUE){ //IF there was error recoreded fetching main variables s
     }else {
         $logArray['11'] = "Error: " . $sql2->error . "<br>" . $conn->error;
     }
+
+    $cookieuser = $cookie1."|".$cookie2."|".$cookie3."|".$userID;
+    $cookiec = base64_encode($cookieuser);
 
     $finalLink = 'https://www.buygoods.com/secure/checkout.html?account_id=6490&screen=checkout_clean&product_codename='.$order_product_id.$order_priority.'&subid='.$cookiec.'&subid2='.$lastRowInsert.'&subid3='.$order_product.'&subid4='.$uFBP.'&subid5='.$uFBC.'&external_order_id='.$lastRowInsert.'&redirect='.$baseRedirect;
     
