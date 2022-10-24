@@ -193,7 +193,7 @@ if($SuccessProduct  == "main") {
     SuperLog($logArray, "order");
 
     $finalLink = "/offer/future-baby";
-}
+    }
 }elseif($SuccessProduct  == "baby") { 
     isset($_GET['emailaddress'])    ? $order_email=$_GET['emailaddress'] : $errorDisplay .= " Missing User Email /";
     isset($_GET['total'])           ? $order_total=$_GET['total']        : $errorDisplay .= " Missing Order Total /";
