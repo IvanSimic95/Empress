@@ -32,7 +32,9 @@ $user_dob = $_GET['dob_day']."-".$_GET['dob_month']."-".$_GET['dob_year'];
 isset($_GET['product'])  ? $order_product = $_GET['product']   : $errorDisplay .= " Missing Product ID /";
 isset($_GET['priority']) ? $order_priority = $_GET['priority'] : $order_priority = "48";
 
-isset($_GET['cookie_id']) ? $cookie = $_GET['cookie_id'] : $errorDisplay .= " Missing User Cookie ID /";
+isset($_GET['cookie_id1']) ? $cookie1 = $_GET['cookie_id1'] : $errorDisplay .= " Missing User Cookie ID 1 /";
+isset($_GET['cookie_id2']) ? $cookie2 = $_GET['cookie_id2'] : $errorDisplay .= " Missing User Cookie ID 2 /";
+isset($_GET['cookie_id3']) ? $cookie3 = $_GET['cookie_id3'] : $errorDisplay .= " Missing User Cookie ID 3 /";
 isset($_GET['landingpage']) ? $landing = $_GET['landingpage'] : $errorDisplay .= " Missing Landing Page ID /";
 
 isset($_GET['countdown']) ? $getcountdown = $_GET['countdown'] : $errorDisplay .= " Missing Countdown Variable /";
@@ -55,6 +57,9 @@ isset($_GET['subid2']) ? $subid2 = $_GET['subid2'] : $subid2 = "";
 
 $order_date = date('Y-m-d H:i:s');
 $partnerGender = "male";
+
+$cookiecombo = $cookie1."|".$cookie2."|".$cookie3;
+$cookiec = base64_encode($cookiecombo);
 
 $today = date("d-m-Y");
 $diff = date_diff(date_create($user_dob), date_create($today));
@@ -80,7 +85,7 @@ if($testError == TRUE){ //IF there was error recoreded fetching main variables s
     $titlePage = "Redirecting you...";
     $sdescription = "You are being redirected to the Payment Processor.";
     $logArray['0'] = "ORDER-CREATION";
-    $logArray['4'] = $cookie;
+    $logArray['4'] = $cookie1;
     $logArray['4'] = $user_name;
     $logArray['5'] = $user_email;
     $logArray['6'] = $user_dob;
@@ -192,7 +197,7 @@ if($testError == TRUE){ //IF there was error recoreded fetching main variables s
     }
     
     $sql = "INSERT INTO orders (cookie_id, user_id, user_age, birthday, first_name, last_name, user_name, order_status, order_date, order_email, bg_email, order_product, product_codename, product_nice, order_priority, order_price, buygoods_order_id, user_sex, genderAcc, pick_sex, landing_page, form, countdown, button, btncolor, fbp, fbc, ip, agent, affid, clickid, fbCampaign, fbAdset, fbAd)
-            VALUES ('$cookie', '$userID', '$user_age', '$user_dob', '$fName', '$lName', '$user_name', 'pending', '$order_date', '$user_email', '', '$order_product', '$product_codename', '$order_product_nice', '$order_priority', '$order_price', '', '$userGender', '$userGenderAcc', '$partnerGender', '$landing', '$getformused', '$getcountdown', '$getButtonText', '$fbtncolor', '$uFBP', '$uFBC', '$addip', '$addagent', '$affid', '$cid', '$fbCampaign', '$fbAdset', '$fbAd')";
+            VALUES ('$cookie1', '$userID', '$user_age', '$user_dob', '$fName', '$lName', '$user_name', 'pending', '$order_date', '$user_email', '', '$order_product', '$product_codename', '$order_product_nice', '$order_priority', '$order_price', '', '$userGender', '$userGenderAcc', '$partnerGender', '$landing', '$getformused', '$getcountdown', '$getButtonText', '$fbtncolor', '$uFBP', '$uFBC', '$addip', '$addagent', '$affid', '$cid', '$fbCampaign', '$fbAdset', '$fbAd')";
 
     if ($conn->query($sql) === TRUE) {
     $logArray['10'] = "Success"; 
@@ -210,7 +215,7 @@ if($testError == TRUE){ //IF there was error recoreded fetching main variables s
         $logArray['11'] = "Error: " . $sql2->error . "<br>" . $conn->error;
     }
 
-    $finalLink = 'https://www.buygoods.com/secure/checkout.html?account_id=6490&screen=checkout_clean&product_codename='.$order_product_id.$order_priority.'&subid='.$cookie.'&subid2='.$lastRowInsert.'&subid3='.$order_product.'&subid4='.$uFBP.'&subid5='.$uFBC.'&external_order_id='.$lastRowInsert.'&redirect='.$baseRedirect;
+    $finalLink = 'https://www.buygoods.com/secure/checkout.html?account_id=6490&screen=checkout_clean&product_codename='.$order_product_id.$order_priority.'&subid='.$cookiec.'&subid2='.$lastRowInsert.'&subid3='.$order_product.'&subid4='.$uFBP.'&subid5='.$uFBC.'&external_order_id='.$lastRowInsert.'&redirect='.$baseRedirect;
     
     $_SESSION['userID']    = $userID;
     $_SESSION['userEmail'] = $user_email;

@@ -324,10 +324,6 @@ if($formDate == "US"){
 $customJS = <<<EOT
 
 <script>
-$(window).on('load', function(){
-    window.cp('push');
-});
-
 $("#userName, #userDobUS, #userDob, #userEmail, #SelectGender, #SelectPGender").on("change keyup paste", function(){
   $('#SaveChanges').prop('disabled', false);
   $('#SaveChanges').slideDown("slow");

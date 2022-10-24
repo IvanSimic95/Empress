@@ -235,7 +235,9 @@
 
 
     <input class="product" type="hidden" name="product" value="<?php echo $productID; ?>">
-    <input class="cookie" type="hidden" name="cookie_id" value="<?php echo $_SESSION['cookie']; ?>">
+    <input class="cookie" type="hidden" name="cookie_id1" value="<?php echo $_SESSION['cookie']; ?>">
+    <input class="cookie" type="hidden" name="cookie_id2" value="<?php echo $_SESSION['cookie2']; ?>">
+    <input class="cookie" type="hidden" name="cookie_id3" value="<?php echo $_SESSION['cookie3']; ?>">
     <input class="formused" type="hidden" name="formused" value="normal">
     <input class="btncolor" type="hidden" name="btncolor" value="<?php echo $btncolor; ?>">
     <input class="countdown" type="hidden" name="countdown" value="<?php echo $countdownRandom; ?>">
