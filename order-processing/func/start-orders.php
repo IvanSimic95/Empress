@@ -30,8 +30,10 @@ $logArray['1'] = date("d-m-Y H:i:s");
 			$orderID = $row["order_id"];
 			$userID = $row["user_id"];
 			$orderProduct = $row["order_product"];
+			$orderProductCode = $row["product_codename"];
 			$productNice = $row["product_nice"];
 			$orderPriority = $row["order_priority"];
+			$priorityRandom = 3;
 			$orderDate = $row["order_date"];
 			$orderPrio = $orderPriority;
 			$orderSex = $row["pick_sex"];
@@ -40,8 +42,16 @@ $logArray['1'] = date("d-m-Y H:i:s");
 			$emailLink = $base_url ."/dashboard.php?check_email=" .$orderEmail;
 			$message = $processingWelcome;
 			$birthday = $row["birthday"];
+			$niceBirthday = date('F d, Y', strtotime($birthday));
 
-			$expectedelivery = date("F d, Y h:i:s", strtotime('+'.$orderPriority.' hours', $orderDate));
+			$finalPriority = $orderPriority - $priorityRandom;
+			$orderTime = (strtotime($orderDate));
+			$newDateDay = date('F d,', strtotime('+'.$orderPriority.' hours', $orderTime));
+
+			$newDateHourMin = date('h A', strtotime('+'.$finalPriority.' hours', $orderTime));
+			$newDateHourMax = date('h A', strtotime('+'.$orderPriority.' hours', $orderTime));
+
+			$DeliveryTime = $newDateDay." ".$newDateHourMin." - ".$newDateHourMax;
 
 			$fbp = $row["fbp"];
 			$fbc = $row["fbc"];
@@ -321,17 +331,20 @@ if($orderProduct == "soulmate" OR $orderProduct == "futurespouse"){
 				$orderEmail,
 				$orderName,
 				[
-					"name" => $orderName,
+					"fullname" => $orderName,
+					"fname" => $fName,
 					"email" => $orderEmail,
 					"status" => "processing",
-					"product" => $orderProduct,
+					"product" => $orderProductCode,
 					"productNice" => $productNice,
 					"orderid" => $orderID,
+					"gender" => $userSex,
 					"partner" => $orderSex,
-					"birthday" => $birthday,
+					"dob" => $niceBirthday,
 					"price" => $price,
 					"emaillink" => $emailLink,
-					"msg" => $message
+					"msg" => $message,
+					"delivery" => $DeliveryTime
 				]
 			);
 			$email->setTemplateId("d-94ff935883c14a6186def78f3bef0d84");
