@@ -73,7 +73,7 @@ use SendGrid\Mail\Mail;
 							$sendgrid = NULL;
 							$response = NULL;
 							$email = new Mail();
-							$email->setFrom("contact@melissa-psychic.com", "Melissa Psychic");
+							$email->setFrom("contact@psychic-empress.com", "Psychic Empress");
 							$email->setSubject($AbandonSubject);
 							$email->addTo(
 								$orderEmail,
@@ -92,7 +92,7 @@ use SendGrid\Mail\Mail;
 									"msg" => $AbandonMessage
 								]
 							);
-							$email->setTemplateId("d-7ef6c271357e4b6092f423cc1a96ab5e");
+							$email->setTemplateId("d-ee9e625d8385440a97ad3e917a88ec55");
 							$sendgrid = new \SendGrid($sendg3);
 							try {
 								$response = $sendgrid->send($email);
