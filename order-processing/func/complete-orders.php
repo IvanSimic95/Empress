@@ -1,5 +1,7 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'].'/templates/config.php';
+require $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
+use SendGrid\Mail\Mail;
 echo "Starting complete-orders.php...<br><br>";
 
 	$sql = 'SELECT * from orders WHERE order_status = "processing"';
@@ -460,6 +462,7 @@ echo "Starting complete-orders.php...<br><br>";
 			$orderAge = $row["user_age"];
 			$orderPrio = $row["order_priority"];
 			$orderProduct = $row["order_product"];
+			$productNice = $row["product_nice"];
 			$orderSex = $row["pick_sex"];
 			$userSex = $row["user_sex"];
 			$date1 = $orderDate;
@@ -474,37 +477,47 @@ echo "Starting complete-orders.php...<br><br>";
 			$bg_email = $row["bg_email"];
 			$product_nice = $row["product_nice"];
 
-			//Send data to zapier so it can submit FB conversion and send an email to user
-			$ch = curl_init();
-			$data = [
-			"fname" => $fName,
-			"lname" => $lName,
-			"orderID" => $orderID,
-			"userID" => $userID,
-			"email" => $orderEmail,
-			"priority" => $orderPrio,
-			"product" => $orderProduct,
-			"product_nice" => $product_nice,
-			"hours" => $hours,
-			"gender" => $userSex,
-			"Pgender" => $orderSex,
-			"price" => $price,
-			"fbp" => $FBP,
-			"fbc" => $FBC
-			];
+			$reading = $message;
+			$drawing = $imgURL;
 
-			$jData = json_encode($data);
-			curl_setopt($ch, CURLOPT_URL, 'https://hooks.zapier.com/hooks/catch/4722157/bihdogp/');
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $jData);
-			$headers = array();
-			$headers[] = 'Content-Type: application/json';
-			$headers[] = 'Authorization: Bearer sk_7b8f2be0b4bc56ddf0a3b7a1eed2699d19e3990ebd3aa9e9e5c93815cdcfdc64';
-			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-			$result = curl_exec($ch);
-			$logArray[] =  "Data sent to zapier";
-			echo "Data send to zapier";
+			$email = new Mail();
+			$email->setFrom("contact@psychic-empress.com", "Psychic Empress");
+			$email->setSubject("Order Complete!");
+			$email->addTo(
+				$orderEmail,
+				$orderName,
+				[
+					"fullname" => $orderName,
+					"fname" => $fName,
+					"email" => $orderEmail,
+					"status" => "complete",
+					"product" => $orderProductCode,
+					"productNice" => $productNice,
+					"orderid" => $orderID,
+					"reading" => $reading,
+					"drawinglink" => $drawing,
+				]
+			);
+			$email->setTemplateId("d-94ff935883c14a6186def78f3bef0d84");
+			$sendgrid = new \SendGrid($sendg3);
+			try {
+				$response = $sendgrid->send($email);
+				print_r($response);
+				error_log($orderEmail);
+
+				
+			$logArray[] =  "New order email sent";
+			echo "New order email sent";
+
+			SuperLog($logArray, "start-orders");
+			unset($logArray);
+            echo " <br>"; 
+		} catch (Exception $e) { 
+			echo 'Caught exception: '.  $e->getMessage(). "\n";
+			error_log('$e->getMessage()');
+
+		}
+		
 
 
 		}
