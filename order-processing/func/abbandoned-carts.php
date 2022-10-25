@@ -28,11 +28,10 @@ $orderPriority = $row["order_priority"];
 $orderEmail = $row["order_email"];
 $orderStatus = $row["order_status"];
 $emailLink = $base_url ."/dashboard.php?check_email=" .$orderEmail;
-$restoreLink = $row["cart_recover"];
 $partner = $row['pick_sex'];
 $birthday = $row['birthday'];
 $orderPrice = $row['order_price'];
-$cartRecover = $row['cart_recover'];
+$cartRecover = $row['link'];
 $newPrice = $orderPrice / 2;
 
             $date1 = $orderDate;
