@@ -1,7 +1,7 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'].'/templates/config.php';
 echo "Starting abbandoned-carts.php...<br><br>";
-
+use SendGrid\Mail\Mail;
 
 // 1. Check and select paid orders.
 
@@ -61,7 +61,7 @@ echo "Starting abbandoned-carts.php...<br><br>";
 					$sql = "SELECT * FROM `orders` WHERE (`order_email` = '$orderEmail' AND `order_product` = '$orderProduct' AND `order_status` = 'processing') OR (`order_email` = '$orderEmail' AND `order_product` = '$orderProduct' AND `order_status` = 'shipped') ORDER BY `order_id` DESC";
 					$result = $conn->query($sql);
 					$count = $result->num_rows;
-					echo $count;
+					echo "cOUNT: ".$count;
 				}
 			}
        		
