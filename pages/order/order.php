@@ -46,6 +46,8 @@ isset($_GET['form_submit']) ? $getButtonText = $_GET['btntext'] : $getButtonText
 isset($_GET['fbp']) ? $uFBP = $_GET['fbp'] : $uFBP = "";
 isset($_GET['fbc']) ? $uFBC = $_GET['fbc'] : $uFBC = "";
 
+isset($_GET['premium']) ? $premium = $_GET['premium'] : $premium = "no";
+
 isset($_GET['ip']) ? $addip = $_GET['ip'] : $addip = "";
 isset($_GET['agent']) ? $addagent = $_GET['agent'] : $addagent = "";
 
@@ -136,6 +138,12 @@ if($testError == TRUE){ //IF there was error recoreded fetching main variables s
     break;
     }
 
+    if($premium == "yes"){
+        $prelink = "p";
+    }else{
+        $prelink = "";
+    }
+
     //Find User Gender
     function findGender($name) {
     $apiKey = 'Whc29bSnvP3zrQG3hYCwXKMoYu5h4ZQukS6n'; //Your API Key
@@ -195,8 +203,8 @@ if($testError == TRUE){ //IF there was error recoreded fetching main variables s
 
     }
     
-    $sql = "INSERT INTO orders (cookie_id, user_id, user_age, birthday, first_name, last_name, user_name, order_status, order_date, order_email, bg_email, order_product, product_codename, product_nice, order_priority, order_price, buygoods_order_id, user_sex, genderAcc, pick_sex, landing_page, form, countdown, button, btncolor, fbp, fbc, ip, agent, affid, clickid, fbCampaign, fbAdset, fbAd)
-            VALUES ('$cookie1', '$userID', '$user_age', '$user_dob', '$fName', '$lName', '$user_name', 'pending', '$order_date', '$user_email', '', '$order_product', '$order_product', '$order_product_nice', '$order_priority', '$order_price', '', '$userGender', '$userGenderAcc', '$partnerGender', '$landing', '$getformused', '$getcountdown', '$getButtonText', '$fbtncolor', '$uFBP', '$uFBC', '$addip', '$addagent', '$affid', '$cid', '$fbCampaign', '$fbAdset', '$fbAd')";
+    $sql = "INSERT INTO orders (cookie_id, user_id, user_age, birthday, first_name, last_name, user_name, order_status, order_date, order_email, bg_email, order_product, premium, product_codename, product_nice, order_priority, order_price, buygoods_order_id, user_sex, genderAcc, pick_sex, landing_page, form, countdown, button, btncolor, fbp, fbc, ip, agent, affid, clickid, fbCampaign, fbAdset, fbAd)
+            VALUES ('$cookie1', '$userID', '$user_age', '$user_dob', '$fName', '$lName', '$user_name', 'pending', '$order_date', '$user_email', '', '$order_product', '$order_product', '$premium', '$order_product_nice', '$order_priority', '$order_price', '', '$userGender', '$userGenderAcc', '$partnerGender', '$landing', '$getformused', '$getcountdown', '$getButtonText', '$fbtncolor', '$uFBP', '$uFBC', '$addip', '$addagent', '$affid', '$cid', '$fbCampaign', '$fbAdset', '$fbAd')";
 
     if ($conn->query($sql) === TRUE) {
     $logArray['10'] = "Success"; 
@@ -217,7 +225,7 @@ if($testError == TRUE){ //IF there was error recoreded fetching main variables s
     $cookieuser = $cookie1."|".$cookie2."|".$cookie3."|".$userID;
     $cookiec = base64_encode($cookieuser);
 
-    $finalLink = 'https://www.buygoods.com/secure/checkout.html?account_id=6490&screen=checkout_clean&product_codename='.$order_product_id.$order_priority.'&subid='.$cookiec.'&subid2='.$lastRowInsert.'&subid3='.$order_product.'&subid4='.$uFBP.'&subid5='.$uFBC.'&external_order_id='.$lastRowInsert.'&redirect='.$baseRedirect;
+    $finalLink = 'https://www.buygoods.com/secure/checkout.html?account_id=6490&screen=checkout_clean&product_codename='.$order_product_id.$order_priority.$prelink.'&subid='.$cookiec.'&subid2='.$lastRowInsert.'&subid3='.$order_product.'&subid4='.$uFBP.'&subid5='.$uFBC.'&external_order_id='.$lastRowInsert.'&redirect='.$baseRedirect;
     
     $_SESSION['userID']    = $userID;
     $_SESSION['userEmail'] = $user_email;
