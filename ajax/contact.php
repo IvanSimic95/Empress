@@ -17,21 +17,19 @@ if ($request === 'POST') {
 $cat = $_POST['category'];
 $ema = $_POST['email'];
 $msg = $_POST['message'];
-$name = "test";
+$name = "customer";
 
 $email = new Mail();
 			$email->setFrom("contact@psychic-empress.com", "Psychic Empress");
 			$email->setSubject("Support Request");
-			$email->addTo(
-				$ema,
-        $name,
+			$email->addTo("contact@psychic-empress.com", "Psychic Empress",
 				[
 					"category" => $cat,
 					"email" => $ema,
 					"message" => $msg,
-			
 				]
 			);
+			$email->replyTo($ema, $name);
 			$email->setTemplateId("d-571356252dcb43a6a5a21000cf895328");
 			$sendgrid = new \SendGrid($sendg3);
 			try {
