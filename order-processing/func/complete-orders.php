@@ -498,7 +498,7 @@ echo "Starting complete-orders.php...<br><br>";
 					"drawinglink" => $drawing,
 				]
 			);
-			$email->setTemplateId("d-94ff935883c14a6186def78f3bef0d84");
+			$email->setTemplateId("d-d012c284c2684ef38f9e223c483322c9");
 			$sendgrid = new \SendGrid($sendg3);
 			try {
 				$response = $sendgrid->send($email);
