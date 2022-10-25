@@ -57,9 +57,10 @@ $newPrice = $orderPrice / 2;
 			echo "<hr>";
        		
 			if($hours > 1 && $hours < 2){
+				echo "yep";
 			if($cart == "active"){
 
-				echo "yep";
+				
 			//Check if any previous orders
 			$sql = "SELECT * FROM `orders` WHERE (`order_email` = '$orderEmail' AND `order_product` = '$orderProduct' AND `order_status` = 'processing') OR (`order_email` = '$orderEmail' AND `order_product` = '$orderProduct' AND `order_status` = 'completed') ORDER BY `order_id` DESC";
 			$result = $conn->query($sql);
