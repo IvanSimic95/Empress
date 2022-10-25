@@ -59,7 +59,7 @@ $newPrice = $orderPrice / 2;
 			$count = $result->num_rows;
 
 			$AbandonSubject = "You forgot about your order!";
-				if($count <= 1) {
+				if($count >= 1) {
 					$email = NULL;
 					$sendgrid = NULL;
 					$response = NULL;
