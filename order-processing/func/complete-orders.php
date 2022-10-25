@@ -507,11 +507,8 @@ echo "Starting complete-orders.php...<br><br>";
 				error_log($orderEmail);
 
 				
-			$logArray[] =  "New order email sent";
-			echo "New order email sent";
-
-			SuperLog($logArray, "start-orders");
-			unset($logArray);
+			$logArray[] =  "Complete order email sent";
+			echo "Complete order email sent";
             echo " <br>"; 
 		} catch (Exception $e) { 
 			echo 'Caught exception: '.  $e->getMessage(). "\n";
