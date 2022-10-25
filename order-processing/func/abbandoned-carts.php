@@ -51,9 +51,9 @@ echo "Starting abbandoned-carts.php...<br><br>";
 			echo "<hr>";
 			echo $orderID;
 			echo "<br>";
-			echo $cart;
+			echo $hours;
 			echo "<br>";
-			echo $orderProduct;
+			echo $cart;
 			echo "<hr>";
        		
 			if($hours > 1 && $hours <= 47){
