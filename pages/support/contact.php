@@ -156,9 +156,10 @@ $customJS = <<<EOT
           $("#floatingSelect").on("change", function() {
     
             var value = this.value;
-            alert(value);
-            if(value == "order"){
-                        alert("YAY");
+            if(value == "3"){
+              $("#orderid").show;
+            }else{
+              $("#orderid").hide;
             }
                   
         }).change();
