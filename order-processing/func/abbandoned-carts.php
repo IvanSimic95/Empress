@@ -49,14 +49,7 @@ use SendGrid\Mail\Mail;
             $logArray[] =  $hours." Hours ago";
 
 			$CreatedAt = time();
-			echo "<hr>";
-			echo $orderID;
-			echo "<br>";
-			echo $hours;
-			echo "<br>";
-			echo $cart;
-			echo "<hr>";
-
+	
 			
        		
 			if($hours > 1 && $hours <= 47){
