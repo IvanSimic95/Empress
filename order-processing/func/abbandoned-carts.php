@@ -57,7 +57,9 @@ echo "Starting abbandoned-carts.php...<br><br>";
 			echo "<hr>";
 
 			if($hours > 1 && $hours <= 47){
+				if($cart == "active"){
 				echo "YES!";
+				}
 			}
        		
 			if($hours > 1 && $hours <= 47){
