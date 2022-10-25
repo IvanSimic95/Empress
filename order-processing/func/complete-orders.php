@@ -479,6 +479,7 @@ echo "Starting complete-orders.php...<br><br>";
 			$product_nice = $row["product_nice"];
 
 			$reading = trim(preg_replace('/\s+/', ' ', $message));
+			$reading = str_replace("<br>"," ",$reading);
 			$drawing = $imgURL;
 
 			$email = new Mail();
