@@ -228,7 +228,25 @@
     </div>
       
       
-            <hr class="mb-3">
+    <hr>
+
+<div class="bg-secondary rounded p-3 mt-2 mb-2 product-stats clearfix">
+Readings are a one-time fee of $29.99. T<b>his small fee covers the psychics time to draw your soulmate and perform the detailed reading.</b>
+                                </div>
+<hr>
+<div style="border:solid 3px #e836ba;background-color: #ff00d529;border-width:3px;border-radius:6px;" class=" rounded p-3 mt-2 mb-2 product-stats clearfix">
+<div style="background-color:#fff;border-radius:3px;padding:5px;">
+<img src="/assets/img/arrow-flash-small.webp">
+<div class="form-check mb-0" style="display:inline-block">
+ 
+  <input class="form-check-input" id="flexCheckDefault" type="checkbox" value="yes" name="premium" />
+  <label class="form-check-label" for="flexCheckDefault"></label></div>
+  <div style="display:inline-block;font-size:120%;"><b>Premium Reading</b></div></div>
+  <div style="display:block;">
+  <b>Upgrade To A Premium Soulmate Reading For Only $19.99 Today Only</b><br>
+  This Includes: - Finding Out Your Soulmate's Initials, Where You'll Meet & Meeting Time
+
+                                </div></div>
 
 
 
