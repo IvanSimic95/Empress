@@ -25,6 +25,7 @@ use SendGrid\Mail\Mail;
 			$cart = $row["abandoned_cart"];
 			$orderProduct = $row["order_product"];
 			$orderPriority = $row["order_priority"];
+			$order_product_nice = $row["product_nice"];
 			$orderEmail = $row["order_email"];
 			$orderStatus = $row["order_status"];
 			$emailLink = $base_url ."/dashboard.php?check_email=" .$orderEmail;
