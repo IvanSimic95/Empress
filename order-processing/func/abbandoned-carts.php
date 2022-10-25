@@ -48,6 +48,9 @@ $newPrice = $orderPrice / 2;
             $logArray[] =  $hours." Hours ago";
 
 			$CreatedAt = time();
+
+			echo $hours;
+			echo "<br>";
        		
 			if($hours > 1 && $hours < 2){
 			if($cart == "active"){
