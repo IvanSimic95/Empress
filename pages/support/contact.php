@@ -159,6 +159,7 @@ $customJS = <<<EOT
             alert(value);
             if(value == "order"){
                         alert("YAY");
+            }
                   
         }).change();
         
