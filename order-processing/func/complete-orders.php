@@ -471,6 +471,7 @@ echo "Starting complete-orders.php...<br><br>";
 			$end = new \DateTime($date2);
 			$interval = new \DateInterval('PT1H');
 			$periods = new \DatePeriod($start, $interval, $end);
+			$orderProductCode = $row["product_codename"];
 			$hours = iterator_count($periods);
 
 			$price = $row["order_price"];
