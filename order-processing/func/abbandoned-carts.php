@@ -56,12 +56,12 @@ $newPrice = $orderPrice / 2;
 			if($hours > 1 && $hours < 2){
 			if($cart == "active"){
 
-				
+				echo "yep";
 			//Check if any previous orders
-			$sql = "SELECT * FROM `orders` WHERE (`order_email` = '$orderEmail' AND `order_product` = '$orderProduct' AND `order_status` = 'processing') OR (`order_email` = '$orderEmail' AND `order_product` = '$orderProduct' AND `order_status` = 'shipped') ORDER BY `order_id` DESC";
+			$sql = "SELECT * FROM `orders` WHERE (`order_email` = '$orderEmail' AND `order_product` = '$orderProduct' AND `order_status` = 'processing') OR (`order_email` = '$orderEmail' AND `order_product` = '$orderProduct' AND `order_status` = 'completed') ORDER BY `order_id` DESC";
 			$result = $conn->query($sql);
 			$count = $result->num_rows;
-				echo $count;
+				echo "Count: ".$count;
 			$AbandonSubject = "You forgot about your order!";
 				if($count >= 1) {
 					$email = NULL;
