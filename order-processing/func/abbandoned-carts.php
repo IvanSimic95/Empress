@@ -67,7 +67,7 @@ use SendGrid\Mail\Mail;
 					$result = $conn->query($sql);
 					$count = $result->num_rows;
 		
-						if($count <= 1) {
+						if($count <= 5) {
 							$email = NULL;
 							$sendgrid = NULL;
 							$response = NULL;
