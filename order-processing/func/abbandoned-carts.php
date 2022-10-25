@@ -48,10 +48,13 @@ $newPrice = $orderPrice / 2;
             $logArray[] =  $hours." Hours ago";
 
 			$CreatedAt = time();
-
-			echo $hours;
+			echo "<hr>";
+			echo $orderID;
 			echo "<br>";
 			echo $cart;
+			echo "<br>";
+			echo $orderProduct;
+			echo "<hr>";
        		
 			if($hours > 1 && $hours < 2){
 			if($cart == "active"){
@@ -63,7 +66,7 @@ $newPrice = $orderPrice / 2;
 			$count = $result->num_rows;
 				echo "Count: ".$count;
 			$AbandonSubject = "You forgot about your order!";
-				if($count >= 1) {
+				if($count <= 1) {
 					$email = NULL;
 					$sendgrid = NULL;
 					$response = NULL;
