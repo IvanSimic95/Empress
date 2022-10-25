@@ -147,26 +147,25 @@ $count = $result->num_rows;
 <?php
 $customJS = <<<EOT
 <script src="/vendors/lottie/lottie.min.js"></script>
-<script>
-var selectElement = $("#floatingSelect");
-var order = $("#orderid");
-order.hide();
 
-$("#floatingSelect").on("change", function(){
-    var selectedClass = this.value;
-
-    if(selectedClass == "order"){
-      order.show();
-
-    };
-});
-</script>
 <script>
 
 
         $(document).ready(function($){
 
-
+          var selectElement = $("#floatingSelect");
+          var order = $("#orderid");
+          order.hide();
+          
+          $("#floatingSelect").on("change", function(){
+              var selectedClass = this.value;
+          
+              if(selectedClass == "order"){
+                order.show();
+          
+              };
+          });
+          
 
      
         // hide messages 
