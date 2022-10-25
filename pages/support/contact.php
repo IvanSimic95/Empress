@@ -153,19 +153,15 @@ $customJS = <<<EOT
 
         $(document).ready(function($){
 
-          var selectElement = $("#floatingSelect");
-          var order = $("#orderid");
-          order.hide();
-          
-          $("#floatingSelect").on("change", function(){
-              var selectedClass = this.value;
-          
-              if(selectedClass == "order"){
-                order.show();
-          
-              };
-          });
-          
+          $("#floatingSelect").on("change", function() {
+    
+            var value = this.value;
+            alert(value);
+            if(value == "order"){
+                        alert("YAY");
+                  
+        }).change();
+        
 
      
         // hide messages 
