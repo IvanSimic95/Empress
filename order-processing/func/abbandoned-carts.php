@@ -56,7 +56,7 @@ $newPrice = $orderPrice / 2;
 			echo $orderProduct;
 			echo "<hr>";
        		
-			if($hours > 1 && $hours < 2){
+			if($hours >= 1 && $hours <= 2){
 				echo "yep";
 			if($cart == "active"){
 
