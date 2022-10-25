@@ -139,19 +139,6 @@ $count = $result->num_rows;
         </div>
     </section>
 </div>
-<script>
-  var selectElement = $("#floatingSelect");
-selectElement.hide();
-
-$("#selectclass").on("change", function(){
-    var selectedClass = this.value;
-
-    if(selectedClass != "default"){
-       selectElement.show();
-
-    };
-});
-</script>
 <?php
 $customJS = <<<EOT
 <script src="/vendors/lottie/lottie.min.js"></script>
