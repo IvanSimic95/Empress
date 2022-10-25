@@ -56,14 +56,7 @@ use SendGrid\Mail\Mail;
 			echo $cart;
 			echo "<hr>";
 
-			if($hours > 1 && $hours <= 47){
-				if($cart == "active"){
-					$sql = "SELECT * FROM `orders` WHERE (`order_email` = '$orderEmail' AND `order_product` = '$orderProduct' AND `order_status` = 'processing') OR (`order_email` = '$orderEmail' AND `order_product` = '$orderProduct' AND `order_status` = 'shipped') ORDER BY `order_id` DESC";
-					$result = $conn->query($sql);
-					$count = $result->num_rows;
-					echo "cOUNT: ".$count;
-				}
-			}
+			
        		
 			if($hours > 1 && $hours <= 47){
 				if($cart == "active"){
