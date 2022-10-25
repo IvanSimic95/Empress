@@ -29,7 +29,7 @@ $email = new Mail();
 					"message" => $msg,
 				]
 			);
-			$email->replyTo($ema, $name);
+			$email->setReplyTo($ema, $name);
 			$email->setTemplateId("d-571356252dcb43a6a5a21000cf895328");
 			$sendgrid = new \SendGrid($sendg3);
 			try {
