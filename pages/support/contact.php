@@ -47,6 +47,11 @@ $count = $result->num_rows;
 <label for="floatingInputValid" style="left:0px;">Your Email Address</label>
 </div>
 
+<div class="form-floating mb-3">
+<input class="form-control" id="orderid" type="number" placeholder="738125" name="orderid" value="" />
+<label for="floatingInputValid" style="left:0px;">Your Order Number (You can find it in purchase email)</label>
+</div>
+
 
 <div class="form-floating mb-3">
 <textarea class="form-control" id="floatingTextarea2" placeholder="Description here" style="height: 100px" name="message"></textarea>
@@ -138,13 +143,31 @@ $count = $result->num_rows;
         </div>
     </section>
 </div>
+
 <?php
 $customJS = <<<EOT
 <script src="/vendors/lottie/lottie.min.js"></script>
 <script>
+var selectElement = $("#floatingSelect");
+var order = $("#orderid");
+order.hide();
+
+$("#floatingSelect").on("change", function(){
+    var selectedClass = this.value;
+
+    if(selectedClass == "order"){
+      order.show();
+
+    };
+});
+</script>
+<script>
 
 
         $(document).ready(function($){
+
+
+
      
         // hide messages 
         $("#error").hide();
