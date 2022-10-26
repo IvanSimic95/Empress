@@ -67,16 +67,8 @@
     <!--    FB Pixel Code & Meta tags   -->
     <!-- ===============================================-->
     <!--FBMETATAGS-->
-    
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-143014473-9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <meta name="facebook-domain-verification" content="fpi7egx6w3fefgbj3x5766wdmjpofs" />
 
-  gtag('config', 'UA-143014473-9');
-</script>
 
 
  <script>
