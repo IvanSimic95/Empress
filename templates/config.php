@@ -75,13 +75,13 @@ if($domain == "empress.test"){
 	$servername = "localhost";
 	$username = "root";
 	$password = "";
-	$db = "pa";
+	$db = "empress";
   $base_url = "https://empress.test";
 }else{
 	$servername = "localhost";
-	$username = "psychic_newpanel";
+	$username = "theisenb_empress";
 	$password = "Jepang123Iva";
-	$db = "psychic_newpanel";
+	$db = "theisenb_empress";
   $base_url = "https://psychic-empress.com";
 }
 
