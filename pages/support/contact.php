@@ -1,5 +1,5 @@
 <?php
-$title = "Contact - Support | Psychic Artist";
+$title = "Contact - Support | Psychic Empress";
 $sdescription = "Contact Us so we can help you!";
 
 
@@ -17,16 +17,7 @@ $count = $result->num_rows;
     <section class="py-0 overflow-hidden light" id="banner">
         <div class="container p-0">
 
-        <?php if(isset($_SESSION['loggedIn'])){ ?>
-         
-          
-                        <div class="alert alert-info border-2 d-flex align-items-center mt-1 col-12 offset-0 col-md-10 offset-md-1 mb-0" role="alert">
-                        <span class="bg-info me-3 icon-item"><span class="fas fa-info-circle text-white fs-3"></span></span>
-                        <p class="mb-0 d-block">I see that you are one of our customers, I highly recommend contacting us via live chat!<br> Wanna do that now?</p><br>
-                       
-                        </div>
-                        <a href="/dashboard/support" class="btn btn-primary d-block mb-3 mt-2 rounded-3 col-12 offset-0 col-md-10 offset-md-1" type="submit">Go to Live Chat! </a>
-            <?php } ?>
+
 
         <div class="card theme-wizard mb-5 col-12 offset-0 col-md-10 offset-md-1" id="wizard">
               <div class="card-header bg-light px-3 pt-3 pb-3 px-md-5">
@@ -38,8 +29,39 @@ $count = $result->num_rows;
                   <div class="tab-pane active px-sm-3 px-md-5" role="tabpanel" aria-labelledby="bootstrap-wizard-tab1" id="bootstrap-wizard-tab1">
                   
 
-                      <div class="elfsight-app-c96edf1d-ddee-4ee6-8816-19f06ec91f55"></div>
+                  <form id="ajax-form" class="form-support" name="support_form" action="javascript:void(0)" method="post">
 
+<div class="form-floating mb-3">
+<select class="form-select" name="category" id="floatingSelect" aria-label="Floating label select example">
+    <option value="1"  selected="">General Question</option>
+    <option value="2">Payment</option>
+    <option value="3">Order</option>
+    <option value="4">User Profile</option>
+    <option value="4">Feedback</option>
+</select>
+<label for="floatingSelect"  style="left:0px;">What can we help you with? *</label>
+</div>
+
+<div class="form-floating mb-3">
+<input class="form-control" id="emailInput" type="email" placeholder="name@example.com" name="email" value="<?php if(isset($_SESSION['email']))echo $_SESSION['email']; ?>" />
+<label for="floatingInputValid" style="left:0px;">Your Email Address</label>
+</div>
+
+
+
+<div class="form-floating mb-3">
+<textarea class="form-control" id="floatingTextarea2" placeholder="Description here" style="height: 100px" name="message"></textarea>
+<label for="floatingTextarea2"  style="left:0px;">Description of the issue</label>
+</div>
+
+<button id="submitbtn" type="submit" name="form_submit" style="display:block;" class="btn btn-submit-form btn-primary btn-shadow w-100 btn-add-to-cart mb-1 mt-1 fw-bold fs-2">Submit support request!</button></div>
+
+    </form>
+    <div id="success-msg" style="display:none;" class="">
+                        <div class="alert alert-success border-2 d-flex align-items-center mt-1" role="alert">
+                        <div class="bg-success me-3 icon-item d-none d-sm-flex"><span class="fas fa-info-circle text-white fs-3"></span></div>
+                        <p class="mb-0 flex-1">Support Request Sent!</p>
+                        </div>
 
                   <!--
                   <form name="contact_form" action="" method="post">
@@ -120,27 +142,66 @@ $count = $result->num_rows;
 <?php
 $customJS = <<<EOT
 <script src="/vendors/lottie/lottie.min.js"></script>
+<script>
 
-function fff(){
-  alert(1);
-  return false;
-}   
 
-$(document).ready(function(){
+        $(document).ready(function($){
 
-$("#yes" ).click(function(){
-$("#yes").hide();
-$("#no").hide();
-$(".help-info").text("Thank you for your opinion!");
-});
 
-$("#no" ).click(function(){
-$("#yes").hide();
-$("#no").hide();
-$(".help-info").text("Thank you for your opinion!");
-});
 
-});
+     
+        // hide messages 
+        $("#error").hide();
+        $("#success-msg").hide();
+        $("#show_message").hide();
+     
+        // on submit...
+        $('#ajax-form').submit(function(e){
+     
+            e.preventDefault();
+     
+            $("#error").hide();
+            $("#submitbtn").html('<i class="fas fa-spinner fa-pulse"></i> Loading...');
+            $("#submitbtn").prop('disabled', true);
+
+            // ajax
+            $.ajax({
+                type:"POST",
+                url: "/ajax/contact.php",
+                dataType: 'json',
+                data: $(this).serialize(),
+                success: function(data){
+                  var SubmitStatus = data[0];
+                  var DataMSG = data[1];
+     
+                  if (SubmitStatus == "Success"){
+                  var Redirect = data[2];
+                  $("#show_message").html(DataMSG);
+                  $("#show_message").fadeIn();
+                  $("#submitbtn").html('<i class="fas fa-spinner fa-pulse"></i> Loading...');
+                  
+                  setTimeout(function(){
+                    $('#ajax-form').hide();
+                    $('#success-msg').show();
+                    $("#submitbtn").hide();
+                    $("#welcome-msg").hide();
+                    
+                  }, 2000);
+
+                  }else{
+                  $("#error").html(DataMSG);
+                  $("#error").fadeIn();
+                  $("#submitbtn").html("Error Occured!");
+                  }
+
+                }
+            });
+        });  
+     
+        return false;
+    });
+
+
 </script>
 
 EOT;

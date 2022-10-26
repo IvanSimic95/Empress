@@ -9,7 +9,7 @@
   "mpn": "925872",
   "brand": {
         "@type": "Brand",
-        "name": "Psychic Artist"
+        "name": "Psychic Empress"
       },
   "aggregateRating": {
     "@type": "AggregateRating",
@@ -26,7 +26,7 @@
     "availability": "http://schema.org/InStock",
     "seller": {
       "@type": "Organization",
-      "name": "Psychic Artist"
+      "name": "Psychic Empress"
     }
   }
 }

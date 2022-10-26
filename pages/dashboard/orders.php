@@ -3,7 +3,7 @@ if(!isset($_SESSION['loggedIn'])){
 header("Location: /dashboard");
 die();
 }
-$title = "Dashboard - Orders | Psychic Artist"; 
+$title = "Dashboard - Orders | Psychic Empress"; 
 $insertPage = "orders";
 $pageTitle1 = "All Orders";
 $sdescription = "A full list of all your orders in one place";

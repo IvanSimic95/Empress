@@ -1,5 +1,5 @@
 <?php
-$title = "Refund Policy | Psychic Artist";
+$title = "Refund Policy | Psychic Empress";
 $sdescription = "We offer refunds on purchase of our digital goods.";
 ?>
 

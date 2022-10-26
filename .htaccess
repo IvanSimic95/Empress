@@ -1,10 +1,11 @@
-RewriteEngine On 
+AddHandler application/x-httpd-ea-php8 .php
+RewriteEngine On
 RewriteBase /
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_URI} !^index\.php$
 RewriteRule ^(.+)$ index.php/$1 [QSA,L]
-RewriteCond %{HTTPS} off 
+RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 ErrorDocument 403 /templates/error/403.php
 ErrorDocument 404 /templates/error/404.php
@@ -21,7 +22,7 @@ RedirectPermanent /soulmate /shop/soulmate
 RedirectPermanent /twin-flame /shop/twin-flame
 RedirectPermanent /future-spouse /shop/future-spouse
 <IfModule mod_expires.c>
-  ExpiresActive On
+ExpiresActive On
  # Images
   ExpiresByType image/jpeg "access plus 1 year"
   ExpiresByType image/gif "access plus 1 year"

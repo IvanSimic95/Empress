@@ -89,9 +89,18 @@ $avgrating = $avg;
 
 
 
-          <input class="cookie" type="hidden" name="cookie_id" value="<?php echo $_SESSION['cookie']; ?>">
-          <input class="landingpage" type="hidden" name="landingpage" value="Personal1">
-          <input class="btntext" type="hidden" name="btntext" value="Place an Order">
+    <input class="cookie" type="hidden" name="cookie_id1" value="<?php echo $_SESSION['cookie']; ?>">
+    <input class="cookie" type="hidden" name="cookie_id2" value="<?php echo $_SESSION['cookie2']; ?>">
+    <input class="cookie" type="hidden" name="cookie_id3" value="<?php echo $_SESSION['cookie3']; ?>">
+      
+    <input class="landingpage" type="hidden" name="landingpage" value="Personal1">
+    <input class="btntext" type="hidden" name="btntext" value="Place an Order">
+      
+    <input class="fbp" type="hidden" name="fbp" value="<?php echo $UserFBP; ?>">
+    <input class="fbc" type="hidden" name="fbc" value="<?php echo $UserFBC; ?>">
+
+    <input class="fbp" type="hidden" name="ip" value="<?php echo $userip; ?>">
+    <input class="fbc" type="hidden" name="agent" value="<?php echo $userAgent; ?>">
        
           <div class="gradient mt-3 mb-3 text-start fs-1">
             Psychics use natural intuition to conduct detailed psychic readings. This “sixth sense” provides us with a deeper view into the emotional, physical, and spiritual essence of those seeking readings.<br>

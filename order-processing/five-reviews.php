@@ -1,21 +1,23 @@
 <?php
 date_default_timezone_set('Europe/Zagreb');
 //Check if server is localhost or guru and save DB info
+//Check if server is localhost or guru and save DB info
 $domain = $_SERVER['SERVER_NAME'];
 if($domain == "empress.test"){
 	$servername = "localhost";
 	$username = "root";
 	$password = "";
-	$db = "pa";
+	$db = "empress";
   $base_url = "https://empress.test";
+  $path_base = $_SERVER['DOCUMENT_ROOT'].'/pages';
 }else{
 	$servername = "localhost";
-	$username = "psychic_newpanel";
+	$username = "theisenb_empress";
 	$password = "Jepang123Iva";
-	$db = "psychic_newpanel";
+	$db = "theisenb_empress";
   $base_url = "https://psychic-empress.com";
+  $path_base = $_SERVER['DOCUMENT_ROOT'].'/pages/';
 }
-
 // Create connection
 $conn = new mysqli($servername, $username, $password, $db);
 $conn->query('set character_set_client=utf8');

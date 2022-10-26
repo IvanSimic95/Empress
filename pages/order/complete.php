@@ -2,7 +2,7 @@
 //include $_SERVER['DOCUMENT_ROOT'].'/templates/noskip.php';
 $dashboardRedirect = $errorDisplay = $showError = $showErrorText = "";
 $DBsaved = 0;
-$title = "Order complete! | Psychic Artist"; 
+$title = "Order complete! | Psychic Empress"; 
 $sdescription = "You can now proceed to your user dashboard by clicking the button below!";
 $galert = "Your Orders have been Created!";
 if(isset($_POST['form_submit'])){
@@ -65,8 +65,6 @@ $_SESSION['partnerGender'] = $newPGender;
 
 $_SESSION['FBdob'] = date("Ymd", strtotime($_SESSION['dob']));
 
-$_SESSION['gender'] = $rowU['gender'];
-$_SESSION['partnerGender'] = $rowU['partner_gender'];
 
 $gender = $_SESSION['gender'];
 switch ($gender) {
@@ -324,10 +322,6 @@ if($formDate == "US"){
 $customJS = <<<EOT
 
 <script>
-$(window).on('load', function(){
-    window.cp('push');
-});
-
 $("#userName, #userDobUS, #userDob, #userEmail, #SelectGender, #SelectPGender").on("change keyup paste", function(){
   $('#SaveChanges').prop('disabled', false);
   $('#SaveChanges').slideDown("slow");

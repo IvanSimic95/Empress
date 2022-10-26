@@ -1,7 +1,7 @@
 <?php
 include $_SERVER['DOCUMENT_ROOT'].'/templates/dashboard/login-function.php';
 $breadcrumbsDisable = "1";
-$title = "Dashboard | Psychic Artist"; 
+$title = "Dashboard | Psychic Empress"; 
 $insertPage = "main";
 $pageTitle1 = "Dashboard";
 $sdescription = "Access your user account and your orders";

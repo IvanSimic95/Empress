@@ -34,40 +34,51 @@ $firephp = FirePHP::getInstance(true);
 //$firephp->fb('Warn message' ,FirePHP::WARN);
 //$firephp->fb('Error message',FirePHP::ERROR);
 
+$FBPixel  = "";
 
+$sendg1 = "SG.IbkVjaCLQymTp7Esy9F";
+$sendg2 = "-uQ.WlamcbbyqJ5DZRqdWqC5ecAQPsudMsAjFBtgoVL1ttw";
+$sendg3 = $sendg1.$sendg2;
+
+//Data for FB Conversions API
+$accessToken1 = "EAAxkvwzdc3kBAM3YGxUaEygEr7cdXJ9bxE8hGZC2tfmkW9BXAWZA67HcZB0SyoDYrMLs9Afgp086Yqm55zDg";
+$accessToken2 = "DZAdoLErhsa7kHwFJVZA7C6HBMqdIsERWoJ8zXZAeaQtDqFgAMCTa8K0kVMdp3EPZBYGhnOjPjTOg9KkjPelq9Mu1qmvU9iTZBrm";
+$fbAccessToken = $accessToken1.$accessToken2;
+$sendFBAPI = 0; #Set to 1 to send data via api
 
 
 
 
 //START Order Messages
-$processingWelcome = "We are now processing your *Order #%ORDERID%*\n\nYour order will be delivered to your email in %PRIORITY% hours or less.\n\nIf this is your first order your new account will be created automatically\n\nIn order to automatically login to your account just <%EMAILLINK%|Click Here!>\n\n_With Love!_\nPsychic Artist";
+$processingWelcome = "We are now processing your *Order #%ORDERID%*\n\nYour order will be delivered to your email in %PRIORITY% hours or less.\n\nIf this is your first order your new account will be created automatically\n\nIn order to automatically login to your account just <%EMAILLINK%|Click Here!>\n\n_With Love!_\nPsychic Empress";
 
 
 //Complete Soulmate, Twin Flame & Future Spouse Text added Before and After Order Text
 $generalOrderHeader = "Dear %FIRSTNAME%\n\nFirst of all, thank you so much for giving me the opportunity to create a meaningful connection with you! As we continue, please make yourself comfortable and feel wholeheartedly everything I’ve seen while connecting with your aura and energy. I hope that sharing this with you will kindle a light of joy in your heart, and let you know that beautiful things are on the way.\n\n";
-$generalOrderFooter = "\n\n It was such a pleasure doing your reading, my dear. I hope that you enjoy it as much as I enjoyed connecting with your beautiful soul energy!\n\nWith Love,\nPsychic Artist";
+$generalOrderFooter = "\n\n It was such a pleasure doing your reading, my dear. I hope that you enjoy it as much as I enjoyed connecting with your beautiful soul energy!\n\nWith Love,\nPsychic Empress";
 
 //Complete Future Baby Text added Before and After Order Text
 $babyOrderHeader = "Dear %FIRSTNAME%\n\nFirst of all, thank you so much for giving me the opportunity to create a meaningful connection with you! As we continue, please make yourself comfortable and feel wholeheartedly everything I’ve seen while connecting with your aura and energy. I hope that sharing this with you will kindle a light of joy in your heart, and let you know that beautiful things are on the way.\n\n";
-$babyOrderFooter = "\n\n It was such a pleasure doing your reading, my dear. I hope that you enjoy it as much as I enjoyed connecting with your beautiful soul energy!\n\nWith Love,\nPsychic Artist";
+$babyOrderFooter = "\n\n It was such a pleasure doing your reading, my dear. I hope that you enjoy it as much as I enjoyed connecting with your beautiful soul energy!\n\nWith Love,\nPsychic Empress";
 
 //Complete Reading Text added Before and After Order Text
 $readingOrderHeader = "Dear %FIRSTNAME%\n\nFirst of all, thank you so much for giving me the opportunity to create a meaningful connection with you! As we continue, please make yourself comfortable and feel wholeheartedly everything I’ve seen while connecting with your aura and energy. I hope that sharing this with you will kindle a light of joy in your heart, and let you know that beautiful things are on the way.\n\n";
-$readingOrderFooter = "\n\n It was such a pleasure doing your reading, my dear. I hope that you enjoy it as much as I enjoyed connecting with your beautiful soul energy!\n\nWith Love,\nPsychic Artist";
+$readingOrderFooter = "\n\n It was such a pleasure doing your reading, my dear. I hope that you enjoy it as much as I enjoyed connecting with your beautiful soul energy!\n\nWith Love,\nPsychic Empress";
 
 //Complete Past Life Text added Before and After Order Text
 $pastOrderHeader = "Dear %FIRSTNAME%\n\nFirst of all, thank you so much for giving me the opportunity to create a meaningful connection with you! As we continue, please make yourself comfortable and feel wholeheartedly everything I’ve seen while connecting with your aura and energy. I hope that sharing this with you will kindle a light of joy in your heart, and let you know that beautiful things are on the way.\n\n";
-$pastOrderFooter = "\n\n It was such a pleasure doing your reading, my dear. I hope that you enjoy it as much as I enjoyed connecting with your beautiful soul energy!\n\nWith Love,\nPsychic Artist";
+$pastOrderFooter = "\n\n It was such a pleasure doing your reading, my dear. I hope that you enjoy it as much as I enjoyed connecting with your beautiful soul energy!\n\nWith Love,\nPsychic Empress";
 
 
 //Order Processing & Order Complete Notifications
 $OrderProcessingMessage = "Your Order status is now set to *Processing*!";
 
 $OrderCompleteMessage = "Your Order status is now set to *Complete*!";
-$ContinueConvoMsg = "If you want to chat with Melissa, simply reply to this conversation!";
+$ContinueConvoMsg = "If you want to chat with Empress, simply reply to this conversation!";
 //END Order Messages
 
-
+$AbandonSubject = "The Timer’s Going Off on Your Order!";
+$AbandonMessage = "Look's like you forgot to finish your order... But don't worry, we kept it safe for you! Click the button below to finish your purchase & get closer to your soulmate.";
 
 //Check if server is localhost or guru and save DB info
 $domain = $_SERVER['SERVER_NAME'];
@@ -77,12 +88,14 @@ if($domain == "empress.test"){
 	$password = "";
 	$db = "empress";
   $base_url = "https://empress.test";
+  $path_base = $_SERVER['DOCUMENT_ROOT'].'/pages';
 }else{
 	$servername = "localhost";
 	$username = "theisenb_empress";
 	$password = "Jepang123Iva";
 	$db = "theisenb_empress";
   $base_url = "https://psychic-empress.com";
+  $path_base = $_SERVER['DOCUMENT_ROOT'].'/pages/';
 }
 
 
@@ -125,6 +138,17 @@ $pimage = $webLogo;
 
 
 $pixelActive = 0;
+
+
+$userAgent = $_SERVER['HTTP_USER_AGENT'];
+
+if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+    $userip = $_SERVER['HTTP_CLIENT_IP'];
+} elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+    $userip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+} else {
+    $userip = $_SERVER['REMOTE_ADDR'];
+}
 
 
 //BREADCRUMBS CHECK & DISABLE
@@ -185,6 +209,16 @@ if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_N
   $randomNumber = rand(155654654,955654654);
   if(!isset($_SESSION['cookie'])) {
   $_SESSION['cookie'] = $randomNumber;
+  }
+
+  $randomNumber2 = rand(155534654,955654654);
+  if(!isset($_SESSION['cookie2'])) {
+  $_SESSION['cookie2'] = $randomNumber2;
+  }
+
+  $randomNumber3 = rand(1135654654,955654654);
+  if(!isset($_SESSION['cookie3'])) {
+  $_SESSION['cookie3'] = $randomNumber3;
   }
   
   //Check if funnel page is set, if not set a new one
@@ -278,31 +312,31 @@ $notificationsOn = "no";
 
 
 //START Order Messages
-$processingWelcome = "We are now processing your *Order #%ORDERID%*\n\nYour order will be delivered to your email in %PRIORITY% hours or less.\n\nIf this is your first order your new account will be created automatically\n\nIn order to automatically login to your account just <%EMAILLINK%|Click Here!>\n\n_With Love!_\nPsychic Artist";
+$processingWelcome = "We are now processing your *Order #%ORDERID%*\n\nYour order will be delivered to your email in %PRIORITY% hours or less.\n\nIf this is your first order your new account will be created automatically\n\nIn order to automatically login to your account just <%EMAILLINK%|Click Here!>\n\n_With Love!_\nPsychic Empress";
 
 
 //Complete Soulmate, Twin Flame & Future Spouse Text added Before and After Order Text
 $generalOrderHeader = "Dear %FIRSTNAME%\n\nFirst of all, thank you so much for giving me the opportunity to create a meaningful connection with you! As we continue, please make yourself comfortable and feel wholeheartedly everything I’ve seen while connecting with your aura and energy. I hope that sharing this with you will kindle a light of joy in your heart, and let you know that beautiful things are on the way.\n\n";
-$generalOrderFooter = "\n\n It was such a pleasure doing your reading, my dear. I hope that you enjoy it as much as I enjoyed connecting with your beautiful soul energy!\n\nWith Love,\nPsychic Artist";
+$generalOrderFooter = "\n\n It was such a pleasure doing your reading, my dear. I hope that you enjoy it as much as I enjoyed connecting with your beautiful soul energy!\n\nWith Love,\nPsychic Empress";
 
 //Complete Future Baby Text added Before and After Order Text
 $babyOrderHeader = "Dear %FIRSTNAME%\n\nFirst of all, thank you so much for giving me the opportunity to create a meaningful connection with you! As we continue, please make yourself comfortable and feel wholeheartedly everything I’ve seen while connecting with your aura and energy. I hope that sharing this with you will kindle a light of joy in your heart, and let you know that beautiful things are on the way.\n\n";
-$babyOrderFooter = "\n\n It was such a pleasure doing your reading, my dear. I hope that you enjoy it as much as I enjoyed connecting with your beautiful soul energy!\n\nWith Love,\nPsychic Artist";
+$babyOrderFooter = "\n\n It was such a pleasure doing your reading, my dear. I hope that you enjoy it as much as I enjoyed connecting with your beautiful soul energy!\n\nWith Love,\nPsychic Empress";
 
 //Complete Reading Text added Before and After Order Text
 $readingOrderHeader = "Dear %FIRSTNAME%\n\nFirst of all, thank you so much for giving me the opportunity to create a meaningful connection with you! As we continue, please make yourself comfortable and feel wholeheartedly everything I’ve seen while connecting with your aura and energy. I hope that sharing this with you will kindle a light of joy in your heart, and let you know that beautiful things are on the way.\n\n";
-$readingOrderFooter = "\n\n It was such a pleasure doing your reading, my dear. I hope that you enjoy it as much as I enjoyed connecting with your beautiful soul energy!\n\nWith Love,\nPsychic Artist";
+$readingOrderFooter = "\n\n It was such a pleasure doing your reading, my dear. I hope that you enjoy it as much as I enjoyed connecting with your beautiful soul energy!\n\nWith Love,\nPsychic Empress";
 
 //Complete Past Life Text added Before and After Order Text
 $pastOrderHeader = "Dear %FIRSTNAME%\n\nFirst of all, thank you so much for giving me the opportunity to create a meaningful connection with you! As we continue, please make yourself comfortable and feel wholeheartedly everything I’ve seen while connecting with your aura and energy. I hope that sharing this with you will kindle a light of joy in your heart, and let you know that beautiful things are on the way.\n\n";
-$pastOrderFooter = "\n\n It was such a pleasure doing your reading, my dear. I hope that you enjoy it as much as I enjoyed connecting with your beautiful soul energy!\n\nWith Love,\nPsychic Artist";
+$pastOrderFooter = "\n\n It was such a pleasure doing your reading, my dear. I hope that you enjoy it as much as I enjoyed connecting with your beautiful soul energy!\n\nWith Love,\nPsychic Empress";
 
 
 //Order Processing & Order Complete Notifications
 $OrderProcessingMessage = "Your Order status is now set to Processing!";
 
 $OrderCompleteMessage = "Your Order status is now set to Complete!";
-$ContinueConvoMsg = "If you want to chat with Melissa, simply reply to this conversation!";
+$ContinueConvoMsg = "If you want to chat with Emperss, simply reply to this conversation!";
 //END Order Messages
 
 
@@ -695,7 +729,7 @@ if (isset($_SERVER['PATH_INFO'])) {//Check URL Path to figure out what template 
 $path = "/home";//Default URL is pointing to home template
 }
 $splitURL = explode('/',$path);
-$template = $_SERVER['DOCUMENT_ROOT'].'/pages/'.$path.'.php';
+$template = $path_base.$path.'.php';
 //END FUNCTION FOR INDEX.PHP
 
 //START FUNCTION FOR INDEX.PHP ADDON FOR VIEW ORDERS
@@ -704,7 +738,7 @@ if(isset($splitURL[1])){//If variable is set proceed
         if(isset($splitURL[2])){
            if($splitURL[2]=="order"){
             $path="dashboard/order";
-            $template = $_SERVER['DOCUMENT_ROOT'].'/pages/'.$path.'.php';
+            $template = $path_base.$path.'.php';
               if(isset($splitURL[3])){
               $viewOrder = $splitURL[3];
               }
@@ -720,7 +754,7 @@ if(isset($splitURL[1])){//If variable is set proceed
       if(isset($splitURL[2])){
          if($splitURL[2]=="success"){
           $path="/order/success";
-          $template = $_SERVER['DOCUMENT_ROOT'].'/pages/'.$path.'.php';
+          $template = $path_base.$path.'.php';
             if(isset($splitURL[3])){
             $SuccessProduct = $splitURL[3];
             }
@@ -743,6 +777,4 @@ if(isset($splitURL[1])){//If variable is set proceed
 //END FUNCTION FOR INDEX.PHP ADDON FOR SUCCESS PAGE
 
 
-
-include_once $_SERVER['DOCUMENT_ROOT'].'/templates/js-trigger.php';
 ?>

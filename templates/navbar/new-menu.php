@@ -5,8 +5,8 @@
 
       <li class="navSection logo">
         <a class="rootLink item-home colorize" href="/">
-             <img src="/assets/img/logo-1.svg" alt="Psychic Artist Logo #1"> 
-             <img src="/assets/img/logo-2.svg" alt="Psychic Artist Logo #2"> 
+             <img src="/assets/img/logo-1.svg" alt="Psychic Empress Logo #1"> 
+             <img src="/assets/img/logo-2.svg" alt="Psychic Empress Logo #2"> 
         </a>
       </li>
 

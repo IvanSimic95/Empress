@@ -9,7 +9,7 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/templates/header.php';
 if (!file_exists($template)) {
     include $_SERVER['DOCUMENT_ROOT'].'/templates/error/404.php';
 }else{
-    include $_SERVER['DOCUMENT_ROOT'].'/pages/'.$path.'.php'; 
+    include $path_base.$path.'.php'; 
 }
 include $_SERVER['DOCUMENT_ROOT'].'/templates/footer.php'; 
 

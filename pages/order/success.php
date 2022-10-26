@@ -91,59 +91,10 @@ if($SuccessProduct  == "main") {
         $logArray['8'] = "Error: " . $sql2->error . "<br>" . $conn->error;
     }
 
-    //Send data to crowdpower
-    $signedUpAt = time();
-    $clean_order_price = str_replace(".","",$order_total);
 
-    $ch = curl_init();
-    $data = [
-    "email" => $order_email,
-    "amount" => $clean_order_price
-    ];
-    $jData = json_encode($data);
-    curl_setopt($ch, CURLOPT_URL, 'https://beacon.crowdpower.io/charges');
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $jData);
-    $headers = array();
-    $headers[] = 'Content-Type: application/json';
-    $headers[] = 'Authorization: Bearer sk_7b8f2be0b4bc56ddf0a3b7a1eed2699d19e3990ebd3aa9e9e5c93815cdcfdc64';
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-    $result = curl_exec($ch);
-    if($result=='{"success":true,"code":200,"data":null}'){
-        $logArray['8'] = "Success";
-    } else {
-        $logArray['8'] = "Error: ".$result;
-    }
-
-
-    $ch = curl_init();
-    $data = [
-    "name" => "Soulmate",
-    "email" => $order_email
-    ];
-    $jData = json_encode($data);
-    curl_setopt($ch, CURLOPT_URL, 'https://beacon.crowdpower.io/tags');
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $jData);
-    $headers = array();
-    $headers[] = 'Content-Type: application/json';
-    $headers[] = 'Authorization: Bearer sk_7b8f2be0b4bc56ddf0a3b7a1eed2699d19e3990ebd3aa9e9e5c93815cdcfdc64';
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-    $result = curl_exec($ch);
-    $logArray[] =  "Stop Event Sent";
-    if($result=='{"success":true,"code":200,"data":null}'){
-        $logArray[] = "Success";
-    } else {
-        $logArray[] = "Error: ".$result;
-    }
-
-    $logArray['9'] = "No";
    
     $conn->close();
     SuperLog($logArray, "order");
-    unset($_SESSION['cookie_id']);
     $finalLink = "/offer/personal-reading";
 
 }
@@ -154,14 +105,11 @@ if($SuccessProduct  == "main") {
     isset($_GET['total'])           ? $order_total=$_GET['total']        : $errorDisplay .= " Missing Order Total /";
     isset($_GET['order_id'])        ? $order_BGID=$_GET['order_id']      : $errorDisplay .= " Missing BG Order ID /";
 
-    if(isset($_SESSION['orderID'])){
+    if(isset($_GET['subid2'])){
+        $orderID = $_GET['subid2'];
+    }else{
         $orderID = $_SESSION['orderID'];
     }
-    
-    if(isset($_GET['external_order_id'])){
-        $orderID = $_GET['external_order_id'];
-    }
-
 
     if(isset($_SESSION['userID'])){
         $userID = $_SESSION['userID'];
@@ -177,6 +125,25 @@ if($SuccessProduct  == "main") {
             $logArray[] = "User ID found using Order ID";
         }
     }
+
+    $sql5 = "SELECT * FROM `orders` WHERE `order_id` = $orderID";
+    $result5 = $conn->query($sql5);
+    if ($result5){
+        $row5 = mysqli_num_rows($result5);
+            if ($row5 > 0){
+                $createUser = 0;
+                $row5 = $result5->fetch_assoc();
+                $checkProduct = $row5['product_codename'];
+                $logArray['9'] = "Existed: ".$userID;
+            }
+    }
+
+    if($checkProduct == "personal"){
+
+    }else{
+        $errorDisplay .= " Product Isn't correct /".$checkProduct;
+    }
+
 
     $logArray['0'] = "PERSONAL-ORDER-PAID";
 
@@ -221,51 +188,22 @@ if($SuccessProduct  == "main") {
         $logArray['8'] = "Error: " . $sql2->error . "<br>" . $conn->error;
     }
 
-    //Send data to crowdpower
-    $signedUpAt = time();
-    $clean_order_price = str_replace(".","",$order_total);
-
-    $ch = curl_init();
-    $data = [
-    "email" => $order_email,
-    "amount" => $clean_order_price
-    ];
-    $jData = json_encode($data);
-    curl_setopt($ch, CURLOPT_URL, 'https://beacon.crowdpower.io/charges');
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $jData);
-    $headers = array();
-    $headers[] = 'Content-Type: application/json';
-    $headers[] = 'Authorization: Bearer sk_7b8f2be0b4bc56ddf0a3b7a1eed2699d19e3990ebd3aa9e9e5c93815cdcfdc64';
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-    $result = curl_exec($ch);
-    if($result=='{"success":true,"code":200,"data":null}'){
-        $logArray['8'] = "Success";
-    } else {
-        $logArray['8'] = "Error: ".$result;
-    }
-
- 
-    unset($_SESSION['cookie_id']);
+   
     $conn->close();
     SuperLog($logArray, "order");
 
     $finalLink = "/offer/future-baby";
-}
+    }
 }elseif($SuccessProduct  == "baby") { 
     isset($_GET['emailaddress'])    ? $order_email=$_GET['emailaddress'] : $errorDisplay .= " Missing User Email /";
     isset($_GET['total'])           ? $order_total=$_GET['total']        : $errorDisplay .= " Missing Order Total /";
     isset($_GET['order_id'])        ? $order_BGID=$_GET['order_id']      : $errorDisplay .= " Missing BG Order ID /";
 
-    if(isset($_SESSION['orderID'])){
+    if(isset($_GET['subid2'])){
+        $orderID = $_GET['subid2'];
+    }else{
         $orderID = $_SESSION['orderID'];
     }
-    
-    if(isset($_GET['external_order_id'])){
-        $orderID = $_GET['external_order_id'];
-    }
-
 
     if(isset($_SESSION['userID'])){
         $userID = $_SESSION['userID'];
@@ -281,6 +219,25 @@ if($SuccessProduct  == "main") {
             $logArray[] = "User ID found using Order ID";
         }
     }
+
+    $sql5 = "SELECT * FROM `orders` WHERE `order_id` = $orderID";
+    $result5 = $conn->query($sql5);
+    if ($result5){
+        $row5 = mysqli_num_rows($result5);
+            if ($row5 > 0){
+                $createUser = 0;
+                $row5 = $result5->fetch_assoc();
+                $checkProduct = $row5['product_codename'];
+                $logArray['9'] = "Existed: ".$userID;
+            }
+    }
+
+    if($checkProduct == "future-baby"){
+
+    }else{
+        $errorDisplay .= " Product Isn't correct /".$checkProduct;
+    }
+
 
     $logArray['0'] = "BABY-ORDER-PAID";
 
@@ -325,33 +282,6 @@ if($SuccessProduct  == "main") {
         $logArray['8'] = "Error: " . $sql2->error . "<br>" . $conn->error;
     }
 
-    //Send data to crowdpower
-    $signedUpAt = time();
-    $clean_order_price = str_replace(".","",$order_total);
-
-    $ch = curl_init();
-    $data = [
-    "email" => $order_email,
-    "amount" => $clean_order_price
-    ];
-    $jData = json_encode($data);
-    curl_setopt($ch, CURLOPT_URL, 'https://beacon.crowdpower.io/charges');
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $jData);
-    $headers = array();
-    $headers[] = 'Content-Type: application/json';
-    $headers[] = 'Authorization: Bearer sk_7b8f2be0b4bc56ddf0a3b7a1eed2699d19e3990ebd3aa9e9e5c93815cdcfdc64';
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-    $result = curl_exec($ch);
-    if($result=='{"success":true,"code":200,"data":null}'){
-        $logArray['8'] = "Success";
-    } else {
-        $logArray['8'] = "Error: ".$result;
-    }
-
- 
-    unset($_SESSION['cookie_id']);
     $conn->close();
     SuperLog($logArray, "order");
 

@@ -3,7 +3,7 @@ if(!isset($_SESSION['loggedIn'])){
 header("Location: /dashboard");
 die();
 }
-$title = "Order #".$viewOrder." - Dashboard | Psychic Artist";
+$title = "Order #".$viewOrder." - Dashboard | Psychic Empress";
 $insertPage = "order";
 $pageTitle1 = "Order #".$viewOrder."";
 $sdescription = "Take a look at your order details!";

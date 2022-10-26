@@ -60,7 +60,9 @@ $avgrating = $avg;
                   <form class="readings" action="/order/order-baby" method="get" style="text-align:left;">
  
  
-        <input class="cookie" type="hidden" name="cookie_id" value="<?php echo $_SESSION['cookie']; ?>">
+        <input class="cookie" type="hidden" name="cookie_id1" value="<?php echo $_SESSION['cookie']; ?>">
+        <input class="cookie" type="hidden" name="cookie_id2" value="<?php echo $_SESSION['cookie2']; ?>">
+        <input class="cookie" type="hidden" name="cookie_id3" value="<?php echo $_SESSION['cookie3']; ?>">
         <input class="cookie" type="hidden" name="landingpage" value="Baby1">
         <input class="btntext" type="hidden" name="btntext" value="Place an Order">
 
