@@ -41,8 +41,8 @@ $sendg2 = "-uQ.WlamcbbyqJ5DZRqdWqC5ecAQPsudMsAjFBtgoVL1ttw";
 $sendg3 = $sendg1.$sendg2;
 
 //Data for FB Conversions API
-$accessToken1 = "EAAev7WmVjkIBANmwds5aSyyoPgZBWSw9LRkiUvbhT0LBIvB4TuUgzFnLl3OrhgBaZCCoBrKHclsIvpSDZB96J";
-$accessToken2 = "ZAv7SNugw3FjWk47mgsZCgUys1yGlZAvpsOn9ACpO8DzDwZBHcXRw8ocTCSshxAapLHqnb0ZBXw0MJaEnT46o5FTELEsfCsgqVziLn1RvKREZAYZD";
+$accessToken1 = "EAAev7WmVjkIBAGfRddwjCh0o47i4wzsYZCTvIUhZCGLi7Wl74jEZBC0PZAdBSjGhFM4nVNxGQT";
+$accessToken2 = "WEQx4OkJeZBcoD5LxpUHHRBAloRfDs3sIzb4wwr9KZBOZAS5bAbVMRWbq5ZAnD8GQKLcBHOtoGXDRU85S1039q1pw1kuAISsk7pNOUaidt5krQSoKHFNYpiRsZD";
 $fbAccessToken = $accessToken1.$accessToken2;
 $sendFBAPI = 1; #Set to 1 to send data via api
 
