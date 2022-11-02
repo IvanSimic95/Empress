@@ -188,6 +188,7 @@ if($orderProduct == "soulmate" OR $orderProduct == "futurespouse"){
 				),
 			 ),
 				"access_token" => $fbAccessToken,
+				"test_event_code" => "TEST71334",
 				
 			 ); 
 	 }elseif(empty($fbp) AND !empty($fbc)){
@@ -225,6 +226,7 @@ if($orderProduct == "soulmate" OR $orderProduct == "futurespouse"){
 				),
 			 ),
 				"access_token" => $fbAccessToken,
+				"test_event_code" => "TEST71334",
 				
 			 ); 
  
@@ -264,6 +266,7 @@ if($orderProduct == "soulmate" OR $orderProduct == "futurespouse"){
 				),
 			 ),
 				"access_token" => $fbAccessToken,
+				"test_event_code" => "TEST71334",
 				
 			 ); 
 	 }else{
@@ -300,6 +303,7 @@ if($orderProduct == "soulmate" OR $orderProduct == "futurespouse"){
 			),
 		 ),
 			"access_token" => $fbAccessToken,
+			"test_event_code" => "TEST71334",
 			
 		 );  
 		 
