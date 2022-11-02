@@ -41,10 +41,10 @@ $sendg2 = "-uQ.WlamcbbyqJ5DZRqdWqC5ecAQPsudMsAjFBtgoVL1ttw";
 $sendg3 = $sendg1.$sendg2;
 
 //Data for FB Conversions API
-$accessToken1 = "EAAxkvwzdc3kBAM3YGxUaEygEr7cdXJ9bxE8hGZC2tfmkW9BXAWZA67HcZB0SyoDYrMLs9Afgp086Yqm55zDg";
-$accessToken2 = "DZAdoLErhsa7kHwFJVZA7C6HBMqdIsERWoJ8zXZAeaQtDqFgAMCTa8K0kVMdp3EPZBYGhnOjPjTOg9KkjPelq9Mu1qmvU9iTZBrm";
+$accessToken1 = "EAAev7WmVjkIBANmwds5aSyyoPgZBWSw9LRkiUvbhT0LBIvB4TuUgzFnLl3OrhgBaZCCoBrKHclsIvpSDZB96J";
+$accessToken2 = "ZAv7SNugw3FjWk47mgsZCgUys1yGlZAvpsOn9ACpO8DzDwZBHcXRw8ocTCSshxAapLHqnb0ZBXw0MJaEnT46o5FTELEsfCsgqVziLn1RvKREZAYZD";
 $fbAccessToken = $accessToken1.$accessToken2;
-$sendFBAPI = 0; #Set to 1 to send data via api
+$sendFBAPI = 1; #Set to 1 to send data via api
 
 
 
@@ -137,7 +137,6 @@ $sdescription = $webDescription;
 $pimage = $webLogo;
 
 
-$pixelActive = 0;
 
 
 $userAgent = $_SERVER['HTTP_USER_AGENT'];
