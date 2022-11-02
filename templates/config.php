@@ -137,6 +137,7 @@ $sdescription = $webDescription;
 $pimage = $webLogo;
 
 
+$pixelActive = 1;
 
 
 $userAgent = $_SERVER['HTTP_USER_AGENT'];
