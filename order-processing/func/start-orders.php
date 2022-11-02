@@ -44,6 +44,8 @@ $logArray['1'] = date("d-m-Y H:i:s");
 			$birthday = $row["birthday"];
 			$niceBirthday = date('F d, Y', strtotime($birthday));
 
+			$orderPrice = $row["order_price"];
+
 			$finalPriority = $orderPriority - $priorityRandom;
 			$orderTime = (strtotime($orderDate));
 			$newDateDay = date('F d,', strtotime('+'.$orderPriority.' hours', $orderTime));
@@ -160,7 +162,7 @@ if($orderProduct == "soulmate" OR $orderProduct == "futurespouse"){
 					 
 					 "event_name" => "Purchase",
 					 "event_time" => time(),
-					 "event_id" => $orderId,
+					 "event_id" => $orderID,
 					 "user_data" => array(
 						 "fn" => hash('sha256', $fName),
 						 "ln" => hash('sha256', $lName),
@@ -198,14 +200,14 @@ if($orderProduct == "soulmate" OR $orderProduct == "futurespouse"){
 					 
 					 "event_name" => "Purchase",
 					 "event_time" => time(),
-					 "event_id" => $orderId,
+					 "event_id" => $orderID,
 					 "user_data" => array(
 						 "fn" => hash('sha256', $Ffirst_name),
 						 "ln" => hash('sha256', $Flast_name),
 						 "em" => hash('sha256', $customer_emailaddress),
 						 "db" => hash('sha256', $fixedBirthday),
 						 "ge" => hash('sha256', $usersex1),
-						 "external_id" => hash('sha256', $orderId),
+						 "external_id" => hash('sha256', $orderID),
 						 "fbp" => $fbp,
 						 "client_ip_address" => $ip,
 						 "client_user_agent" => $agent,
@@ -237,14 +239,14 @@ if($orderProduct == "soulmate" OR $orderProduct == "futurespouse"){
 					 
 					 "event_name" => "Purchase",
 					 "event_time" => time(),
-					 "event_id" => $orderId,
+					 "event_id" => $orderID,
 					 "user_data" => array(
 						 "fn" => hash('sha256', $Ffirst_name),
 						 "ln" => hash('sha256', $Flast_name),
 						 "em" => hash('sha256', $customer_emailaddress),
 						 "db" => hash('sha256', $fixedBirthday),
 						 "ge" => hash('sha256', $usersex1),
-						 "external_id" => hash('sha256', $orderId),
+						 "external_id" => hash('sha256', $orderID),
 						 "fbc" => $fbc,
 						 "fbp" => $fbp,
 						 "client_ip_address" => $ip,
@@ -276,14 +278,14 @@ if($orderProduct == "soulmate" OR $orderProduct == "futurespouse"){
 				 
 				 "event_name" => "Purchase",
 				 "event_time" => time(),
-				 "event_id" => $orderId,
+				 "event_id" => $orderID,
 				 "user_data" => array(
 					 "fn" => hash('sha256', $fName),
 					 "ln" => hash('sha256', $lName),
 					 "em" => hash('sha256', $orderEmail),
 					 "db" => hash('sha256', $fixedBirthday),
 					 "ge" => hash('sha256', $usersex1),
-					 "external_id" => hash('sha256', $orderId),
+					 "external_id" => hash('sha256', $orderID),
 					 "client_ip_address" => $ip,
 					 "client_user_agent" => $agent,
 
