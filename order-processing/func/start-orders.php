@@ -190,7 +190,6 @@ if($orderProduct == "soulmate" OR $orderProduct == "futurespouse"){
 				),
 			 ),
 				"access_token" => $fbAccessToken,
-				"test_event_code" => "TEST71334",
 				
 			 ); 
 	 }elseif(empty($fbp) AND !empty($fbc)){
@@ -202,12 +201,12 @@ if($orderProduct == "soulmate" OR $orderProduct == "futurespouse"){
 					 "event_time" => time(),
 					 "event_id" => $orderID,
 					 "user_data" => array(
-						 "fn" => hash('sha256', $Ffirst_name),
-						 "ln" => hash('sha256', $Flast_name),
-						 "em" => hash('sha256', $customer_emailaddress),
-						 "db" => hash('sha256', $fixedBirthday),
-						 "ge" => hash('sha256', $usersex1),
-						 "external_id" => hash('sha256', $orderID),
+						"fn" => hash('sha256', $fName),
+						"ln" => hash('sha256', $lName),
+						"em" => hash('sha256', $orderEmail),
+						"db" => hash('sha256', $fixedBirthday),
+						"ge" => hash('sha256', $usersex1),
+						"external_id" => hash('sha256', $orderID),
 						 "fbp" => $fbp,
 						 "client_ip_address" => $ip,
 						 "client_user_agent" => $agent,
@@ -228,7 +227,6 @@ if($orderProduct == "soulmate" OR $orderProduct == "futurespouse"){
 				),
 			 ),
 				"access_token" => $fbAccessToken,
-				"test_event_code" => "TEST71334",
 				
 			 ); 
  
@@ -241,12 +239,12 @@ if($orderProduct == "soulmate" OR $orderProduct == "futurespouse"){
 					 "event_time" => time(),
 					 "event_id" => $orderID,
 					 "user_data" => array(
-						 "fn" => hash('sha256', $Ffirst_name),
-						 "ln" => hash('sha256', $Flast_name),
-						 "em" => hash('sha256', $customer_emailaddress),
-						 "db" => hash('sha256', $fixedBirthday),
-						 "ge" => hash('sha256', $usersex1),
-						 "external_id" => hash('sha256', $orderID),
+						"fn" => hash('sha256', $fName),
+						"ln" => hash('sha256', $lName),
+						"em" => hash('sha256', $orderEmail),
+						"db" => hash('sha256', $fixedBirthday),
+						"ge" => hash('sha256', $usersex1),
+						"external_id" => hash('sha256', $orderID),
 						 "fbc" => $fbc,
 						 "fbp" => $fbp,
 						 "client_ip_address" => $ip,
@@ -268,7 +266,6 @@ if($orderProduct == "soulmate" OR $orderProduct == "futurespouse"){
 				),
 			 ),
 				"access_token" => $fbAccessToken,
-				"test_event_code" => "TEST71334",
 				
 			 ); 
 	 }else{
@@ -280,12 +277,12 @@ if($orderProduct == "soulmate" OR $orderProduct == "futurespouse"){
 				 "event_time" => time(),
 				 "event_id" => $orderID,
 				 "user_data" => array(
-					 "fn" => hash('sha256', $fName),
-					 "ln" => hash('sha256', $lName),
-					 "em" => hash('sha256', $orderEmail),
-					 "db" => hash('sha256', $fixedBirthday),
-					 "ge" => hash('sha256', $usersex1),
-					 "external_id" => hash('sha256', $orderID),
+					"fn" => hash('sha256', $fName),
+					"ln" => hash('sha256', $lName),
+					"em" => hash('sha256', $orderEmail),
+					"db" => hash('sha256', $fixedBirthday),
+					"ge" => hash('sha256', $usersex1),
+					"external_id" => hash('sha256', $orderID),
 					 "client_ip_address" => $ip,
 					 "client_user_agent" => $agent,
 
@@ -305,7 +302,6 @@ if($orderProduct == "soulmate" OR $orderProduct == "futurespouse"){
 			),
 		 ),
 			"access_token" => $fbAccessToken,
-			"test_event_code" => "TEST71334",
 			
 		 );  
 		 
