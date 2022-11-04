@@ -34,17 +34,17 @@ $firephp = FirePHP::getInstance(true);
 //$firephp->fb('Warn message' ,FirePHP::WARN);
 //$firephp->fb('Error message',FirePHP::ERROR);
 
-$FBPixel  = "";
+$FBPixel  = "1129329811027858";
 
 $sendg1 = "SG.IbkVjaCLQymTp7Esy9F";
 $sendg2 = "-uQ.WlamcbbyqJ5DZRqdWqC5ecAQPsudMsAjFBtgoVL1ttw";
 $sendg3 = $sendg1.$sendg2;
 
 //Data for FB Conversions API
-$accessToken1 = "EAAxkvwzdc3kBAM3YGxUaEygEr7cdXJ9bxE8hGZC2tfmkW9BXAWZA67HcZB0SyoDYrMLs9Afgp086Yqm55zDg";
-$accessToken2 = "DZAdoLErhsa7kHwFJVZA7C6HBMqdIsERWoJ8zXZAeaQtDqFgAMCTa8K0kVMdp3EPZBYGhnOjPjTOg9KkjPelq9Mu1qmvU9iTZBrm";
+$accessToken1 = "EAAev7WmVjkIBAGfRddwjCh0o47i4wzsYZCTvIUhZCGLi7Wl74jEZBC0PZAdBSjGhFM4nVNxGQT";
+$accessToken2 = "WEQx4OkJeZBcoD5LxpUHHRBAloRfDs3sIzb4wwr9KZBOZAS5bAbVMRWbq5ZAnD8GQKLcBHOtoGXDRU85S1039q1pw1kuAISsk7pNOUaidt5krQSoKHFNYpiRsZD";
 $fbAccessToken = $accessToken1.$accessToken2;
-$sendFBAPI = 0; #Set to 1 to send data via api
+$sendFBAPI = 1; #Set to 1 to send data via api
 
 
 
@@ -137,7 +137,7 @@ $sdescription = $webDescription;
 $pimage = $webLogo;
 
 
-$pixelActive = 0;
+$pixelActive = 1;
 
 
 $userAgent = $_SERVER['HTTP_USER_AGENT'];
