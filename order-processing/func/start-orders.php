@@ -321,6 +321,7 @@ if($orderProduct == "soulmate" OR $orderProduct == "futurespouse"){
 	 }
  }
 $emailText = "Test 1 2 3";
+echo $mg;
 
  $mgClient = new Mailgun($mg);
  $domain = "notification.psychic-empress.com";
