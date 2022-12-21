@@ -1,7 +1,7 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'].'/templates/config.php';
 require $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
-use Mailgun\Mailgun;
+
 
 echo "Starting start-orders.php...<br><br>";
     
@@ -322,7 +322,7 @@ if($orderProduct == "soulmate" OR $orderProduct == "futurespouse"){
  }
 
 $emailText = "Hello ".$fName.", We have received your payment for order #".$orderID." and have confirmed your order. You will receive an email shortly with your reading. Thank you for your business! Psychic Empress";
-
+ use Mailgun\Mailgun;
  $mgClient = new Mailgun($mg);
  $domain = "notification.psychic-empress.com";
  # Make the call to the client.
