@@ -334,6 +334,21 @@ $params = array(
 $mgClient->messages()->send($domain, $params);
 
 
+
+$mg = Mailgun::create($mgkey, 'https://api.eu.mailgun.net'); // For EU servers
+
+// Now, compose and send your message.
+// $mg->messages()->send($domain, $params);
+$mg->messages()->send('notification.psychic-empress.com', [
+  'from'    => 'noreply@notification.psychic-empress.com',
+  'to'      => 'email@isimic.com',
+  'subject' => 'The PHP SDK is awesome!',
+  'text'    => 'It is so simple to send a message.',
+  'template'=> 'template.test',
+  't:variables' => '{"EmailTitle": "Test Email Title", "orderNumber": "112233", "emailText": "Your Order is now Complete!"}'
+]);
+
+
 /*
 			$email = new Mail();
 			$email->setFrom("contact@psychic-empress.com", "Psychic Empress");

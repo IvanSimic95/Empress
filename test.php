@@ -10,8 +10,9 @@ $mg = Mailgun::create($mgkey, 'https://api.eu.mailgun.net'); // For EU servers
 $mg->messages()->send('notification.psychic-empress.com', [
   'from'    => 'noreply@notification.psychic-empress.com',
   'to'      => 'email@isimic.com',
-  'subject' => 'The PHP SDK is awesome!',
-  'text'    => 'It is so simple to send a message.'
+  'subject' => 'Test Email Title',
+  'text'    => 'Your Order is now Complete!',
+  'template'=> 'neworder',
+  'h:X-Mailgun-Variables' => '{"EmailTitle": "Test Email Title", "orderNumber": "112233", "emailText": "Your Order is now Complete!"}'
 ]);
-
 ?>
