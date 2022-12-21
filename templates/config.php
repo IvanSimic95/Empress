@@ -43,7 +43,7 @@ $sendg3 = $sendg1.$sendg2;
 $mg1 = "key-3999017a921e";
 $mg2 = "d9b70798a";
 $mg3 = "e02ecc7877b";
-$mg = $mg1.$mg2.$mg3;
+$mgkey = $mg1.$mg2.$mg3;
 
 //Data for FB Conversions API
 $accessToken1 = "EAAev7WmVjkIBAGfRddwjCh0o47i4wzsYZCTvIUhZCGLi7Wl74jEZBC0PZAdBSjGhFM4nVNxGQT";

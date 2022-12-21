@@ -3,7 +3,7 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/templates/config.php';
 require $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
 use Mailgun\Mailgun;
 
-$mg = Mailgun::create($mg, 'https://api.eu.mailgun.net'); // For EU servers
+$mg = Mailgun::create($mgkey, 'https://api.eu.mailgun.net'); // For EU servers
 
 // Now, compose and send your message.
 // $mg->messages()->send($domain, $params);
