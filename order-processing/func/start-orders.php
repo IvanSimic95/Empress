@@ -5,7 +5,6 @@ use Mailgun\Mailgun;
 
 echo "Starting start-orders.php...<br><br>";
     
-echo $mg;
 
 
 
@@ -320,18 +319,19 @@ if($orderProduct == "soulmate" OR $orderProduct == "futurespouse"){
 		 echo $response;
 	 }
  }
-$emailText = "Test 1 2 3";
-echo $mg;
 
- $mgClient = new Mailgun($mg);
- $domain = "notification.psychic-empress.com";
- # Make the call to the client.
- $result = $mgClient->sendMessage($domain, array(
-	 'from'	=> 'Psychic Empress <noreply@notification.psychic-empress.com>',
-	 'to'	=> $orderEmail,
-	 'subject' => 'Payment Confirmed!',
-	 'text'	=> $emailText
- ));
+
+$mgClient = Mailgun::create($mg, 'https://api.mailgun.net/v3/notification.psychic-empress.com');
+$domain = "notification.psychic-empress.com";
+$params = array(
+  'from'    => 'Psychic Empress <noreply@notification.psychic-empress.com>',
+  'to'      => 'email@isimic.com',
+  'subject' => 'Hello',
+  'text'    => 'Testing some Mailgun awesomness!'
+);
+
+# Make the call to the client.
+$mgClient->messages()->send($domain, $params);
 
 
 /*
