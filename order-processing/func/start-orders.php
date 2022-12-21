@@ -320,20 +320,6 @@ if($orderProduct == "soulmate" OR $orderProduct == "futurespouse"){
 	 }
  }
 
-
-$mgClient = Mailgun::create($mg, 'https://api.mailgun.net/v3/notification.psychic-empress.com');
-$domain = "notification.psychic-empress.com";
-$params = array(
-  'from'    => 'Psychic Empress <noreply@notification.psychic-empress.com>',
-  'to'      => 'email@isimic.com',
-  'subject' => 'Hello',
-  'text'    => 'Testing some Mailgun awesomness!'
-);
-
-# Make the call to the client.
-$mgClient->messages()->send($domain, $params);
-
-
 $mg = Mailgun::create($mgkey, 'https://api.eu.mailgun.net'); // For EU servers
 
 // Now, compose and send your message.
