@@ -5,7 +5,7 @@ use Mailgun\Mailgun;
 
 echo "Starting start-orders.php...<br><br>";
     
-
+echo $mg;
 
 
 
