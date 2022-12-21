@@ -320,8 +320,7 @@ if($orderProduct == "soulmate" OR $orderProduct == "futurespouse"){
 		 echo $response;
 	 }
  }
-
-$emailText = "Hello ".$fName.", We have received your payment for order #".$orderID." and have confirmed your order. You will receive an email shortly with your reading. Thank you for your business! Psychic Empress";
+$emailText = "Test 1 2 3";
  use Mailgun\Mailgun;
  $mgClient = new Mailgun($mg);
  $domain = "notification.psychic-empress.com";
