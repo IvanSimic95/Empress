@@ -55,7 +55,7 @@ $sendFBAPI = 1; #Set to 1 to send data via api
 
 
 //START Order Messages
-$processingWelcome = "We are now processing your *Order #%ORDERID%*\n\nYour order will be delivered to your email in %PRIORITY% hours or less.\n\nIf this is your first order your new account will be created automatically\n\nIn order to automatically login to your account just <%EMAILLINK%|Click Here!>\n\n_With Love!_\nPsychic Empress";
+$processingWelcome = "We are now processing your *Order #%ORDERID%*\n\nYour order will be delivered to your email in %PRIORITY% hours or less.\n\nIf this is your first order your new account will be created automatically";
 
 
 //Complete Soulmate, Twin Flame & Future Spouse Text added Before and After Order Text

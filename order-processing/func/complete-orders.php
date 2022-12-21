@@ -1,7 +1,7 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'].'/templates/config.php';
 require $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
-use SendGrid\Mail\Mail;
+use Mailgun\Mailgun;
 echo "Starting complete-orders.php...<br><br>";
 
 	$sql = 'SELECT * from orders WHERE order_status = "processing"';
@@ -517,6 +517,19 @@ echo "Starting complete-orders.php...<br><br>";
 
 		}
 		
+
+		$mg = Mailgun::create($mgkey, 'https://api.eu.mailgun.net'); // For EU servers
+
+// Now, compose and send your message.
+// $mg->messages()->send($domain, $params);
+$mg->messages()->send('notification.psychic-empress.com', [
+  'from'    => 'Psychic Empress <noreply@notification.psychic-empress.com>',
+  'to'      => $orderEmail,
+  'subject' => 'Payment Confirmed!',
+  'text'    => 'Your Order is now Processing!',
+  'template'=> 'neworder',
+  'h:X-Mailgun-Variables' => '{"EmailTitle": "Payment Confirmed!", "orderNumber": "'.$orderID.'", "emailText": "'.$message.'", "emailButton": "'.$emailLink.'"}'
+]);
 
 
 		}

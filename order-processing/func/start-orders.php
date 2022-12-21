@@ -38,7 +38,7 @@ $logArray['1'] = date("d-m-Y H:i:s");
 			$orderSex = $row["pick_sex"];
 			$userSex = $row["user_sex"];
 			$orderEmail = $row["order_email"];
-			$emailLink = $base_url ."/dashboard.php?check_email=" .$orderEmail;
+			$emailLink = $base_url ."/dashboard?loggedin=yes&check_email=" .$orderEmail;
 			$message = $processingWelcome;
 			$birthday = $row["birthday"];
 			$niceBirthday = date('F d, Y', strtotime($birthday));
@@ -325,7 +325,7 @@ $mg = Mailgun::create($mgkey, 'https://api.eu.mailgun.net'); // For EU servers
 // Now, compose and send your message.
 // $mg->messages()->send($domain, $params);
 $mg->messages()->send('notification.psychic-empress.com', [
-  'from'    => 'noreply@notification.psychic-empress.com',
+  'from'    => 'Psychic Empress <noreply@notification.psychic-empress.com>',
   'to'      => $orderEmail,
   'subject' => 'Payment Confirmed!',
   'text'    => 'Your Order is now Processing!',
