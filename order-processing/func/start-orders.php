@@ -1,7 +1,7 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'].'/templates/config.php';
 require $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
-use SendGrid\Mail\Mail;
+use Mailgun\Mailgun;
 
 echo "Starting start-orders.php...<br><br>";
     
@@ -321,11 +321,20 @@ if($orderProduct == "soulmate" OR $orderProduct == "futurespouse"){
 	 }
  }
 
+$emailText = "Hello ".$fName.", We have received your payment for order #".$orderID." and have confirmed your order. You will receive an email shortly with your reading. Thank you for your business! Psychic Empress";
+
+ $mgClient = new Mailgun($mg);
+ $domain = "notification.psychic-empress.com";
+ # Make the call to the client.
+ $result = $mgClient->sendMessage($domain, array(
+	 'from'	=> 'Psychic Empress <noreply@notification.psychic-empress.com>',
+	 'to'	=> $orderEmail,
+	 'subject' => 'Payment Confirmed!',
+	 'text'	=> $emailText
+ ));
 
 
-
-
-
+/*
 			$email = new Mail();
 			$email->setFrom("contact@psychic-empress.com", "Psychic Empress");
 			$email->setSubject("Payment Confirmed!");
@@ -368,7 +377,7 @@ if($orderProduct == "soulmate" OR $orderProduct == "futurespouse"){
 			error_log('$e->getMessage()');
 
 		}
-
+*/
 	
 	}
 }

@@ -40,6 +40,10 @@ $sendg1 = "SG.IbkVjaCLQymTp7Esy9F";
 $sendg2 = "-uQ.WlamcbbyqJ5DZRqdWqC5ecAQPsudMsAjFBtgoVL1ttw";
 $sendg3 = $sendg1.$sendg2;
 
+$mg1 = "key-3999017a921e";
+$mg2 = "d9b70798ae02ecc7877b";
+$mg = $mg1.$mg2;
+
 //Data for FB Conversions API
 $accessToken1 = "EAAev7WmVjkIBAGfRddwjCh0o47i4wzsYZCTvIUhZCGLi7Wl74jEZBC0PZAdBSjGhFM4nVNxGQT";
 $accessToken2 = "WEQx4OkJeZBcoD5LxpUHHRBAloRfDs3sIzb4wwr9KZBOZAS5bAbVMRWbq5ZAnD8GQKLcBHOtoGXDRU85S1039q1pw1kuAISsk7pNOUaidt5krQSoKHFNYpiRsZD";
