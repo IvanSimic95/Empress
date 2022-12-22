@@ -320,6 +320,27 @@ if($orderProduct == "soulmate" OR $orderProduct == "futurespouse"){
 	 }
  }
 
+ switch ($orderProductCode) {
+	case "soulmate":
+		$emailImage = "https://psychic-empress.com/assets/img/products/soulmate/1new6.jpg";
+		$emailProdTitle = "Soulmate Drawing & Reading";
+	break;
+
+	case "personal":
+	  $emailImage = "https://psychic-empress.com/assets/img/psychic.jpg";
+	  $emailProdTitle = "Personal Reading";
+	break;
+
+	case "future-baby":
+		$emailImage = "https://psychic-empress.com/assets/img/baby.jpg";
+		$emailProdTitle = "Future Baby Drawing & Reading";
+	break;
+
+	default:
+	$emailImage = "https://psychic-empress.com/assets/img/products/soulmate/1new6.jpg";
+	$emailProdTitle = "Soulmate Drawing & Reading";
+  }
+
 $mg = Mailgun::create($mgkey, 'https://api.eu.mailgun.net'); // For EU servers
 
 // Now, compose and send your message.
@@ -330,7 +351,7 @@ $mg->messages()->send('notification.psychic-empress.com', [
   'subject' => 'Payment Confirmed!',
   'text'    => 'Your Order is now Processing!',
   'template'=> 'neworder',
-  'h:X-Mailgun-Variables' => '{"EmailTitle": "Payment Confirmed!", "orderNumber": "'.$orderID.'", "emailText": "'.$message.'", "emailButton": "'.$emailLink.'"}'
+  'h:X-Mailgun-Variables' => '{"EmailTitle": "Payment Confirmed!", "orderNumber": "'.$orderID.'", "emailText": "'.$message.'", "emailButton": "'.$emailLink.'", "emailIMG": "'.$emailImage.'", "productTitle": "'.$emailProdTitle.'"}'
 ]);
 
 
