@@ -483,8 +483,6 @@ echo "Starting complete-orders.php...<br><br>";
 			$reading = str_replace("<br>"," ",$reading);
 			$drawing = $imgURL;
 
-		}
-		
 
 		switch ($orderProductCode) {
 			case "soulmate":
