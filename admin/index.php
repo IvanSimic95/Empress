@@ -4,7 +4,7 @@ $pagefile = "index.php";
 include_once $_SERVER['DOCUMENT_ROOT'].'/admin/templates/head.php';
 
 $today = date('Y-m-d');
-
+echo $today;
 ///////////////Get todays visits
  $sql = "SELECT * FROM visits WHERE DATE(time) = '$today'";
  $result = $conn->query($sql);

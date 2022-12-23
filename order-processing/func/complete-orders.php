@@ -451,7 +451,7 @@ echo "Starting complete-orders.php...<br><br>";
 						$logArray[] = "Insert Notification Failed";
 					}
 
-					if($imgError == 0){
+	if($imgError == 0){	
 
 			$orderDate = $row["order_date"];
 			$orderName = $row["user_name"];
@@ -518,7 +518,7 @@ echo "Starting complete-orders.php...<br><br>";
 		  'h:X-Mailgun-Variables' => '{"EmailTitle": "Payment Confirmed!", "orderNumber": "'.$orderID.'", "emailText": "'.$message.'", "emailButton": "'.$emailLink.'", "emailIMG": "'.$emailImage.'", "productTitle": "'.$emailProdTitle.'"}'
 		]);
 
-		}
+	}
 		
 
 
