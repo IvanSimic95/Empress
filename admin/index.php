@@ -16,10 +16,10 @@ $today = date('Y-m-d');
 
 
 //Get today Sales
-$sql = "SELECT * FROM orders WHERE (order_status = 'completed' AND DATE(order_date) = '$today') OR (order_status = 'processing' AND DATE(order_date) = '$today'";
-$result = $conn->query($sql);
-if ($result){
- $todayOrder = mysqli_num_rows($result);
+$sql = "SELECT * FROM orders WHERE (order_status = 'completed' AND DATE(order_date) = '$today') OR (order_status = 'processing' AND DATE(order_date) = '$today')";
+$result2 = $conn->query($sql);
+if ($result2){
+ $todayOrder = mysqli_num_rows($result2);
 }else{
  $todayOrder = 0;
 }
