@@ -73,8 +73,8 @@ $countOrdersTotal = mysqli_num_rows($result7);
                             <h4 class="text-800 mb-0"><?php echo $todayVisit; ?></h4>
                           </div>
                           <div class="ps-3">
-                            <p class="text-600 fs--1">Today’s total sales </p>
-                            <h4 class="text-800 mb-0">$<?php echo $sum; ?> </h4>
+                            <p class="text-600 fs--1">Today’s total order/sales </p>
+                            <h4 class="text-800 mb-0"><?php echo $todayOrder; ?> / $<?php echo $sum; ?> </h4>
                           </div>
                         </div>
                       </div>
