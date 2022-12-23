@@ -4,7 +4,6 @@ $pagefile = "index.php";
 include_once $_SERVER['DOCUMENT_ROOT'].'/admin/templates/head.php';
 
 $today = date('Y-m-d');
-echo $today;
 ///////////////Get todays visits
  $sql = "SELECT * FROM visits WHERE DATE(time) = '$today'";
  $result = $conn->query($sql);
@@ -20,9 +19,9 @@ echo $today;
 $sql = "SELECT * FROM orders WHERE DATE(order_date) = '$today'";
 $result = $conn->query($sql);
 if ($result){
- $todayVisit = mysqli_num_rows($result);
+ $todayOrder = mysqli_num_rows($result);
 }else{
- $todayVisit = 0;
+ $todayOrder = 0;
 }
 
 
