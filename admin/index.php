@@ -16,7 +16,7 @@ $today = date('Y-m-d');
 
 
 //Get today Sales
-$sql = "SELECT * FROM orders WHERE (order_status = 'completed' AND DATE(order_date) = '$today') OR (order_status = 'processing' AND DATE(order_date)";
+$sql = "SELECT * FROM orders WHERE (order_status = 'completed' AND DATE(order_date) = '$today') OR (order_status = 'processing' AND DATE(order_date) = '$today'";
 $result = $conn->query($sql);
 if ($result){
  $todayOrder = mysqli_num_rows($result);
