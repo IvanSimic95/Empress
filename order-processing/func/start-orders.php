@@ -322,16 +322,25 @@ if($orderProduct == "soulmate" OR $orderProduct == "futurespouse"){
  }
 
 $emailText = "Hello ".$fName.", We have received your payment for order #".$orderID." and have confirmed your order. You will receive an email shortly with your reading. Thank you for your business! Psychic Empress";
- use Mailgun\Mailgun;
- $mgClient = new Mailgun($mg);
- $domain = "notification.psychic-empress.com";
- # Make the call to the client.
- $result = $mgClient->sendMessage($domain, array(
-	 'from'	=> 'Psychic Empress <noreply@notification.psychic-empress.com>',
-	 'to'	=> $orderEmail,
-	 'subject' => 'Payment Confirmed!',
-	 'text'	=> $emailText
- ));
+
+
+
+ # Include the Autoloader (see "Libraries" for install instructions)
+
+use Mailgun\Mailgun;
+
+# Instantiate the client.
+$mgClient = Mailgun::create('PRIVATE_API_KEY', 'https://API_HOSTNAME');
+$domain = "YOUR_DOMAIN_NAME";
+$params = array(
+  'from'    => 'Excited User <YOU@YOUR_DOMAIN_NAME>',
+  'to'      => 'bob@example.com',
+  'subject' => 'Hello',
+  'text'    => 'Testing some Mailgun awesomness!'
+);
+
+# Make the call to the client.
+$mgClient->messages()->send($domain, $params);
 
 
 /*
