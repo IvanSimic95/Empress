@@ -1,11 +1,10 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'].'/templates/config.php';
 require $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
-
+use Mailgun\Mailgun;
 
 echo "Starting start-orders.php...<br><br>";
     
-
 
 
 
@@ -39,7 +38,7 @@ $logArray['1'] = date("d-m-Y H:i:s");
 			$orderSex = $row["pick_sex"];
 			$userSex = $row["user_sex"];
 			$orderEmail = $row["order_email"];
-			$emailLink = $base_url ."/dashboard.php?check_email=" .$orderEmail;
+			$emailLink = $base_url ."/dashboard?loggedin=yes&check_email=" .$orderEmail;
 			$message = $processingWelcome;
 			$birthday = $row["birthday"];
 			$niceBirthday = date('F d, Y', strtotime($birthday));
@@ -321,26 +320,39 @@ if($orderProduct == "soulmate" OR $orderProduct == "futurespouse"){
 	 }
  }
 
-$emailText = "Hello ".$fName.", We have received your payment for order #".$orderID." and have confirmed your order. You will receive an email shortly with your reading. Thank you for your business! Psychic Empress";
+ switch ($orderProductCode) {
+	case "soulmate":
+		$emailImage = "https://psychic-empress.com/assets/img/products/soulmate/1new6.jpg";
+		$emailProdTitle = "Soulmate Drawing & Reading";
+	break;
 
+	case "personal":
+	  $emailImage = "https://psychic-empress.com/assets/img/psychic.jpg";
+	  $emailProdTitle = "Personal Reading";
+	break;
 
+	case "future-baby":
+		$emailImage = "https://psychic-empress.com/assets/img/baby.jpg";
+		$emailProdTitle = "Future Baby Drawing & Reading";
+	break;
 
- # Include the Autoloader (see "Libraries" for install instructions)
+	default:
+	$emailImage = "https://psychic-empress.com/assets/img/products/soulmate/1new6.jpg";
+	$emailProdTitle = "Soulmate Drawing & Reading";
+  }
 
-use Mailgun\Mailgun;
+$mg = Mailgun::create($mgkey, 'https://api.eu.mailgun.net'); // For EU servers
 
-# Instantiate the client.
-$mgClient = Mailgun::create('PRIVATE_API_KEY', 'https://API_HOSTNAME');
-$domain = "YOUR_DOMAIN_NAME";
-$params = array(
-  'from'    => 'Excited User <YOU@YOUR_DOMAIN_NAME>',
-  'to'      => 'bob@example.com',
-  'subject' => 'Hello',
-  'text'    => 'Testing some Mailgun awesomness!'
-);
-
-# Make the call to the client.
-$mgClient->messages()->send($domain, $params);
+// Now, compose and send your message.
+// $mg->messages()->send($domain, $params);
+$mg->messages()->send('notification.psychic-empress.com', [
+  'from'    => 'Psychic Empress <noreply@notification.psychic-empress.com>',
+  'to'      => $orderEmail,
+  'subject' => 'Payment Confirmed!',
+  'text'    => 'Your Order is now Processing!',
+  'template'=> 'neworder',
+  'h:X-Mailgun-Variables' => '{"EmailTitle": "Payment Confirmed!", "orderNumber": "'.$orderID.'", "emailText": "'.$message.'", "emailButton": "'.$emailLink.'", "emailIMG": "'.$emailImage.'", "productTitle": "'.$emailProdTitle.'"}'
+]);
 
 
 /*

@@ -4,7 +4,6 @@ $pagefile = "index.php";
 include_once $_SERVER['DOCUMENT_ROOT'].'/admin/templates/head.php';
 
 $today = date('Y-m-d');
-
 ///////////////Get todays visits
  $sql = "SELECT * FROM visits WHERE DATE(time) = '$today'";
  $result = $conn->query($sql);
@@ -17,12 +16,12 @@ $today = date('Y-m-d');
 
 
 //Get today Sales
-$sql = "SELECT * FROM orders WHERE DATE(order_date) = '$today'";
-$result = $conn->query($sql);
-if ($result){
- $todayVisit = mysqli_num_rows($result);
+$sql = "SELECT * FROM orders WHERE (order_status = 'completed' AND DATE(order_date) = '$today') OR (order_status = 'processing' AND DATE(order_date) = '$today')";
+$result2 = $conn->query($sql);
+if ($result2){
+ $todayOrder = mysqli_num_rows($result2);
 }else{
- $todayVisit = 0;
+ $todayOrder = 0;
 }
 
 
@@ -74,8 +73,8 @@ $countOrdersTotal = mysqli_num_rows($result7);
                             <h4 class="text-800 mb-0"><?php echo $todayVisit; ?></h4>
                           </div>
                           <div class="ps-3">
-                            <p class="text-600 fs--1">Today’s total sales </p>
-                            <h4 class="text-800 mb-0">$<?php echo $sum; ?> </h4>
+                            <p class="text-600 fs--1">Today’s total order/sales </p>
+                            <h4 class="text-800 mb-0"><?php echo $todayOrder; ?> / $<?php echo $sum; ?> </h4>
                           </div>
                         </div>
                       </div>

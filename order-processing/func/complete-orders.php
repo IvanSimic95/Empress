@@ -1,7 +1,7 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'].'/templates/config.php';
 require $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
-use SendGrid\Mail\Mail;
+use Mailgun\Mailgun;
 echo "Starting complete-orders.php...<br><br>";
 
 	$sql = 'SELECT * from orders WHERE order_status = "processing"';
@@ -22,6 +22,7 @@ echo "Starting complete-orders.php...<br><br>";
 			$orderID = $row["order_id"];
 			$userID = $row["user_id"];
 			$orderEmail = $row["order_email"];
+			$emailLink = $base_url ."/dashboard?loggedin=yes&check_email=" .$orderEmail;
 			$orderAge = $row["user_age"];
 			$orderPrio = $row["order_priority"];
 			$orderProduct = $row["order_product"];
@@ -450,7 +451,7 @@ echo "Starting complete-orders.php...<br><br>";
 						$logArray[] = "Insert Notification Failed";
 					}
 
-					if($imgError == 0){
+	if($imgError == 0){	
 
 			$orderDate = $row["order_date"];
 			$orderName = $row["user_name"];
@@ -482,44 +483,42 @@ echo "Starting complete-orders.php...<br><br>";
 			$reading = str_replace("<br>"," ",$reading);
 			$drawing = $imgURL;
 
-			$email = new Mail();
-			$email->setFrom("contact@psychic-empress.com", "Psychic Empress");
-			$email->setSubject("Order Complete!");
-			$email->addTo(
-				$orderEmail,
-				$orderName,
-				[
-					"fullname" => $orderName,
-					"fname" => $fName,
-					"email" => $orderEmail,
-					"status" => "complete",
-					"product" => $orderProductCode,
-					"productNice" => $productNice,
-					"orderid" => $orderID,
-					"reading" => $reading,
-					"drawinglink" => $drawing,
-				]
-			);
-			$email->setTemplateId("d-d012c284c2684ef38f9e223c483322c9");
-			$sendgrid = new \SendGrid($sendg3);
-			try {
-				$response = $sendgrid->send($email);
-				print_r($response);
-				error_log($orderEmail);
 
-				
-			$logArray[] =  "Complete order email sent";
-			echo "Complete order email sent";
-            echo " <br>"; 
-		} catch (Exception $e) { 
-			echo 'Caught exception: '.  $e->getMessage(). "\n";
-			error_log('$e->getMessage()');
-
-		}
+		switch ($orderProductCode) {
+			case "soulmate":
+				$emailImage = "https://psychic-empress.com/assets/img/products/soulmate/1new6.jpg";
+				$emailProdTitle = "Soulmate Drawing & Reading";
+			break;
 		
+			case "personal":
+			  $emailImage = "https://psychic-empress.com/assets/img/psychic.jpg";
+			  $emailProdTitle = "Personal Reading";
+			break;
+		
+			case "future-baby":
+				$emailImage = "https://psychic-empress.com/assets/img/baby.jpg";
+				$emailProdTitle = "Future Baby Drawing & Reading";
+			break;
+		
+			default:
+			$emailImage = "https://psychic-empress.com/assets/img/products/soulmate/1new6.jpg";
+			$emailProdTitle = "Soulmate Drawing & Reading";
+		  }
+		
+		$mg = Mailgun::create($mgkey, 'https://api.eu.mailgun.net'); // For EU servers
+		
+		// Now, compose and send your message.
+		// $mg->messages()->send($domain, $params);
+		$mg->messages()->send('notification.psychic-empress.com', [
+		  'from'    => 'Psychic Empress <noreply@notification.psychic-empress.com>',
+		  'to'      => $orderEmail,
+		  'subject' => 'Order Complete!',
+		  'text'    => 'Your Order is now complete!',
+		  'template'=> 'neworder',
+		  'h:X-Mailgun-Variables' => '{"EmailTitle": "Payment Confirmed!", "orderNumber": "'.$orderID.'", "emailText": "'.$message.'", "emailButton": "'.$emailLink.'", "emailIMG": "'.$emailImage.'", "productTitle": "'.$emailProdTitle.'"}'
+		]);
 
-
-		}
+	}
 		
 
 

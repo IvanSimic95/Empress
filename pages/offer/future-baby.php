@@ -55,7 +55,7 @@ $avgrating = $avg;
                 <h3 class="gradient  mb-0">Future Baby Portrait </h3>
                 </div>
                   <div class="card-body col-12 offset-0" style="text-align:center;">
-                  <img class="img-fluid rounded img-thumbnail" src="/assets/img/psychic.jpg" alt="upsell" style="border: none!important;padding: 0!important;">
+                  <img class="img-fluid rounded img-thumbnail" src="/assets/img/baby.jpg" alt="upsell" style="border: none!important;padding: 0!important;">
 
                   <form class="readings" action="/order/order-baby" method="get" style="text-align:left;">
  
