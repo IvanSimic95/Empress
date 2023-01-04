@@ -96,9 +96,9 @@ if($domain == "empress.test"){
   $path_base = $_SERVER['DOCUMENT_ROOT'].'/pages';
 }else{
 	$servername = "localhost";
-	$username = "theisenb_empress";
+	$username = "psychic_empress";
 	$password = "Jepang123Iva";
-	$db = "theisenb_empress";
+	$db = "psychic_empress";
   $base_url = "https://psychic-empress.com";
   $path_base = $_SERVER['DOCUMENT_ROOT'].'/pages/';
 }

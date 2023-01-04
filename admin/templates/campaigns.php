@@ -10,7 +10,7 @@
 
                            //Find campaign name from FB
                            $ch = curl_init();
-                           curl_setopt($ch, CURLOPT_URL, 'https://graph.facebook.com/v13.0/act_622351411485730/campaigns?fields=name&access_token='.$FBToken);
+                           curl_setopt($ch, CURLOPT_URL, 'https://graph.facebook.com/v13.0/act_798761478055222/campaigns?fields=name&access_token='.$FBToken);
                            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
                            $r = curl_exec($ch);
                            if (curl_errno($ch)) {echo 'Error:' . curl_error($ch);}
