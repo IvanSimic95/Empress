@@ -18,7 +18,7 @@ echo "<hr>";
 
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://graph.facebook.com/v13.0/act_798761478055222/insights?__activeScenarioIDs=%5B%5D&__activeScenarios=%5B%5D&date_preset=today&fields=spend&level=account&transport=cors&access_token='.$FBToken);
+curl_setopt($ch, CURLOPT_URL, 'https://graph.facebook.com/v15.0/act_798761478055222/insights?__activeScenarioIDs=%5B%5D&__activeScenarios=%5B%5D&date_preset=today&fields=spend&level=account&transport=cors&access_token='.$FBToken);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $result = curl_exec($ch);
 if (curl_errno($ch)) {echo 'Error:' . curl_error($ch);}
