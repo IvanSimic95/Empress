@@ -15,6 +15,18 @@ $today = date('Y-m-d');
  /////////////////////////////
 
 
+ //Get today Spend
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://graph.facebook.com/v15.0/act_798761478055222/insights?__activeScenarioIDs=%5B%5D&__activeScenarios=%5B%5D&date_preset=today&fields=spend&level=account&transport=cors&access_token='.$FBToken);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+$result = curl_exec($ch);
+if (curl_errno($ch)) {echo 'Error:' . curl_error($ch);}
+curl_close($ch);
+$y = json_decode($result);
+#print_r($y);
+$spentTotalToday = $y->data[0]->spend;
+
+
 //Get today Sales
 $sql = "SELECT * FROM orders WHERE (order_status = 'completed' AND DATE(order_date) = '$today') OR (order_status = 'processing' AND DATE(order_date) = '$today')";
 $result2 = $conn->query($sql);
@@ -107,6 +119,16 @@ $countOrdersTotal = mysqli_num_rows($result7);
                               <div class="d-flex">
                                 <svg class="svg-inline--fa fa-circle fa-w-16 mt-1 fs--2 text-primary" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"></path></svg><!-- <div class="fas fa-circle mt-1 fs--2 text-primary"></div> Font Awesome fontawesome.com -->
                                 <p class="fs--1 ps-2 mb-0"><strong><?php echo $countCompletedToday; ?> orders</strong> completed today</p>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="alert mb-0 rounded-0 py-3 px-card greetings-item border-top  border-0">
+                          <div class="row flex-between-center">
+                            <div class="col">
+                              <div class="d-flex">
+                                <svg class="svg-inline--fa fa-circle fa-w-16 mt-1 fs--2 text-primary" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"></path></svg><!-- <div class="fas fa-circle mt-1 fs--2 text-primary"></div> Font Awesome fontawesome.com -->
+                                <p class="fs--1 ps-2 mb-0"><strong>$<?php echo $spentTotalToday; ?> </strong> spent today</p>
                               </div>
                             </div>
                           </div>
