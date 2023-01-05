@@ -24,6 +24,7 @@ $result = curl_exec($ch);
 if (curl_errno($ch)) {echo 'Error:' . curl_error($ch);}
 curl_close($ch);
 $y = json_decode($result);
+print_r($y);
 $spentTotal = $y->data[0]->spend;
 
 
