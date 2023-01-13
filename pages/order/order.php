@@ -52,7 +52,7 @@ isset($_GET['ip']) ? $addip = $_GET['ip'] : $addip = "";
 isset($_GET['agent']) ? $addagent = $_GET['agent'] : $addagent = "";
 
 isset($_GET['affid']) ? $affid = $_GET['affid'] : $affid = "";
-isset($_GET['cid']) ? $cid = $_GET['cid'] : $cid = "";
+isset($_GET['cid']) ? $cid = $_GET['cid'] : $cid = "0";
 
 isset($_GET['subid1']) ? $subid1 = $_GET['subid1'] : $subid1 = "";
 isset($_GET['subid2']) ? $subid2 = $_GET['subid2'] : $subid2 = "";

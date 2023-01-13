@@ -355,6 +355,10 @@ $mg->messages()->send('notification.psychic-empress.com', [
 ]);
 
 
+if($dbclickID > 0){
+	$requestURL = "https://track.scrooge.sbs/postback?clickid=".$dbclickID;
+	echo $requestURL;
+}
 /*
 			$email = new Mail();
 			$email->setFrom("contact@psychic-empress.com", "Psychic Empress");
