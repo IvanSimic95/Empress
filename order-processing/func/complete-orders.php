@@ -515,7 +515,7 @@ echo "Starting complete-orders.php...<br><br>";
 		  'subject' => 'Order Complete!',
 		  'text'    => 'Your Order is now complete!',
 		  'template'=> 'neworder',
-		  'h:X-Mailgun-Variables' => '{"EmailTitle": "Payment Confirmed!", "orderNumber": "'.$orderID.'", "emailText": "'.$messageComplete.'", "emailButton": "'.$emailLink.'", "emailIMG": "'.$emailImage.'", "productTitle": "'.$emailProdTitle.'"}'
+		  'h:X-Mailgun-Variables' => '{"EmailTitle": "Order Complete!", "orderNumber": "'.$orderID.'", "emailText": "'.$messageComplete.'", "emailButton": "'.$emailLink.'", "emailIMG": "'.$emailImage.'", "productTitle": "'.$emailProdTitle.'"}'
 		]);
 
 	}
