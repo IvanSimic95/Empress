@@ -504,7 +504,7 @@ echo "Starting complete-orders.php...<br><br>";
 			$emailImage = "https://psychic-empress.com/assets/img/products/soulmate/1new6.jpg";
 			$emailProdTitle = "Soulmate Drawing & Reading";
 		  }
-		
+		  $messageComplete = "Your order is now complete, to access full reading please login to website by clicking button below!";
 		$mg = Mailgun::create($mgkey, 'https://api.eu.mailgun.net'); // For EU servers
 		
 		// Now, compose and send your message.
@@ -515,7 +515,7 @@ echo "Starting complete-orders.php...<br><br>";
 		  'subject' => 'Order Complete!',
 		  'text'    => 'Your Order is now complete!',
 		  'template'=> 'neworder',
-		  'h:X-Mailgun-Variables' => '{"EmailTitle": "Payment Confirmed!", "orderNumber": "'.$orderID.'", "emailText": "'.$message.'", "emailButton": "'.$emailLink.'", "emailIMG": "'.$emailImage.'", "productTitle": "'.$emailProdTitle.'"}'
+		  'h:X-Mailgun-Variables' => '{"EmailTitle": "Payment Confirmed!", "orderNumber": "'.$orderID.'", "emailText": "'.$messageComplete.'", "emailButton": "'.$emailLink.'", "emailIMG": "'.$emailImage.'", "productTitle": "'.$emailProdTitle.'"}'
 		]);
 
 	}
