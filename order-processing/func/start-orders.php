@@ -356,8 +356,19 @@ $mg->messages()->send('notification.psychic-empress.com', [
 
 
 if($dbclickID > 0){
-	$requestURL = "https://track.scrooge.sbs/postback?clickid=".$dbclickID;
+
+	
+
+	$url = "https://track.scrooge.sbs/postback?clickid=".$dbclickID;
 	echo $requestURL;
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_HEADER, false);
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_POST, true);
+	$response = curl_exec($ch);
+	print_r($response);
+	curl_close($ch);
 }
 /*
 			$email = new Mail();
