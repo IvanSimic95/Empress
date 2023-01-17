@@ -359,7 +359,7 @@ if($dbclickID > 0){
 
 	
 
-	$url = "https://track.scrooge.sbs/postback?clickid=".$dbclickID;
+	$url = "https://vpbf9.rdtk.io/postback?clickid=".$dbclickID;
 	echo $requestURL;
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
