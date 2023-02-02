@@ -47,8 +47,12 @@ $avgrating = $avg;
               <div class="card mb-3">
                 <div class="card-header bg-light" style="text-align:center;">
                 <h3 class="gradient  mb-0">PERSONAL PSYCHIC READING </h3>
+
                 </div>
                   <div class="card-body col-12 offset-0" style="text-align:center;">
+                  <div class="gradient mt-3 mb-3 text-start fs-1">
+                  Unlock the mysteries of your soul with a personalized psychic reading from the Psychic Empress!
+</div>
                   <img class="img-fluid rounded img-thumbnail" src="/assets/img/psychic.jpg" alt="upsell">
 
     <form class="readings position-relative" action="/order/order-reading" method="get" style="text-align:left;">
