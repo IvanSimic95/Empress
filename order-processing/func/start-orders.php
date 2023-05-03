@@ -377,7 +377,6 @@ if($dbclickID > 0){
 if($dbaffID == 11){
 
 	$url = "https://crib-stel.com/event/hy62f?ydrid=".$dbclickID."&ydr_pid=".$pid."&affpubid=".$pubid;
-	echo $requestURL;
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	curl_setopt($ch, CURLOPT_HEADER, false);
