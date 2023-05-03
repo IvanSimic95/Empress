@@ -36,13 +36,13 @@ if(isset($_GET['affid'])){
 
 
 
-  if(isset($_GET['click_id'])){
-    $cid = $_GET['click_id'];
+  if(isset($_GET['cid'])){
+    $cid = $_GET['cid'];
   }else{
     $cid = "";
   }
-  if(isset($_SESSION['click_id'])){
-    $cid = $_SESSION['click_id'];
+  if(isset($_SESSION['cid'])){
+    $cid = $_SESSION['cid'];
   }
 
   if(isset($_GET['pid'])){
