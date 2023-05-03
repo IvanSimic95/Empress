@@ -45,6 +45,23 @@ if(isset($_GET['affid'])){
     $cid = $_SESSION['click_id'];
   }
 
+  if(isset($_GET['pid'])){
+    $pid = $_GET['pid'];
+  }else{
+    $pid = "";
+  }
+  if(isset($_SESSION['pid'])){
+    $pid = $_SESSION['pid'];
+  }
+
+  if(isset($_GET['pubid'])){
+    $pubid = $_GET['pubid'];
+  }else{
+    $pubid = "";
+  }
+  if(isset($_SESSION['pubid'])){
+    $pubid = $_SESSION['pubid'];
+  }
 
 
   if(isset($_GET['subid1'])){

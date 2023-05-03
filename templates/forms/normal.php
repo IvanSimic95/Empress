@@ -269,6 +269,8 @@ Readings are a one-time fee of $29.99. T<b>his small fee covers the psychics tim
 
     <input class="affid" type="hidden" name="affid" value="<?php echo $affid; ?>">
     <input class="cid" type="hidden" name="cid" value="<?php echo $cid; ?>">
+    <input class="pid" type="hidden" name="pid" value="<?php echo $pid; ?>">
+    <input class="pubid" type="hidden" name="pubid" value="<?php echo $pubid; ?>">
     <input class="subid1" type="hidden" name="subid1" value="<?php echo $subid1; ?>">
     <input class="subid2" type="hidden" name="subid2" value="<?php echo $subid2; ?>">
     

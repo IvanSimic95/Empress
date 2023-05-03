@@ -63,6 +63,9 @@ $logArray['1'] = date("d-m-Y H:i:s");
 			$dbaffID = $row["affid"];
 			$dbclickID = $row["clickid"];
 
+			$pid = $row["pid"];
+			$pubid = $row["pubid"];
+
 
 			$price = $row["order_price"];
 			$bg_email = $row["bg_email"];
@@ -360,6 +363,20 @@ if($dbclickID > 0){
 	
 
 	$url = "https://vpbf9.rdtk.io/postback?clickid=".$dbclickID;
+	echo $requestURL;
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_HEADER, false);
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_POST, true);
+	$response = curl_exec($ch);
+	print_r($response);
+	curl_close($ch);
+}
+
+if($dbaffID == 11){
+
+	$url = "https://crib-stel.com/event/hy62f?ydrid=".$dbclickID."&ydr_pid=".$pid."&affpubid=".$pubid;
 	echo $requestURL;
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
