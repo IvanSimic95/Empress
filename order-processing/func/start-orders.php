@@ -357,7 +357,7 @@ $mg->messages()->send('notification.psychic-empress.com', [
   'h:X-Mailgun-Variables' => '{"EmailTitle": "Payment Confirmed!", "orderNumber": "'.$orderID.'", "emailText": "'.$message.'", "emailButton": "'.$emailLink.'", "emailIMG": "'.$emailImage.'", "productTitle": "'.$emailProdTitle.'"}'
 ]);
 
-
+/*
 if($dbclickID > 0){
 
 	
@@ -373,7 +373,7 @@ if($dbclickID > 0){
 	print_r($response);
 	curl_close($ch);
 }
-
+*/
 if($dbaffID == 11){
 
 	$url = "https://crib-stel.com/event/hy62f?ydrid=".$dbclickID."&ydr_pid=".$pid."&affpubid=".$pubid;
@@ -382,7 +382,7 @@ if($dbaffID == 11){
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	curl_setopt($ch, CURLOPT_HEADER, false);
 	curl_setopt($ch, CURLOPT_URL, $url);
-	curl_setopt($ch, CURLOPT_POST, true);
+
 	$response = curl_exec($ch);
 	print_r($response);
 	curl_close($ch);
