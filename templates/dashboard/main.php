@@ -1,7 +1,7 @@
 <?php
 $orders = "";
 $order_email = $_SESSION['email'];
-$sql = "SELECT * FROM orders WHERE order_email = '$order_email' AND order_status = 'completed'  ORDER BY order_id DESC LIMIT 3";
+$sql = "SELECT * FROM orders WHERE (order_email = '$order_email' AND order_status='paid') OR (order_email = '$order_email' AND order_status='processing') OR (order_email = '$order_email' AND order_status='completed') OR (order_email = '$order_email' AND order_status='pending') ORDER BY order_id DESC LIMIT 3";
 $result = $conn->query($sql);
 ?>
 <div class="row g-3 mb-3 mt-0">
